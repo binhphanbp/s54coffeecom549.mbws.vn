@@ -405,6 +405,18 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
     display: block !important;
 }
 
+.c-hero-banner__container {
+    position: relative !important;
+    z-index: 5 !important;
+    width: 100% !important;
+    max-width: 1440px !important;
+    margin: 0 auto !important;
+    padding: 0 clamp(20px, 4vw, 56px) !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
 /* Mobile & Tablet Styles (≤ 1099px) - High-contrast luminous text for dark coffee background */
 @media (max-width: 1099px) {
     .c-hero-banner__media-container {
@@ -428,12 +440,16 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
         pointer-events: none !important;
     }
 
+    .c-hero-banner__container {
+        padding: 24px 20px 44px 20px !important;
+    }
+
     .c-hero-banner__overlay {
         position: relative !important;
         z-index: 5 !important;
         max-width: 100% !important;
         margin: 0 !important;
-        padding: 24px 20px 44px 20px !important;
+        padding: 0 !important;
         color: #FAF6F1 !important;
         width: 100% !important;
         top: unset !important;
@@ -445,13 +461,14 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
 
     .c-hero-banner__title.o-heading--1 {
         font-family: 'Cormorant Garamond', Georgia, serif !important;
-        font-size: clamp(38px, 8.5vw, 54px) !important;
-        line-height: 1.02 !important;
+        font-size: clamp(36px, 8vw, 52px) !important;
+        line-height: 1.05 !important;
         font-weight: 600 !important;
         color: #FFFFFF !important;
         margin: 0 0 12px 0 !important;
         letter-spacing: -0.01em !important;
         text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7) !important;
+        white-space: normal !important;
     }
 
     .c-hero-banner__subtitle {
@@ -523,9 +540,9 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
     .c-hero-banner__overlay {
         position: relative !important;
         z-index: 5 !important;
-        max-width: 580px !important;
+        max-width: 680px !important;
         margin: 0 !important;
-        padding: 0 clamp(24px, 6vw, 100px) !important;
+        padding: 0 !important;
         color: #2F221A !important;
         top: unset !important;
         left: unset !important;
@@ -536,23 +553,24 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
 
     .c-hero-banner__title.o-heading--1 {
         font-family: 'Cormorant Garamond', Georgia, serif !important;
-        font-size: clamp(44px, 5.5vw, 76px) !important;
-        line-height: 0.96 !important;
+        font-size: clamp(40px, 4.4vw, 68px) !important;
+        line-height: 1.05 !important;
         font-weight: 500 !important;
         color: #2F221A !important;
         margin: 0 0 16px 0 !important;
-        letter-spacing: -0.02em !important;
+        letter-spacing: -0.01em !important;
         text-transform: none !important;
+        white-space: normal !important;
     }
 
     .c-hero-banner__subtitle {
         font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
-        font-size: 15.5px !important;
+        font-size: clamp(14.5px, 1.05vw, 16px) !important;
         line-height: 1.55 !important;
         font-weight: 400 !important;
         color: #5C4A3E !important;
         margin: 0 0 26px 0 !important;
-        max-width: 440px !important;
+        max-width: 540px !important;
     }
 
     .c-hero-banner__button.o-btn.is-primary.is-dark {
