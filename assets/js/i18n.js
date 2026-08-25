@@ -45,20 +45,12 @@
         ["Câu Chuyện S54", "Our Story"],
         ["B2B & Đại Lý", "B2B & Wholesale"],
 
-        // Hero & Features Strip
-        ["THƯƠNG HIỆU CÀ PHÊ RANG MỘC TỪ 2012", "PURE ROASTED COFFEE BRAND SINCE 2012"],
-        ["Tinh Hoa Cà Phê Đất Đỏ Tây Nguyên — Hơn Cả Cà Phê", "The Essence of Central Highlands Red Soil — More Than Coffee"],
-        ["Tuyển chọn 100% hạt Robusta Đắk Lắk & Arabica Cầu Đất chín mọng, rang mộc công nghệ Hot-Air chuẩn Châu Âu. Đậm đà hương vị mộc truyền thống, trọn vẹn hậu vị ngọt sâu và nâng tầm giá trị cho đối tác.", "Selecting 100% ripe Dak Lak Robusta & Cau Dat Arabica beans, roasted with European Hot-Air technology. Delivering authentic bold traditional flavor, sweet aftertaste, and elevating value for partners."],
+        // Hero & Clean Editorial Translations
+        ["Tinh Hoa Cà Phê Việt®", "The Essence of Vietnamese Coffee®"],
+        ["Tinh Hoa<br/>Cà Phê Việt®", "The Essence of<br/>Vietnamese Coffee®"],
+        ["100% Cà phê rang mộc nguyên chất từ vùng đất đỏ Tây Nguyên", "100% Pure roasted coffee beans from Central Highlands red soil"],
         ["MUA SẮM NGAY", "SHOP NOW"],
         ["HỢP TÁC B2B & ĐẠI LÝ", "B2B & WHOLESALE PARTNER"],
-        ["100% Rang Mộc Nguyên Chất", "100% Pure Artisan Roast"],
-        ["Không pha độn bắp, đậu nành hay hương liệu hóa học độc hại", "Zero corn, soybeans, or artificial chemical flavors"],
-        ["Công Nghệ Hot-Air Châu Âu", "European Hot-Air Tech"],
-        ["Hạt chín đều từ tâm, lưu giữ trọn vẹn tinh dầu & hương thơm mộc", "Evenly roasted from core, preserving natural essential oils and aroma"],
-        ["Đa Dạng Gu Thưởng Thức", "Diverse Coffee Tastes"],
-        ["Cà phê hạt pha máy, pha phin, hòa tan 3-in-1, sấy lạnh thượng hạng", "Espresso beans, drip phin, 3-in-1 instant & premium freeze-dried"],
-        ["Freeship Từ 599.000₫", "Free Shipping Over 599k₫"],
-        ["Giao hàng nhanh toàn quốc, hỗ trợ đóng gói quà tặng cao cấp", "Fast nationwide delivery, luxury gift packaging support"],
 
         // S54 Coffee Specifics
         ["MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC CHO ĐƠN TỪ 599.000₫ • HOTLINE: 0383.707.578", "FREE NATIONWIDE SHIPPING ON ORDERS OVER 599,000₫ • HOTLINE: (+84) 383 707 578"],
