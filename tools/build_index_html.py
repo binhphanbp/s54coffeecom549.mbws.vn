@@ -3,7 +3,7 @@ import re
 import urllib.parse
 from pathlib import Path
 
-BASE_DIR = Path(r'd:\Workspace\matbao-ws\s54coffeecom549.mbws.vn')
+BASE_DIR = Path(__file__).resolve().parents[1]
 IMAGES_DIR = BASE_DIR / 'assets' / 'images'
 MEDIA_DIR = BASE_DIR / 'assets' / 'media'
 CSS_DIR = BASE_DIR / 'assets' / 'css'

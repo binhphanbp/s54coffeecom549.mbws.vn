@@ -1,36 +1,34 @@
 /**
  * Main Interactive Controller for Vittoria Coffee Clone
+ * Fully integrated with window.VittoriaCart
  */
 (function() {
-    // 1. Client-Side Mock Cart Store
-    let cartItems = [
-        {
-            id: 401234567890,
-            variant_id: 401234567890,
-            title: 'Cinque Stelle Special Bar Beans - 1kg',
-            price: 44.00,
-            quantity: 1,
-            image: 'assets/images/000_sb_beans_1kg_oro_f_V2_HOMEPAGE_500x_4_120x_2x.png',
-            properties: { "_bundle_item": false, "_is_subscription": false },
-            options_with_values: [{ name: "Size", value: "1kg Beans" }],
-            variant_options: ["1kg Beans"],
-            line_level_discount_allocations: [],
-            discounts: []
-        }
-    ];
+    'use strict';
 
     const freeShippingThreshold = 69.00;
 
     function formatPrice(amount) {
+        if (typeof amount !== 'number') {
+            amount = parseFloat(amount) || 0;
+        }
         return '$' + amount.toFixed(2);
     }
 
+    function getCart() {
+        if (window.VittoriaCart && typeof window.VittoriaCart.getCart === 'function') {
+            return window.VittoriaCart.getCart();
+        }
+        return window.__vittoriaMockCart || { items: [], total_price: 0, item_count: 0 };
+    }
+
     function updateCartUI() {
-        const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
-        const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        const cart = getCart();
+        const items = cart.items || [];
+        const totalItems = cart.item_count !== undefined ? cart.item_count : items.reduce((sum, item) => sum + item.quantity, 0);
+        const subtotal = (cart.total_price !== undefined ? cart.total_price / 100 : items.reduce((sum, item) => sum + ((item.price / 100 || item.price) * item.quantity), 0));
 
         // Update badge in header
-        document.querySelectorAll('.c-header__cart-count, [data-cart-count], .c-icon-cart__count').forEach(badge => {
+        document.querySelectorAll('.c-header__cart-count, [data-cart-count], .c-icon-cart__count, .c-cart-count').forEach(badge => {
             badge.textContent = totalItems;
             badge.style.display = totalItems > 0 ? 'inline-flex' : 'none';
         });
@@ -38,29 +36,32 @@
         // Update items inside drawer
         const cartBody = document.querySelector('.c-cart-drawer__body');
         if (cartBody) {
-            if (cartItems.length === 0) {
+            if (items.length === 0) {
                 cartBody.innerHTML = `
                     <div style="text-align: center; padding: 60px 20px; color: #676986;">
                         <p style="font-size: 16px; font-family: 'neutraface-demi', sans-serif;">Your bag is currently empty.</p>
-                        <button onclick="document.querySelector('.c-cart-drawer').classList.remove('is-open'); document.querySelector('.c-cart-drawer__overlay').classList.remove('is-open');" class="o-btn is-primary" style="margin-top: 20px; padding: 12px 24px;">Start Shopping</button>
+                        <button onclick="document.querySelector('.c-cart-drawer').classList.remove('is-open'); document.querySelector('.c-cart-drawer__overlay').classList.remove('is-open');" class="o-btn is-primary" style="margin-top: 20px; padding: 12px 24px; background-color: #2F221A; color: #FAF8F5;">Start Shopping</button>
                     </div>
                 `;
             } else {
-                cartBody.innerHTML = cartItems.map(item => `
-                    <div class="c-cart-drawer__item" data-id="${item.id}">
-                        <img src="${item.image}" alt="${item.title}" class="c-cart-drawer__item-img">
-                        <div class="c-cart-drawer__item-info">
-                            <h4 class="c-cart-drawer__item-title">${item.title}</h4>
-                            <div class="c-cart-drawer__item-price">${formatPrice(item.price)}</div>
-                            <div class="c-cart-drawer__qty-control">
-                                <button class="c-cart-drawer__qty-btn" data-action="decrease" data-id="${item.id}">-</button>
-                                <span class="c-cart-drawer__qty-num">${item.quantity}</span>
-                                <button class="c-cart-drawer__qty-btn" data-action="increase" data-id="${item.id}">+</button>
+                cartBody.innerHTML = items.map(item => {
+                    const itemPrice = item.price > 1000 ? (item.price / 100) : item.price;
+                    return `
+                    <div class="c-cart-drawer__item" data-id="${item.id || item.key}" style="display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid #ECE7E1; align-items: center;">
+                        <img src="${item.image || 'assets/images/000_sb_beans_1kg_oro_f_V2_HOMEPAGE_500x_4_120x_2x.png'}" alt="${item.title}" class="c-cart-drawer__item-img" style="width: 70px; height: 70px; object-fit: contain; background: #FAF8F5; border-radius: 4px; padding: 4px;">
+                        <div class="c-cart-drawer__item-info" style="flex: 1;">
+                            <h4 class="c-cart-drawer__item-title" style="margin: 0 0 6px; font-size: 14px; font-family: 'neutraface-demi', sans-serif; color: #2F221A;">${item.title}</h4>
+                            <div class="c-cart-drawer__item-price" style="font-size: 13px; color: #676986; margin-bottom: 8px;">${formatPrice(itemPrice)}</div>
+                            <div class="c-cart-drawer__qty-control" style="display: inline-flex; align-items: center; border: 1px solid #D9D2C9; border-radius: 20px; padding: 2px 8px; background: #FFF;">
+                                <button class="c-cart-drawer__qty-btn" data-action="decrease" data-id="${item.id || item.key}" style="background: none; border: none; font-size: 16px; cursor: pointer; padding: 2px 8px; color: #2F221A;">-</button>
+                                <span class="c-cart-drawer__qty-num" style="padding: 0 8px; font-size: 13px; font-weight: 600;">${item.quantity}</span>
+                                <button class="c-cart-drawer__qty-btn" data-action="increase" data-id="${item.id || item.key}" style="background: none; border: none; font-size: 16px; cursor: pointer; padding: 2px 8px; color: #2F221A;">+</button>
                             </div>
                         </div>
-                        <button style="background:none; border:none; color:#999; font-size:18px; cursor:pointer; align-self:flex-start;" data-action="remove" data-id="${item.id}">✕</button>
+                        <button style="background: none; border: none; color: #999; font-size: 18px; cursor: pointer; align-self: flex-start; padding: 4px;" data-action="remove" data-id="${item.id || item.key}" title="Remove item">✕</button>
                     </div>
-                `).join('');
+                `;
+                }).join('');
             }
         }
 
@@ -129,18 +130,22 @@
                 const id = e.target.dataset.id;
                 if (!action || !id) return;
 
-                const item = cartItems.find(i => String(i.id) === String(id));
+                const cart = getCart();
+                const item = (cart.items || []).find(i => String(i.id) === String(id) || String(i.key) === String(id));
                 if (!item) return;
 
                 if (action === 'increase') {
-                    item.quantity += 1;
+                    if (window.VittoriaCart) {
+                        window.VittoriaCart.updateQuantity(item.key || item.id, item.quantity + 1);
+                    }
                 } else if (action === 'decrease') {
-                    item.quantity -= 1;
-                    if (item.quantity <= 0) {
-                        cartItems = cartItems.filter(i => String(i.id) !== String(id));
+                    if (window.VittoriaCart) {
+                        window.VittoriaCart.updateQuantity(item.key || item.id, item.quantity - 1);
                     }
                 } else if (action === 'remove') {
-                    cartItems = cartItems.filter(i => String(i.id) !== String(id));
+                    if (window.VittoriaCart) {
+                        window.VittoriaCart.updateQuantity(item.key || item.id, 0);
+                    }
                 }
                 updateCartUI();
             });
@@ -179,6 +184,16 @@
         }, 2500);
     }
 
+    // Expose drawer methods globally
+    window.openCartDrawer = openCartDrawer;
+    window.closeCartDrawer = closeCartDrawer;
+    window.showToast = showToast;
+
+    // Listen for cart state update events
+    window.addEventListener('cart:updated', () => {
+        updateCartUI();
+    });
+
     document.addEventListener('DOMContentLoaded', () => {
         console.log('Vittoria Coffee Clone initialized successfully.');
 
@@ -203,13 +218,13 @@
             if (addBtn) {
                 e.preventDefault();
                 e.stopPropagation();
-                
+
                 const card = addBtn.closest('.o-product-thumbnail') || addBtn.closest('.c-product-card') || addBtn.closest('[data-product-card]') || addBtn.closest('.c-product-carousel__item') || addBtn.closest('.shopify-section');
-                
+
                 let title = 'Cinque Stelle Special Bar Beans';
-                let price = 44.00;
+                let price = 4400; // in cents
                 let img = 'assets/images/000_sb_beans_1kg_oro_f_V2_HOMEPAGE_500x_4_120x_2x.png';
-                let id = 'item-' + Date.now();
+                let id = Date.now();
 
                 if (card) {
                     const titleEl = card.querySelector('.o-product-thumbnail__title, .c-product-card__title, h2, h3, h4, .o-heading');
@@ -218,7 +233,7 @@
                     const priceEl = card.querySelector('.o-product-thumbnail__price, [data-product-money], .c-product-card__price, .price');
                     if (priceEl) {
                         const parsed = parseFloat(priceEl.textContent.replace(/[^0-9.]/g, ''));
-                        if (!isNaN(parsed) && parsed > 0) price = parsed;
+                        if (!isNaN(parsed) && parsed > 0) price = Math.round(parsed * 100);
                     }
 
                     const imgEl = card.querySelector('img');
@@ -227,21 +242,18 @@
                     }
                 }
 
-                const existing = cartItems.find(i => i.title === title);
-                if (existing) {
-                    existing.quantity += 1;
-                } else {
-                    cartItems.push({
-                        id,
+                if (window.VittoriaCart) {
+                    window.VittoriaCart.addItem({
+                        id: id,
                         variant_id: id,
-                        title,
-                        price,
+                        title: title,
+                        price: price,
+                        original_price: price,
+                        final_price: price,
+                        line_price: price,
                         quantity: 1,
                         image: img,
-                        properties: {},
-                        options_with_values: [],
-                        variant_options: [],
-                        line_level_discount_allocations: []
+                        url: 'product-detail.html'
                     });
                 }
 
@@ -271,20 +283,23 @@
         });
 
         // Product Carousel Arrows
-        document.querySelectorAll('.c-product-carousel, [data-carousel], .c-product-carousel__slider').forEach(carousel => {
-            const nextBtn = carousel.parentElement.querySelector('[data-carousel-next], .c-product-carousel__arrow--next');
-            const prevBtn = carousel.parentElement.querySelector('[data-carousel-prev], .c-product-carousel__arrow--prev');
+        document.querySelectorAll('.c-collection-carousel, .c-product-carousel, [data-carousel], .c-product-carousel__slider').forEach(carousel => {
+            const container = carousel.parentElement || carousel;
+            const nextBtn = container.querySelector('[data-carousel-next], .c-product-carousel__arrow--next, .c-collection-carousel__control--next');
+            const prevBtn = container.querySelector('[data-carousel-prev], .c-product-carousel__arrow--prev, .c-collection-carousel__control--prev');
+
+            const scrollTarget = carousel.querySelector('.c-collection-carousel__products-list, .c-product-carousel__slider') || carousel;
 
             if (nextBtn) {
                 nextBtn.addEventListener('click', (e) => {
                     e.preventDefault();
-                    carousel.scrollBy({ left: 340, behavior: 'smooth' });
+                    scrollTarget.scrollBy({ left: 340, behavior: 'smooth' });
                 });
             }
             if (prevBtn) {
                 prevBtn.addEventListener('click', (e) => {
                     e.preventDefault();
-                    carousel.scrollBy({ left: -340, behavior: 'smooth' });
+                    scrollTarget.scrollBy({ left: -340, behavior: 'smooth' });
                 });
             }
         });
@@ -318,7 +333,7 @@
             });
         });
 
-        // Initialize Cart Drawer markup
+        // Initialize Cart Drawer markup & UI
         ensureCartDrawer();
         updateCartUI();
     });

@@ -14,7 +14,7 @@ HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36'
 }
 
-BASE_DIR = Path(r'd:\Workspace\matbao-ws\s54coffeecom549.mbws.vn')
+BASE_DIR = Path(__file__).resolve().parents[1]
 ASSETS_DIR = BASE_DIR / 'assets'
 CSS_DIR = ASSETS_DIR / 'css'
 JS_DIR = ASSETS_DIR / 'js'

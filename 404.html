@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html class="js-unavailable" lang="en" data-country="Australia">
+<head>
+    <base href="/">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>404 Page Not Found — Vittoria Coffee</title>
+    <meta name="description" content="The page you requested cannot be found. Browse our premium coffees or return to the homepage." />
+    
+    <script src="assets/js/cart-mock.js"></script>
+    
+    <link href="assets/css/layouts.critical.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="assets/css/layouts.theme.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="assets/css/custom.css" />
+
+    <style>
+        .c-404-container {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 24px;
+            background-color: #FAF8F5;
+        }
+        .c-404__badge {
+            font-family: 'neutraface-demi', 'Gilroy', sans-serif;
+            font-size: 13px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #AC8A62;
+            margin-bottom: 16px;
+        }
+        .c-404__title {
+            font-family: 'domaine', Georgia, serif;
+            font-size: clamp(36px, 6vw, 64px);
+            font-weight: 400;
+            color: #2F221A;
+            margin: 0 0 20px;
+            line-height: 1.1;
+        }
+        .c-404__desc {
+            font-family: 'neutraface-book', 'Gilroy', sans-serif;
+            font-size: 16px;
+            color: #676986;
+            max-width: 480px;
+            line-height: 1.6;
+            margin: 0 0 36px;
+        }
+        .c-404__actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .c-404__btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'neutraface-demi', 'Gilroy', sans-serif;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+        .c-404__btn--primary {
+            background-color: #2F221A;
+            color: #FAF8F5;
+            border: 1px solid #2F221A;
+        }
+        .c-404__btn--primary:hover {
+            background-color: #4A3B32;
+            border-color: #4A3B32;
+            color: #FAF8F5;
+        }
+        .c-404__btn--secondary {
+            background-color: transparent;
+            color: #2F221A;
+            border: 1px solid #2F221A;
+        }
+        .c-404__btn--secondary:hover {
+            background-color: #2F221A;
+            color: #FAF8F5;
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Announcement Bar -->
+    <div class="c-announcement-bar">
+        Free Shipping: Orders over $69†
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="c-header" style="padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ECE7E1;">
+        <div style="display: flex; align-items: center; gap: 32px;">
+            <a href="index.html" title="Vittoria Coffee" style="display: flex; align-items: center;">
+                <img src="assets/images/133_Vittoria_Coffee_Logo_Gold_400x.svg" alt="Vittoria Coffee" style="height: 32px; width: auto;" />
+            </a>
+            <nav class="c-nav is-desktop" style="display: flex; gap: 24px;">
+                <a href="collections-coffee.html" style="font-family: 'neutraface-demi', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #2F221A; text-decoration: none;">Coffee</a>
+                <a href="product-detail.html" style="font-family: 'neutraface-demi', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #2F221A; text-decoration: none;">Bestseller</a>
+                <a href="our-story.html" style="font-family: 'neutraface-demi', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #2F221A; text-decoration: none;">Our Story</a>
+                <a href="wholesale.html" style="font-family: 'neutraface-demi', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #2F221A; text-decoration: none;">Wholesale</a>
+            </nav>
+        </div>
+        <div style="display: flex; align-items: center; gap: 16px;">
+            <a href="javascript:void(0)" data-cart-drawer-toggle style="font-family: 'neutraface-demi', sans-serif; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: #2F221A; text-decoration: none; display: flex; align-items: center; gap: 6px;">
+                Bag (<span class="c-header__cart-count">1</span>)
+            </a>
+        </div>
+    </header>
+
+    <!-- 404 Main Section -->
+    <main class="c-404-container">
+        <span class="c-404__badge">Error 404</span>
+        <h1 class="c-404__title">Page Not Found</h1>
+        <p class="c-404__desc">The page you are looking for might have been removed, had its name changed, or is temporarily unavailable. Let us help you find the right brew.</p>
+        <div class="c-404__actions">
+            <a href="index.html" class="c-404__btn c-404__btn--primary">Return to Homepage</a>
+            <a href="collections-coffee.html" class="c-404__btn c-404__btn--secondary">Explore Coffee Range</a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer style="background-color: #2F221A; color: #FAF8F5; padding: 48px 24px; text-align: center;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <img src="assets/images/133_Vittoria_Coffee_Logo_Gold_400x.svg" alt="Vittoria Coffee" style="height: 28px; width: auto; margin-bottom: 24px; filter: brightness(0) invert(1);" />
+            <div style="display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-bottom: 24px;">
+                <a href="index.html" style="color: #FAF8F5; text-decoration: none; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; font-family: 'neutraface-demi', sans-serif;">Home</a>
+                <a href="collections-coffee.html" style="color: #FAF8F5; text-decoration: none; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; font-family: 'neutraface-demi', sans-serif;">Coffee Collections</a>
+                <a href="our-story.html" style="color: #FAF8F5; text-decoration: none; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; font-family: 'neutraface-demi', sans-serif;">Our Story</a>
+                <a href="wholesale.html" style="color: #FAF8F5; text-decoration: none; font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; font-family: 'neutraface-demi', sans-serif;">Wholesale</a>
+            </div>
+            <p style="font-size: 12px; color: #AC8A62; margin: 0; font-family: 'neutraface-book', sans-serif;">© 2026 Vittoria Coffee. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

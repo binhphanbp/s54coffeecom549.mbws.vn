@@ -1,7 +1,7 @@
 import re
 from pathlib import Path
 
-BASE_DIR = Path(r'd:\Workspace\matbao-ws\s54coffeecom549.mbws.vn')
+BASE_DIR = Path(__file__).resolve().parents[1]
 
 with open(BASE_DIR / 'index.html', 'r', encoding='utf-8') as f:
     html = f.read()

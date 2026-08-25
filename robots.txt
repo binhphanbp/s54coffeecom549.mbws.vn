@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://s54coffeecom549.mbws.vn/sitemap.xml

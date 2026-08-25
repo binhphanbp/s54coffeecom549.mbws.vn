@@ -1,104 +1,14 @@
 import os
 import re
 import urllib.parse
-import urllib.request
-import ssl
 from pathlib import Path
 
-BASE_DIR = Path(r'd:\Workspace\matbao-ws\s54coffeecom549.mbws.vn')
+BASE_DIR = Path(__file__).resolve().parents[1]
 IMAGES_DIR = BASE_DIR / 'assets' / 'images'
+MEDIA_DIR = BASE_DIR / 'assets' / 'media'
 CSS_DIR = BASE_DIR / 'assets' / 'css'
 JS_DIR = BASE_DIR / 'assets' / 'js'
 
-ctx = ssl.create_default_context()
-ctx.check_hostname = False
-ctx.verify_mode = ssl.CERT_NONE
-
-HEADERS = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
-
-def download_file(url, dest_path):
-    if not url or dest_path.exists():
-        return dest_path
-    if url.startswith('//'):
-        url = 'https:' + url
-    elif url.startswith('/'):
-        url = 'https://www.vittoriacoffee.com' + url
-    try:
-        req = urllib.request.Request(url, headers=HEADERS)
-        with urllib.request.urlopen(req, context=ctx, timeout=15) as resp:
-            data = resp.read()
-            with open(dest_path, 'wb') as f:
-                f.write(data)
-            return dest_path
-    except Exception as e:
-        return None
-
-def clean_filename(url):
-    parsed = urllib.parse.urlparse(url)
-    filename = os.path.basename(parsed.path)
-    if not filename or '.' not in filename:
-        filename = 'image_' + str(abs(hash(url))) + '.jpg'
-    filename = re.sub(r'[^a-zA-Z0-9._-]', '_', filename)
-    return filename
-
-# Step 1: Download new CSS files referenced in subpages
-pages = [
-    ('scraped_raw.html', 'index.html'),
-    ('collections_coffee_raw.html', 'collections-coffee.html'),
-    ('our_story_raw.html', 'our-story.html'),
-    ('wholesale_raw.html', 'wholesale.html'),
-    ('product_detail_raw.html', 'product-detail.html')
-]
-
-for raw_file, out_file in pages:
-    if not (BASE_DIR / raw_file).exists():
-        continue
-    with open(BASE_DIR / raw_file, 'r', encoding='utf-8') as f:
-        content = f.read()
-
-    css_links = re.findall(r'<link[^>]+href=["\']([^"\']+\.css[^"\']*)["\']', content, re.IGNORECASE)
-    for c in css_links:
-        css_name = os.path.basename(urllib.parse.urlparse(c).path)
-        if css_name and not (CSS_DIR / css_name).exists():
-            print(f'Downloading subpage CSS: {css_name}')
-            download_file(c, CSS_DIR / css_name)
-
-print('CSS sync done.')
-
-# Step 2: Download any missing images
-local_images = os.listdir(IMAGES_DIR)
-
-for raw_file, out_file in pages:
-    if not (BASE_DIR / raw_file).exists():
-        continue
-    with open(BASE_DIR / raw_file, 'r', encoding='utf-8') as f:
-        content = f.read()
-
-    all_imgs = set()
-    for m in re.findall(r'(?:src|data-src|poster|data-background|data-bg)=["\']([^"\']+)["\']', content, re.IGNORECASE):
-        if any(ext in m.lower() for ext in ['.png', '.jpg', '.jpeg', '.webp', '.svg', '.gif', 'accentuate.io', '/cdn/shop/']):
-            all_imgs.add(m)
-    for m in re.findall(r'(?:srcset|data-srcset)=["\']([^"\']+)["\']', content, re.IGNORECASE):
-        for part in m.split(','):
-            u = part.strip().split(' ')[0]
-            if u and any(ext in u.lower() for ext in ['.png', '.jpg', '.jpeg', '.webp', '.svg', '.gif', 'accentuate.io', '/cdn/shop/']):
-                all_imgs.add(u)
-
-    for u in all_imgs:
-        base = clean_filename(u)
-        matched = None
-        for lf in local_images:
-            if lf.endswith('_' + base) or lf == base or base in lf:
-                matched = lf
-                break
-        if not matched:
-            local_name = f"{len(local_images):03d}_{base}"
-            download_file(u, IMAGES_DIR / local_name)
-            local_images.append(local_name)
-
-print('Images sync done. Total images:', len(os.listdir(IMAGES_DIR)))
-
-# Step 3: Process and Compile each page
 early_script = '''
 <script>
 window.__vittoriaMockCart = {
@@ -226,7 +136,23 @@ patterns_to_remove = [
     r'<link[^>]*orbe-geolocation[^>]*>'
 ]
 
+def clean_filename(url):
+    parsed = urllib.parse.urlparse(url)
+    filename = os.path.basename(parsed.path)
+    if not filename or '.' not in filename:
+        filename = 'image_' + str(abs(hash(url))) + '.jpg'
+    filename = re.sub(r'[^a-zA-Z0-9._-]', '_', filename)
+    return filename
+
 local_imgs = os.listdir(IMAGES_DIR)
+
+pages = [
+    ('scraped_raw.html', 'index.html'),
+    ('collections_coffee_raw.html', 'collections-coffee.html'),
+    ('our_story_raw.html', 'our-story.html'),
+    ('wholesale_raw.html', 'wholesale.html'),
+    ('product_detail_raw.html', 'product-detail.html')
+]
 
 for raw_file, out_file in pages:
     if not (BASE_DIR / raw_file).exists():
@@ -292,4 +218,4 @@ for raw_file, out_file in pages:
         f.write(html)
     print(f'Compiled {out_file} successfully!')
 
-print('All pages built!')
+print('Fast compilation complete!')
