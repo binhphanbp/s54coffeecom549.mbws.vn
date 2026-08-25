@@ -193,27 +193,40 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
 .c-header__additional {
     display: flex !important;
     align-items: center !important;
-    gap: 16px !important;
+    gap: 12px !important;
     list-style: none !important;
     margin: 0 !important;
     padding: 0 !important;
     flex-shrink: 0 !important;
+    height: 40px !important;
+}
+
+.c-header__additional-item {
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100% !important;
 }
 
 .c-header__phone-link {
     font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
-    display: flex !important;
+    display: inline-flex !important;
     align-items: center !important;
+    justify-content: center !important;
     gap: 6px !important;
     text-decoration: none !important;
     color: #FAF6F1 !important;
     font-size: 12.5px !important;
     font-weight: 600 !important;
     background: rgba(229, 184, 105, 0.15) !important;
-    padding: 6px 14px !important;
+    height: 38px !important;
+    padding: 0 14px !important;
     border-radius: 20px !important;
     border: 1px solid rgba(229, 184, 105, 0.35) !important;
+    box-sizing: border-box !important;
     transition: all 0.2s ease !important;
+    line-height: 1 !important;
 }
 
 .c-header__phone-link:hover {
@@ -223,8 +236,39 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
     transform: translateY(-1px);
 }
 
+.c-header__link.is-cart {
+    position: relative !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 38px !important;
+    height: 38px !important;
+    background: rgba(229, 184, 105, 0.15) !important;
+    border: 1px solid rgba(229, 184, 105, 0.35) !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    transition: all 0.2s ease !important;
+    line-height: 1 !important;
+}
+
+.c-header__link.is-cart:hover {
+    background: #D68E1D !important;
+    border-color: #D68E1D !important;
+    transform: translateY(-1px);
+}
+
 .c-header__icon.is-cart {
     stroke: #FAF6F1 !important;
+    width: 19px !important;
+    height: 19px !important;
+    display: block !important;
+    transition: stroke 0.2s ease !important;
+}
+
+.c-header__link.is-cart:hover .c-header__icon.is-cart {
+    stroke: #FFFFFF !important;
 }
 
 .c-header__icon.is-cart path,
@@ -239,7 +283,7 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
 .c-header__cart-count {
     position: absolute !important;
     top: -4px !important;
-    right: -6px !important;
+    right: -4px !important;
     background: #D68E1D !important;
     color: #FFFFFF !important;
     font-size: 10px !important;
@@ -251,6 +295,8 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
     align-items: center !important;
     justify-content: center !important;
     box-shadow: 0 2px 5px rgba(0,0,0,0.3) !important;
+    border: 1.5px solid #2F221A !important;
+    line-height: 1 !important;
 }
 
 /* 4. Language Switcher on White Topbar */
