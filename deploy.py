@@ -42,8 +42,9 @@ def print_header():
     print(f"      Target: https://{DOMAIN}/ ({FTP_HOST})")
     print("=" * 65)
 
-def create_deploy_package(zip_filename="deploy.zip"):
-    print("[1/4] Building optimized deployment package...")
+def create_deploy_package(zip_filename="deploy.zip", code_only=False):
+    mode_text = "code-only (fast)" if code_only else "full package"
+    print(f"[1/4] Building optimized {mode_text} deployment package...")
     zip_path = BASE_DIR / zip_filename
     if zip_path.exists():
         zip_path.unlink()
@@ -53,6 +54,9 @@ def create_deploy_package(zip_filename="deploy.zip"):
         for root, dirs, files in os.walk(BASE_DIR):
             # Exclude unwanted directories
             dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
+            if code_only:
+                # In code-only mode, skip large media and image directories (already present on remote server)
+                dirs[:] = [d for d in dirs if d not in {'media', 'images'}]
             
             rel_dir = os.path.relpath(root, BASE_DIR)
             if rel_dir == '.':
@@ -60,6 +64,8 @@ def create_deploy_package(zip_filename="deploy.zip"):
                 
             for file in files:
                 if file in EXCLUDE_FILES or file.endswith('.log') or file.endswith('.tmp'):
+                    continue
+                if code_only and (file.endswith('.mp4') or file.endswith('.mov') or file.endswith('.webm')):
                     continue
                 file_path = os.path.join(root, file)
                 arcname = os.path.join(rel_dir, file) if rel_dir else file
@@ -187,7 +193,8 @@ def cleanup_local(zip_path, extractor_path):
 
 def main():
     print_header()
-    zip_path = create_deploy_package()
+    code_only = '--fast' in sys.argv or '--code-only' in sys.argv
+    zip_path = create_deploy_package(code_only=code_only)
     extractor_path = create_extractor_script()
     try:
         upload_via_ftp(zip_path, extractor_path)
