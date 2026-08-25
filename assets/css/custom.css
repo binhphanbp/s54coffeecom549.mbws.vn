@@ -377,21 +377,21 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
     position: relative !important;
     width: 100% !important;
     margin: 0 !important;
-    background-color: #EAE2D7 !important;
+    background-color: #1A120D !important;
     overflow: hidden !important;
 }
 
 .c-hero-banner__media-container {
     position: relative !important;
     width: 100% !important;
-    min-height: 480px !important;
-    max-height: 600px !important;
-    height: 56vh !important;
+    min-height: 520px !important;
+    max-height: 650px !important;
+    height: 70vh !important;
     display: flex !important;
     align-items: center !important;
     padding-bottom: 0 !important;
-    background-color: #EAE2D7 !important;
     overflow: hidden !important;
+    background-color: #1A120D !important;
 }
 
 .c-hero-banner__media {
@@ -401,83 +401,198 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
-    object-position: center right !important;
     z-index: 1 !important;
     display: block !important;
 }
 
-.c-hero-banner__overlay {
-    position: relative !important;
-    z-index: 5 !important;
-    max-width: 580px !important;
-    margin: 0 !important;
-    padding: 0 clamp(24px, 6vw, 100px) !important;
-    color: #2F221A !important;
-    top: unset !important;
-    left: unset !important;
-    bottom: unset !important;
-    right: unset !important;
-    transform: none !important;
+/* Mobile & Tablet Styles (≤ 1099px) - High-contrast luminous text for dark coffee background */
+@media (max-width: 1099px) {
+    .c-hero-banner__media-container {
+        height: 75vh !important;
+        min-height: 520px !important;
+        max-height: 680px !important;
+        align-items: flex-end !important;
+    }
+    
+    .c-hero-banner__media {
+        object-position: center top !important;
+    }
+    
+    /* Gentle dark gradient under text area to guarantee 100% readability */
+    .c-hero-banner__media-container:after {
+        content: "" !important;
+        position: absolute !important;
+        inset: 0 !important;
+        background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(20, 13, 9, 0.35) 45%, rgba(20, 13, 9, 0.85) 100%) !important;
+        z-index: 2 !important;
+        pointer-events: none !important;
+    }
+
+    .c-hero-banner__overlay {
+        position: relative !important;
+        z-index: 5 !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 24px 20px 44px 20px !important;
+        color: #FAF6F1 !important;
+        width: 100% !important;
+        top: unset !important;
+        left: unset !important;
+        bottom: unset !important;
+        right: unset !important;
+        transform: none !important;
+    }
+
+    .c-hero-banner__title.o-heading--1 {
+        font-family: 'Cormorant Garamond', Georgia, serif !important;
+        font-size: clamp(38px, 8.5vw, 54px) !important;
+        line-height: 1.02 !important;
+        font-weight: 600 !important;
+        color: #FFFFFF !important;
+        margin: 0 0 12px 0 !important;
+        letter-spacing: -0.01em !important;
+        text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7) !important;
+    }
+
+    .c-hero-banner__subtitle {
+        font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
+        font-size: 14.5px !important;
+        line-height: 1.5 !important;
+        font-weight: 500 !important;
+        color: #F0E6D8 !important;
+        margin: 0 0 22px 0 !important;
+        max-width: 90% !important;
+        text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8) !important;
+    }
+
+    .c-hero-banner__button.o-btn.is-primary.is-dark {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        background: #FAF6F1 !important;
+        color: #2F221A !important;
+        padding: 13px 26px !important;
+        border-radius: 2px !important;
+        font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
+        font-size: 12px !important;
+        font-weight: 700 !important;
+        letter-spacing: 1.5px !important;
+        text-transform: uppercase !important;
+        text-decoration: none !important;
+        border: 1px solid #FAF6F1 !important;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45) !important;
+    }
+    
+    .c-hero-banner__button.o-btn.is-primary.is-dark:hover {
+        background: #D68E1D !important;
+        border-color: #D68E1D !important;
+        color: #FFFFFF !important;
+    }
+
+    .c-hero-banner__button .o-btn__arrow {
+        width: 16px !important;
+        height: 16px !important;
+        fill: #2F221A !important;
+        stroke: #2F221A !important;
+    }
+    
+    .c-hero-banner__button:hover .o-btn__arrow {
+        fill: #FFFFFF !important;
+        stroke: #FFFFFF !important;
+    }
 }
 
-.c-hero-banner__title.o-heading--1 {
-    font-family: 'Cormorant Garamond', Georgia, serif !important;
-    font-size: clamp(44px, 5.5vw, 76px) !important;
-    line-height: 0.96 !important;
-    font-weight: 500 !important;
-    color: #2F221A !important;
-    margin: 0 0 16px 0 !important;
-    letter-spacing: -0.02em !important;
-    text-transform: none !important;
-}
+/* Desktop Styles (≥ 1100px) - Editorial Dark Espresso on Warm Cream Background */
+@media (min-width: 1100px) {
+    .c-hero-banner {
+        background-color: #EAE2D7 !important;
+    }
 
-.c-hero-banner__subtitle {
-    font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
-    font-size: 15.5px !important;
-    line-height: 1.55 !important;
-    font-weight: 400 !important;
-    color: #5C4A3E !important;
-    margin: 0 0 26px 0 !important;
-    max-width: 440px !important;
-}
+    .c-hero-banner__media-container {
+        height: 56vh !important;
+        min-height: 480px !important;
+        max-height: 600px !important;
+        background-color: #EAE2D7 !important;
+    }
 
-.c-hero-banner__button.o-btn.is-primary.is-dark {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 12px !important;
-    background: #2F221A !important;
-    color: #FAF6F1 !important;
-    padding: 13px 26px !important;
-    border-radius: 2px !important;
-    font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
-    font-size: 12px !important;
-    font-weight: 700 !important;
-    letter-spacing: 2px !important;
-    text-transform: uppercase !important;
-    text-decoration: none !important;
-    border: 1px solid #2F221A !important;
-    transition: all 0.25s ease !important;
-    cursor: pointer !important;
-}
+    .c-hero-banner__media {
+        object-position: center right !important;
+    }
 
-.c-hero-banner__button:hover {
-    background: #D68E1D !important;
-    border-color: #D68E1D !important;
-    color: #FFFFFF !important;
-    transform: translateY(-1px) !important;
-}
+    .c-hero-banner__overlay {
+        position: relative !important;
+        z-index: 5 !important;
+        max-width: 580px !important;
+        margin: 0 !important;
+        padding: 0 clamp(24px, 6vw, 100px) !important;
+        color: #2F221A !important;
+        top: unset !important;
+        left: unset !important;
+        bottom: unset !important;
+        right: unset !important;
+        transform: none !important;
+    }
 
-.c-hero-banner__button .o-btn__arrow {
-    width: 16px !important;
-    height: 16px !important;
-    fill: currentColor !important;
-    stroke: currentColor !important;
-    transition: transform 0.25s ease !important;
-}
+    .c-hero-banner__title.o-heading--1 {
+        font-family: 'Cormorant Garamond', Georgia, serif !important;
+        font-size: clamp(44px, 5.5vw, 76px) !important;
+        line-height: 0.96 !important;
+        font-weight: 500 !important;
+        color: #2F221A !important;
+        margin: 0 0 16px 0 !important;
+        letter-spacing: -0.02em !important;
+        text-transform: none !important;
+    }
 
-.c-hero-banner__button:hover .o-btn__arrow {
-    transform: translateX(4px) !important;
+    .c-hero-banner__subtitle {
+        font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
+        font-size: 15.5px !important;
+        line-height: 1.55 !important;
+        font-weight: 400 !important;
+        color: #5C4A3E !important;
+        margin: 0 0 26px 0 !important;
+        max-width: 440px !important;
+    }
+
+    .c-hero-banner__button.o-btn.is-primary.is-dark {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 12px !important;
+        background: #2F221A !important;
+        color: #FAF6F1 !important;
+        padding: 13px 26px !important;
+        border-radius: 2px !important;
+        font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
+        font-size: 12px !important;
+        font-weight: 700 !important;
+        letter-spacing: 2px !important;
+        text-transform: uppercase !important;
+        text-decoration: none !important;
+        border: 1px solid #2F221A !important;
+        transition: all 0.25s ease !important;
+        cursor: pointer !important;
+    }
+
+    .c-hero-banner__button:hover {
+        background: #D68E1D !important;
+        border-color: #D68E1D !important;
+        color: #FFFFFF !important;
+        transform: translateY(-1px) !important;
+    }
+
+    .c-hero-banner__button .o-btn__arrow {
+        width: 16px !important;
+        height: 16px !important;
+        fill: currentColor !important;
+        stroke: currentColor !important;
+        transition: transform 0.25s ease !important;
+    }
+
+    .c-hero-banner__button:hover .o-btn__arrow {
+        transform: translateX(4px) !important;
+    }
 }
 
 /* 6. Product Carousel Section - Seamless Transition */
