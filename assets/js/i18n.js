@@ -71,9 +71,11 @@
         ["Bắt Đầu Mua Sắm", "Start Shopping"],
         ["TIẾN HÀNH THANH TOÁN", "CHECKOUT"],
         ["Về Trang Chủ", "Return to Homepage"],
+        ["Khám Phá Danh Mục Cà Phê", "Explore Coffee Range"],
         ["Khám Phá Sản Phẩm Cà Phê", "Explore Coffee Range"],
 
         // Homepage Specifics
+        ["Chuyên Gia Cà Phê Số 1®", "We Know Coffee®"],
         ["Dòng Cà Phê Thượng Hạng Được Yêu Thích Số 1 Nước Úc", "Australia's Favourite Premium Blend"],
         ["Sản Phẩm Bán Chạy Nhất", "Bestsellers"],
         ["Nghệ Nhân Rang Cà Phê Thủ Công Từ Năm 1958", "Master Roasters Since 1958"],
@@ -86,6 +88,33 @@
         ["Đăng Ký Nhận Bản Tin", "Stay in Touch"],
         ["Đăng ký nhận thông tin độc quyền và mã ưu đãi giảm 10% cho đơn hàng đầu tiên của bạn.",
          "Subscribe to receive 10% off your first online order."],
+
+        // Carousel & Quotes
+        ["Khám Phá Dòng Sản Phẩm", "Discover our range"],
+        ["“Khát vọng của chúng tôi là mang đến cho người yêu cà phê những hạt cà phê rang tươi mới và thượng hạng nhất ở mọi định dạng thưởng thức.”",
+         "“Our ambition is to provide Australians with the best and freshest, roasted coffee in any format they choose.”"],
+        ["Les Schirato, Giám Đốc Điều Hành (CEO)", "Les Schirato, CEO"],
+        ["Hơn 65 Năm Kinh Nghiệm Rang Xay Thủ Công", "Over 65 years of roasting expertise"],
+        ["Kết tinh từ ba thế hệ kinh nghiệm gia đình Cantarella cùng một trong những xưởng rang hiện đại bậc nhất bán cầu nam.",
+         "Combining three generations of family experience with one of the most advanced coffee bean roasting facilities in the southern hemisphere."],
+        ["Đọc Tin Tức Mới Nhất", "Read the latest news"],
+        ["Cập nhật những tin tức và câu chuyện mới nhất từ thương hiệu cà phê rang xay nguyên chất số 1 nước Úc.^",
+         "Stay up to date with the latest news from Australia's No.1 pure coffee brand.^"],
+        ["Cách Bảo Quản Hạt Cà Phê Sau Khi Mở Gói Để Luôn Tươi Mới", "How to Store Coffee Beans Once Opened So They Stay Fresh"],
+        ["15 phút đọc", "Fifteen minute read"],
+        ["Cà Phê Đặc Sản (Specialty Coffee) Là Gì?", "What is Specialty Coffee?"],
+        ["10 phút đọc", "Ten minute read"],
+        ["Khám Phá Các Loại Cà Phê Phong Cách Nước Úc", "Australian Coffee Types Explained"],
+        ["13 phút đọc", "Thirteen minute read"],
+        ["Bản Tin Extracts Số 7", "Extracts Issue no. 7"],
+        ["1 phút đọc", "One minute read"],
+        ["Nghệ thuật chiết xuất tách Espresso hoàn hảo.", "How to brew the perfect espresso."],
+        ["Khám Phá Video Hướng Dẫn", "Explore Brewtorials"],
+        ["ĐỘC QUYỀN ONLINE", "ONLINE EXCLUSIVE"],
+        ["Dòng blend phục vụ khách sạn & nhà hàng được ưa chuộng nhất", "Our most popular foodservice blend"],
+        ["Dòng blend được yêu thích nhất nước Úc", "Australia's favourite blend"],
+        ["Rang đậm cho hương vị dày dặn, thể chất mạnh mẽ", "Dark roasted for a full-bodied flavour"],
+        ["Dòng blend đạt chứng nhận Hữu cơ Quốc tế", "Certified Organic blend"],
 
         // Collections & Filters
         ["Tất Cả Sản Phẩm Cà Phê", "All Coffee Products"],
@@ -146,6 +175,7 @@
          "Committed to ethical sourcing and supporting coffee farming communities worldwide."],
 
         // Wholesale
+        ["Tại Sao Chọn Vittoria Cho Giải Pháp Cà Phê Bán Sỉ & Doanh Nghiệp?", "Why Vittoria for Wholesale Coffee?"],
         ["Giải Pháp Bán Sỉ & Đối Tác Doanh Nghiệp (B2B)", "Wholesale & Business Solutions"],
         ["Đồng hành cùng đối tác cung cấp cà phê thượng hạng cho hơn 3.000+ quán café, nhà hàng, khách sạn cao cấp và tập đoàn lớn.",
          "Partner with Australia's premier coffee supplier for your café, restaurant, hotel or workplace."],
@@ -177,7 +207,7 @@
 
         // 404 Page
         ["Không Tìm Thấy Trang", "Page Not Found"],
-        ["Trang bạn đang tìm kiếm có thể đã bị xóa, đổi tên hoặc tạm thời không khả dụng. Hãy để chúng tôi đưa bạn về đúng nơi.",
+        ["Trang bạn đang tìm kiếm có thể đã bị xóa, đổi tên hoặc tạm thời không khả dụng. Hãy để chúng tôi đưa bạn về đúng nơi thưởng thức cà phê.",
          "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable. Let us help you find the right brew."],
 
         // Footer
@@ -193,7 +223,7 @@
         ["Bảo lưu mọi quyền.", "All rights reserved."]
     ];
 
-    let currentLang = 'vi'; // Default to Vietnamese (Primary)
+    let currentLang = 'vi'; // Default: Vietnamese (Primary)
 
     function initLanguage() {
         const urlParams = new URLSearchParams(window.location.search);
@@ -212,7 +242,6 @@
             }
         } catch (e) {}
 
-        // Default: Vietnamese (Primary)
         currentLang = 'vi';
     }
 
@@ -224,7 +253,6 @@
         const fromIdx = targetLang === 'en' ? 0 : 1; // 0 = VI, 1 = EN
         const toIdx = targetLang === 'en' ? 1 : 0;
 
-        // Traverse and replace text in all text-containing elements
         const walker = document.createTreeWalker(
             document.body,
             NodeFilter.SHOW_TEXT,
@@ -268,73 +296,15 @@
             translationPairs.forEach(([vi, en]) => {
                 const searchStr = fromIdx === 0 ? vi : en;
                 const replaceStr = toIdx === 0 ? vi : en;
-                if (ph.includes(searchStr)) {
+                if (ph && ph.includes(searchStr)) {
                     ph = ph.split(searchStr).join(replaceStr);
                 }
             });
-            el.setAttribute('placeholder', ph);
+            if (ph) el.setAttribute('placeholder', ph);
         });
 
         updateSwitcherUI();
         window.dispatchEvent(new CustomEvent('language:changed', { detail: { language: targetLang } }));
-    }
-
-    function renderLanguageSwitcher() {
-        // 1. Top Announcement Bar Switcher
-        const topbars = document.querySelectorAll('.c-header__topbar, .c-announcement-bar');
-        topbars.forEach(topbar => {
-            if (topbar.querySelector('.c-lang-switcher')) return;
-
-            const switcher = document.createElement('div');
-            switcher.className = 'c-lang-switcher';
-            switcher.innerHTML = `
-                <button type="button" class="c-lang-btn ${currentLang === 'vi' ? 'is-active' : ''}" data-lang="vi" title="Tiếng Việt (Chính)">
-                    <span class="c-lang-flag">🇻🇳</span> Tiếng Việt
-                </button>
-                <span class="c-lang-divider">|</span>
-                <button type="button" class="c-lang-btn ${currentLang === 'en' ? 'is-active' : ''}" data-lang="en" title="English">
-                    <span class="c-lang-flag">🇬🇧</span> English
-                </button>
-            `;
-
-            topbar.style.display = 'flex';
-            topbar.style.justifyContent = 'space-between';
-            topbar.style.alignItems = 'center';
-            topbar.appendChild(switcher);
-        });
-
-        // 2. Footer Switcher
-        const footers = document.querySelectorAll('footer .c-footer__bottom, footer div:last-child');
-        footers.forEach(foot => {
-            if (foot.querySelector('.c-lang-switcher--footer')) return;
-
-            const footerSwitcher = document.createElement('div');
-            footerSwitcher.className = 'c-lang-switcher c-lang-switcher--footer';
-            footerSwitcher.style.margin = '16px auto';
-            footerSwitcher.innerHTML = `
-                <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-right: 8px; color: #AC8A62; font-weight: 600;">Ngôn ngữ / Language:</span>
-                <button type="button" class="c-lang-btn ${currentLang === 'vi' ? 'is-active' : ''}" data-lang="vi">
-                    🇻🇳 Tiếng Việt (Chính)
-                </button>
-                <span class="c-lang-divider">|</span>
-                <button type="button" class="c-lang-btn ${currentLang === 'en' ? 'is-active' : ''}" data-lang="en">
-                    🇬🇧 English
-                </button>
-            `;
-            foot.appendChild(footerSwitcher);
-        });
-
-        // 3. Delegate switcher click events
-        document.addEventListener('click', (e) => {
-            const btn = e.target.closest('[data-lang]');
-            if (btn) {
-                e.preventDefault();
-                const targetLang = btn.getAttribute('data-lang');
-                if (targetLang && targetLang !== currentLang) {
-                    translatePage(targetLang);
-                }
-            }
-        });
     }
 
     function updateSwitcherUI() {
@@ -358,11 +328,22 @@
     // Auto-init
     initLanguage();
     document.addEventListener('DOMContentLoaded', () => {
-        renderLanguageSwitcher();
+        // Delegate click events for static buttons
+        document.addEventListener('click', (e) => {
+            const btn = e.target.closest('[data-lang]');
+            if (btn) {
+                e.preventDefault();
+                const targetLang = btn.getAttribute('data-lang');
+                if (targetLang && targetLang !== currentLang) {
+                    translatePage(targetLang);
+                }
+            }
+        });
+
         if (currentLang === 'en') {
             translatePage('en');
         } else {
-            translatePage('vi');
+            updateSwitcherUI();
         }
     });
 })();

@@ -559,3 +559,58 @@ img[data-src], img.lazyload, img.lazyloaded {
     background: #D68E1D !important;
     color: #FFFFFF !important;
 }
+
+/* Force Hide any lingering third-party geolocation / country modals */
+#md-footer-selector-block,
+.md-footer-selector__container,
+.md-footer-selector__content,
+md-footer-selector__form,
+#md-app-modal,
+.md-app-modal,
+.md-app-modal-overlay,
+.md-modal__content,
+.md-modal__formContent,
+[data-orbe-flags] {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Announcement Bar with flex container */
+.c-announcement-bar {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 6px 16px !important;
+    background-color: #2F221A !important;
+    color: #FFFFFF !important;
+}
+
+.c-announcement-bar__inner {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+}
+
+/* Crisp Clean Language Switcher */
+.c-lang-switcher {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+    padding: 2px 6px !important;
+    background: rgba(255, 255, 255, 0.18) !important;
+    border-radius: 20px !important;
+    font-size: 11px !important;
+}
+
+.c-lang-switcher--footer {
+    background: rgba(0, 0, 0, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    padding: 6px 14px !important;
+    border-radius: 24px !important;
+}
+
