@@ -147,28 +147,46 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
     letter-spacing: 0.2px !important;
     text-transform: none !important;
     white-space: nowrap !important;
-    padding: 6px 0 !important;
+    padding: 6px 12px !important;
+    border-radius: 6px !important;
     position: relative !important;
     transition: all 0.2s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+.c-main-menu__link.is-level-1 .c-main-menu__link-title {
+    color: inherit !important;
+    transition: color 0.2s ease !important;
 }
 
 .c-main-menu__link.is-level-1:after {
     content: '' !important;
     position: absolute !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    width: 0 !important;
+    bottom: 2px !important;
+    left: 12px !important;
+    right: 12px !important;
+    width: auto !important;
     height: 2px !important;
-    background-color: #E5B869 !important;
-    transition: width 0.25s ease !important;
+    background-color: #FFD56B !important;
+    box-shadow: 0 0 8px rgba(255, 213, 107, 0.8) !important;
+    transform: scaleX(0) !important;
+    transform-origin: center !important;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .c-main-menu__link.is-level-1:hover {
-    color: #E5B869 !important;
+    color: #FFFFFF !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4) !important;
+}
+
+.c-main-menu__link.is-level-1:hover .c-main-menu__link-title {
+    color: #FFFFFF !important;
 }
 
 .c-main-menu__link.is-level-1:hover:after {
-    width: 100% !important;
+    transform: scaleX(1) !important;
 }
 
 /* Right Actions (Hotline, Cart, Search) */
