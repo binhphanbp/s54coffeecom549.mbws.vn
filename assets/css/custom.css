@@ -48,25 +48,19 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
     font-size: 15px;
 }
 
-.c-main-menu__link-title,
-.c-navigation__link-title,
-.c-nav a,
-.o-btn,
-.c-lang-btn,
-.o-subtitle {
-    font-family: 'Plus Jakarta Sans', sans-serif !important;
-    font-weight: 600;
-}
-
 /* 3. Header, Logo & Topbar */
 .c-header {
-    background-color: #FFFFFF !important;
-    box-shadow: 0 1px 6px rgba(47, 34, 26, 0.06);
-    transition: all 0.3s ease;
+    position: sticky !important;
+    top: 0 !important;
+    width: 100% !important;
+    z-index: 1000 !important;
+    background-color: #FAF8F5 !important;
+    box-shadow: 0 1px 4px rgba(47, 34, 26, 0.08);
 }
 
-.c-header.is-scrolled {
-    box-shadow: 0 3px 16px rgba(47, 34, 26, 0.12);
+.c-header__margin {
+    display: none !important;
+    height: 0 !important;
 }
 
 .c-header__topbar {
@@ -75,47 +69,143 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
     align-items: center !important;
     background-color: #2F221A !important;
     color: #FFFFFF !important;
-    padding: 7px 24px !important;
-    position: relative;
-    z-index: 1001;
-}
-
-.c-header__topbar-messages {
-    flex: 1;
-    text-align: center;
+    padding: 8px clamp(16px, 4vw, 48px) !important;
 }
 
 .c-header__topbar-message {
-    font-size: 11px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
+    font-size: 11px !important;
+    letter-spacing: 1.2px !important;
+    text-transform: uppercase !important;
     color: #FFFFFF !important;
-    text-decoration: none;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 600;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
 }
 
+.c-header__inner {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 14px clamp(16px, 4vw, 48px) !important;
+    background-color: #FAF8F5 !important;
+    max-width: 1440px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    gap: 24px !important;
+}
+
+/* Logo Left */
 .c-header__logo {
-    width: clamp(140px, 15vw, 190px) !important;
+    display: flex !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+    width: clamp(140px, 14vw, 185px) !important;
+    text-decoration: none !important;
+}
+
+.c-header__logo img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 42px !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+/* Nav Menu Center */
+.c-main-menu {
+    display: flex !important;
+    align-items: center !important;
+    flex: 1 !important;
+    justify-content: center !important;
+}
+
+.c-main-menu__list.is-level-1 {
+    display: flex !important;
+    align-items: center !important;
+    gap: clamp(14px, 2vw, 32px) !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.c-main-menu__link.is-level-1 {
+    color: #2F221A !important;
+    text-decoration: none !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    white-space: nowrap !important;
+    padding: 6px 0 !important;
+    position: relative !important;
+    transition: color 0.2s ease !important;
+}
+
+.c-main-menu__link.is-level-1:after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 0 !important;
+    height: 2px !important;
+    background-color: #D68E1D !important;
+    transition: width 0.25s ease !important;
+}
+
+.c-main-menu__link.is-level-1:hover {
+    color: #D68E1D !important;
+}
+
+.c-main-menu__link.is-level-1:hover:after {
+    width: 100% !important;
+}
+
+/* Right Actions */
+.c-header__additional {
+    display: flex !important;
+    align-items: center !important;
+    gap: 20px !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
+}
+
+.c-header__phone-link {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    text-decoration: none !important;
+    color: #2F221A !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    background: rgba(214, 142, 29, 0.12) !important;
+    padding: 6px 14px !important;
+    border-radius: 20px !important;
+    border: 1px solid rgba(214, 142, 29, 0.25) !important;
+    transition: all 0.2s ease !important;
+}
+
+.c-header__phone-link:hover {
+    background: #D68E1D !important;
+    color: #FFFFFF !important;
+}
+
+.c-header__cart-count {
+    position: absolute !important;
+    top: -4px !important;
+    right: -6px !important;
+    background: #D68E1D !important;
+    color: #FFFFFF !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    border-radius: 50% !important;
+    width: 18px !important;
+    height: 18px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    padding: 6px 0;
-}
-
-.c-header__logo img,
-.c-header__logo picture {
-    width: 100% !important;
-    height: auto !important;
-    max-height: 48px !important;
-    object-fit: contain !important;
-    display: block;
-}
-
-.c-main-menu__logo img {
-    max-height: 40px !important;
-    width: auto !important;
-    object-fit: contain;
 }
 
 /* 4. Language Switcher */
@@ -181,52 +271,131 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
     color: #FFFFFF !important;
 }
 
-/* 5. Hero Banner Perfection */
-.c-hero-banner__media {
-    object-fit: cover !important;
+/* 5. Hero Section High-End Luxury Polish */
+.c-hero-banner {
+    position: relative !important;
+    width: 100% !important;
+    min-height: 540px !important;
+    max-height: 680px !important;
+    overflow: hidden !important;
+    display: flex !important;
+    align-items: center !important;
+    background-color: #2F221A !important;
+}
+
+.c-hero-banner__media-container {
+    position: relative !important;
     width: 100% !important;
     height: 100% !important;
+    min-height: 540px !important;
+    display: flex !important;
+    align-items: center !important;
 }
 
-.c-hero-banner__overlay {
-    background: rgba(47, 34, 26, 0.45);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    padding: 28px 36px;
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-    max-width: 36rem !important;
+.c-hero-banner__media {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    z-index: 1 !important;
 }
 
-.c-hero-banner__title {
+.s54-hero-overlay {
+    position: relative !important;
+    z-index: 2 !important;
+    max-width: 620px !important;
+    margin-left: clamp(24px, 7vw, 100px) !important;
+    padding: 36px 42px !important;
+    background: rgba(47, 34, 26, 0.72) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4) !important;
     color: #FFFFFF !important;
-    font-family: 'Cormorant Garamond', Georgia, serif !important;
-    font-size: clamp(34px, 5vw, 60px) !important;
-    line-height: 1.15 !important;
-    margin-bottom: 16px !important;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
-.c-hero-banner__button {
-    background-color: #D68E1D !important;
-    color: #FFFFFF !important;
-    border: none !important;
-    padding: 14px 32px !important;
-    border-radius: 4px;
-    font-family: 'Plus Jakarta Sans', sans-serif !important;
+.s54-hero-badge {
+    display: inline-block !important;
+    background: rgba(214, 142, 29, 0.25) !important;
+    border: 1px solid #D68E1D !important;
+    color: #F8D38D !important;
+    font-size: 11px !important;
     font-weight: 700 !important;
-    letter-spacing: 1.5px;
-    font-size: 13px !important;
-    text-transform: uppercase;
-    transition: all 0.25s ease;
-    box-shadow: 0 4px 12px rgba(214, 142, 29, 0.3);
+    letter-spacing: 1.5px !important;
+    padding: 4px 12px !important;
+    border-radius: 20px !important;
+    margin-bottom: 14px !important;
+    text-transform: uppercase !important;
 }
 
-.c-hero-banner__button:hover {
-    background-color: #B87612 !important;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(214, 142, 29, 0.4);
+.s54-hero-title {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: clamp(36px, 4.5vw, 56px) !important;
+    line-height: 1.1 !important;
+    font-weight: 700 !important;
+    color: #FFFFFF !important;
+    margin: 0 0 14px 0 !important;
+}
+
+.s54-hero-title span {
+    color: #E8C17F !important;
+    font-style: italic !important;
+    font-weight: 400 !important;
+}
+
+.s54-hero-subtitle {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    color: #E2D9CD !important;
+    margin: 0 0 24px 0 !important;
+}
+
+.s54-hero-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+    flex-wrap: wrap !important;
+}
+
+.s54-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    padding: 13px 28px !important;
+    border-radius: 4px !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.5px !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    transition: all 0.25s ease !important;
+}
+
+.s54-btn--primary {
+    background: #D68E1D !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 14px rgba(214, 142, 29, 0.35) !important;
+}
+
+.s54-btn--primary:hover {
+    background: #B87612 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 18px rgba(214, 142, 29, 0.45) !important;
+}
+
+.s54-btn--secondary {
+    background: transparent !important;
+    color: #FFFFFF !important;
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+}
+
+.s54-btn--secondary:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-color: #FFFFFF !important;
 }
 
 /* 6. Product Cards & Visual Elegance */
@@ -531,21 +700,44 @@ md-footer-selector__form {
 }
 
 /* 12. Responsive Breakpoints */
-@media (max-width: 768px) {
+@media (max-width: 991px) {
     .c-header__topbar {
         flex-wrap: wrap;
         gap: 4px;
         padding: 6px 12px !important;
     }
     .c-header__topbar-message {
-        font-size: 10px;
+        font-size: 10px !important;
     }
-    .c-lang-switcher--header {
-        margin: 2px auto 0;
+    .c-main-menu {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        bottom: 0 !important;
+        width: 280px !important;
+        background: #FAF8F5 !important;
+        box-shadow: 4px 0 24px rgba(0, 0, 0, 0.2) !important;
+        z-index: 99999 !important;
+        transform: translateX(-100%) !important;
+        transition: transform 0.3s ease !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+        padding: 20px !important;
     }
-    .c-hero-banner__overlay {
-        padding: 20px;
-        margin: 0 16px !important;
+    .c-main-menu.is-open {
+        transform: translateX(0) !important;
+    }
+    .c-main-menu__list.is-level-1 {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 16px !important;
+        width: 100% !important;
+        margin-top: 24px !important;
+    }
+    .s54-hero-overlay {
+        margin: 20px !important;
+        padding: 24px 20px !important;
     }
     .c-footer__bottom-bar {
         flex-direction: column;
