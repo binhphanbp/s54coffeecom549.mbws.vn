@@ -1,12 +1,12 @@
 /**
- * Vittoria Coffee - Cart Mock & Storefront State Manager
+ * S54 COFFEE - Cart Mock & Storefront State Manager
  * Provides offline cart simulation, sessionStorage persistence, and Fetch/XHR interception for Shopify Cart APIs.
  */
 (function () {
     'use strict';
 
-    const STORAGE_KEY = 'vittoria_storefront_cart';
-    const FREESHIP_THRESHOLD = 6900; // $69.00 AUD (in cents)
+    const STORAGE_KEY = 's54_storefront_cart';
+    const FREESHIP_THRESHOLD = 599000; // 599.000 VND
 
     const DEFAULT_CART = {
         token: 'd7480a82b992167389148d53efd67db9',
@@ -34,7 +34,7 @@
                 discounts: [],
                 sku: 'VIT-ORO-1KG',
                 grams: 1000,
-                vendor: 'Vittoria Coffee',
+                vendor: 'S54 COFFEE',
                 taxable: false,
                 product_id: 6718616502447,
                 product_has_only_default_variant: false,
@@ -62,7 +62,7 @@
             }
         ],
         requires_shipping: true,
-        currency: 'AUD',
+        currency: 'VND',
         items_subtotal_price: 4400,
         cart_level_discount_applications: []
     };
@@ -107,16 +107,16 @@
         } catch (e) {
             console.warn('[CartMock] Failed to save sessionStorage', e);
         }
-        window.__vittoriaMockCart = cart;
+        window.__s54MockCart = cart;
         window.dispatchEvent(new CustomEvent('cart:updated', { detail: cart }));
         return cart;
     }
 
     let cartState = loadCart();
-    window.__vittoriaMockCart = cartState;
+    window.__s54MockCart = cartState;
 
     // Cart public API
-    window.VittoriaCart = {
+    window.S54Cart = {
         getCart: function () {
             return JSON.parse(JSON.stringify(cartState));
         },
@@ -129,7 +129,7 @@
                     id: Date.now(),
                     variant_id: Date.now(),
                     key: Date.now() + ':1',
-                    title: 'Vittoria Special Blend',
+                    title: 'S54 Special Blend',
                     price: 3500,
                     original_price: 3500,
                     final_price: 3500,
@@ -178,7 +178,7 @@
                 }
             }
             const quantity = (body && body.quantity) ? parseInt(body.quantity, 10) : 1;
-            const updated = window.VittoriaCart.addItem({ quantity: quantity });
+            const updated = window.S54Cart.addItem({ quantity: quantity });
             return Promise.resolve(new Response(JSON.stringify(updated.items[updated.items.length - 1] || {}), {
                 status: 200,
                 headers: { 'Content-Type': 'application/json' }
@@ -197,24 +197,24 @@
             if (body && (body.id || body.line || body.key) !== undefined) {
                 const target = body.id || body.key || body.line;
                 const qty = parseInt(body.quantity, 10);
-                window.VittoriaCart.updateQuantity(target, isNaN(qty) ? 1 : qty);
+                window.S54Cart.updateQuantity(target, isNaN(qty) ? 1 : qty);
             }
-            return Promise.resolve(new Response(JSON.stringify(window.VittoriaCart.getCart()), {
+            return Promise.resolve(new Response(JSON.stringify(window.S54Cart.getCart()), {
                 status: 200,
                 headers: { 'Content-Type': 'application/json' }
             }));
         }
 
         if (u.indexOf('/cart/clear') !== -1 || u.indexOf('cart/clear.js') !== -1) {
-            window.VittoriaCart.clear();
-            return Promise.resolve(new Response(JSON.stringify(window.VittoriaCart.getCart()), {
+            window.S54Cart.clear();
+            return Promise.resolve(new Response(JSON.stringify(window.S54Cart.getCart()), {
                 status: 200,
                 headers: { 'Content-Type': 'application/json' }
             }));
         }
 
         if (u.indexOf('/cart') !== -1 || u.indexOf('cart.js') !== -1 || u.indexOf('cart.json') !== -1) {
-            return Promise.resolve(new Response(JSON.stringify(window.VittoriaCart.getCart()), {
+            return Promise.resolve(new Response(JSON.stringify(window.S54Cart.getCart()), {
                 status: 200,
                 headers: { 'Content-Type': 'application/json' }
             }));

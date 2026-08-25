@@ -1,12 +1,13 @@
 /* ==========================================================================
-   Vittoria Coffee - Immaculate Brand Stylesheet
-   Precision Typography, Authentic Layout, Pixel-Perfect Luxury E-Commerce
+   S54 COFFEE — Master Luxury Storefront Stylesheet
+   Crafted with: Cormorant Garamond + Plus Jakarta Sans
+   Design System: Luxury Artisanal Heritage, Pixel-Perfect Layout
    ========================================================================== */
 
 /* 1. Google Web Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 
-/* 2. Base Typography & Smooth Scroll */
+/* 2. Base & Typography */
 html {
     scroll-behavior: smooth;
 }
@@ -20,9 +21,10 @@ body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    line-height: 1.65;
 }
 
-/* Luxury Serif Headings — Harmonious with original sizing */
+/* Headings */
 h1, h2, h3, h4, h5, h6,
 .o-heading,
 .c-hero-banner__title,
@@ -33,17 +35,17 @@ h1, h2, h3, h4, h5, h6,
 .c-featured-collections__header-title,
 .c-product-main__title,
 .c-article-feed__title {
-    font-family: 'Cormorant Garamond', 'domaine', Georgia, serif !important;
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
     font-weight: 600;
     letter-spacing: -0.01em;
     color: #2F221A;
 }
 
-/* Body & Navigation */
 p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__description p {
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     color: #4A3E36;
-    line-height: 1.6;
+    line-height: 1.65;
+    font-size: 15px;
 }
 
 .c-main-menu__link-title,
@@ -56,7 +58,17 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
     font-weight: 600;
 }
 
-/* 3. Header Topbar & Precision Alignment */
+/* 3. Header, Logo & Topbar */
+.c-header {
+    background-color: #FFFFFF !important;
+    box-shadow: 0 1px 6px rgba(47, 34, 26, 0.06);
+    transition: all 0.3s ease;
+}
+
+.c-header.is-scrolled {
+    box-shadow: 0 3px 16px rgba(47, 34, 26, 0.12);
+}
+
 .c-header__topbar {
     display: flex !important;
     justify-content: space-between !important;
@@ -83,12 +95,35 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
     font-weight: 600;
 }
 
-/* 4. Language Switcher (Header Pill) */
+.c-header__logo {
+    width: clamp(140px, 15vw, 190px) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 6px 0;
+}
+
+.c-header__logo img,
+.c-header__logo picture {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 48px !important;
+    object-fit: contain !important;
+    display: block;
+}
+
+.c-main-menu__logo img {
+    max-height: 40px !important;
+    width: auto !important;
+    object-fit: contain;
+}
+
+/* 4. Language Switcher */
 .c-lang-switcher--header {
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    padding: 2px 6px;
+    padding: 2px 8px;
     background: rgba(255, 255, 255, 0.15);
     border-radius: 20px;
     font-size: 11px;
@@ -111,13 +146,11 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
     gap: 4px;
 }
 
-.c-lang-btn:hover {
-    color: #FFFFFF;
-}
-
+.c-lang-btn:hover { color: #FFFFFF; }
 .c-lang-btn.is-active {
     background: #D68E1D !important;
     color: #FFFFFF !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 .c-lang-divider {
@@ -126,7 +159,6 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
     user-select: none;
 }
 
-/* 5. Footer Language Switcher */
 .c-lang-switcher--footer {
     display: inline-flex;
     align-items: center;
@@ -149,27 +181,120 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
     color: #FFFFFF !important;
 }
 
-.c-lang-label {
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-right: 8px;
-    color: #AC8A62;
-    font-weight: 600;
+/* 5. Hero Banner Perfection */
+.c-hero-banner__media {
+    object-fit: cover !important;
+    width: 100% !important;
+    height: 100% !important;
 }
 
-/* 6. Buttons & Interactions */
+.c-hero-banner__overlay {
+    background: rgba(47, 34, 26, 0.45);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    padding: 28px 36px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    max-width: 36rem !important;
+}
+
+.c-hero-banner__title {
+    color: #FFFFFF !important;
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-size: clamp(34px, 5vw, 60px) !important;
+    line-height: 1.15 !important;
+    margin-bottom: 16px !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.c-hero-banner__button {
+    background-color: #D68E1D !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    padding: 14px 32px !important;
+    border-radius: 4px;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.5px;
+    font-size: 13px !important;
+    text-transform: uppercase;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(214, 142, 29, 0.3);
+}
+
+.c-hero-banner__button:hover {
+    background-color: #B87612 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(214, 142, 29, 0.4);
+}
+
+/* 6. Product Cards & Visual Elegance */
+.c-product-carousel__product-image-container img,
+.o-product-thumbnail__image-container img {
+    border-radius: 8px;
+    object-fit: cover !important;
+    aspect-ratio: 1 / 1;
+    width: 100% !important;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    background: #FFFFFF;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .c-product-carousel__product:hover .c-product-carousel__product-image,
+    .o-product-thumbnail:hover .o-product-thumbnail__image {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 28px rgba(47, 34, 26, 0.12);
+    }
+}
+
+.o-product-thumbnail__title {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-weight: 600;
+    font-size: 15px;
+    color: #2F221A;
+    margin-top: 12px;
+}
+
+.o-product-thumbnail__price {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-weight: 700;
+    color: #D68E1D;
+    font-size: 16px;
+    margin-top: 4px;
+}
+
+.o-product-thumbnail__badge {
+    background-color: #D68E1D !important;
+    color: #FFFFFF !important;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    padding: 3px 8px;
+}
+
+/* 7. Buttons System */
 .o-btn.is-primary.is-dark {
     background-color: #2F221A !important;
     color: #FAF8F5 !important;
+    border: none !important;
+    border-radius: 4px;
+    padding: 12px 28px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 1px;
     transition: all 0.25s ease;
 }
 
 .o-btn.is-primary.is-dark:hover {
-    background-color: #463428 !important;
+    background-color: #D68E1D !important;
+    color: #FFFFFF !important;
+    transform: translateY(-1px);
 }
 
-/* 7. Slide-out Cart Drawer */
+/* 8. Slide-out Cart Drawer */
 .c-cart-drawer {
     position: fixed;
     top: 0;
@@ -192,12 +317,9 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
 
 .c-cart-drawer__overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 0; left: 0; right: 0; bottom: 0;
     background-color: rgba(47, 34, 26, 0.6);
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(3px);
     z-index: 9999998;
     opacity: 0;
     visibility: hidden;
@@ -232,7 +354,6 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
     cursor: pointer;
     color: #2F221A;
     padding: 4px 8px;
-    line-height: 1;
 }
 
 .c-cart-drawer__free-shipping {
@@ -299,10 +420,10 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
 }
 
 .c-cart-drawer__checkout-btn:hover {
-    background: #463428;
+    background: #D68E1D;
 }
 
-/* 8. Toast & Scroll to Top */
+/* 9. Toast & Scroll to Top */
 .c-toast {
     position: fixed;
     bottom: 30px;
@@ -361,7 +482,7 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
     transform: translateY(-2px);
 }
 
-/* 9. Footer Payment Bar */
+/* 10. Footer Layout & Payment Badges */
 .c-footer__bottom-bar {
     display: flex;
     flex-wrap: wrap;
@@ -392,7 +513,7 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
     color: #2F221A;
 }
 
-/* 10. Hide Orbe Junk */
+/* 11. Purge Plugin Overlays */
 #md-footer-selector-block,
 .md-footer-selector__container,
 .md-footer-selector__content,
@@ -409,7 +530,7 @@ md-footer-selector__form {
     pointer-events: none !important;
 }
 
-/* 11. Responsive Design */
+/* 12. Responsive Breakpoints */
 @media (max-width: 768px) {
     .c-header__topbar {
         flex-wrap: wrap;
@@ -421,6 +542,10 @@ md-footer-selector__form {
     }
     .c-lang-switcher--header {
         margin: 2px auto 0;
+    }
+    .c-hero-banner__overlay {
+        padding: 20px;
+        margin: 0 16px !important;
     }
     .c-footer__bottom-bar {
         flex-direction: column;

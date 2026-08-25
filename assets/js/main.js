@@ -1,5 +1,5 @@
 /**
- * Main Interactive Controller for Vittoria Coffee Storefront
+ * Main Interactive Controller for S54 COFFEE Storefront
  * Features: Cart Drawer, Mobile Menu, Scroll-to-Top, Sticky Header, i18n
  */
 (function() {
@@ -40,8 +40,8 @@
     };
 
     function _t(key, params) {
-        const lang = (window.VittoriaI18n && window.VittoriaI18n.getLanguage) 
-            ? window.VittoriaI18n.getLanguage() : 'vi';
+        const lang = (window.S54I18n && window.S54I18n.getLanguage) 
+            ? window.S54I18n.getLanguage() : 'vi';
         let str = (strings[lang] && strings[lang][key]) || (strings.vi[key]) || key;
         if (params) {
             Object.keys(params).forEach(k => {
@@ -53,8 +53,8 @@
 
     function formatPrice(amount) {
         if (typeof amount !== 'number') amount = parseFloat(amount) || 0;
-        const lang = (window.VittoriaI18n && window.VittoriaI18n.getLanguage) 
-            ? window.VittoriaI18n.getLanguage() : 'vi';
+        const lang = (window.S54I18n && window.S54I18n.getLanguage) 
+            ? window.S54I18n.getLanguage() : 'vi';
         if (lang === 'vi') {
             const val = amount < 1000 ? amount * 1000 : amount;
             return new Intl.NumberFormat('vi-VN').format(val) + '₫';
@@ -64,10 +64,10 @@
     }
 
     function getCart() {
-        if (window.VittoriaCart && typeof window.VittoriaCart.getCart === 'function') {
-            return window.VittoriaCart.getCart();
+        if (window.S54Cart && typeof window.S54Cart.getCart === 'function') {
+            return window.S54Cart.getCart();
         }
-        return window.__vittoriaMockCart || { items: [], total_price: 0, item_count: 0 };
+        return window.__s54MockCart || { items: [], total_price: 0, item_count: 0 };
     }
 
     /* =====================================================================
@@ -175,7 +175,7 @@
                 <div class="c-cart-drawer__footer">
                     <div class="c-cart-drawer__subtotal">
                         <span>${_t('cart_subtotal')}</span>
-                        <span class="c-cart-drawer__subtotal-amount">$0.00</span>
+                        <span class="c-cart-drawer__subtotal-amount">0₫</span>
                     </div>
                     <button class="c-cart-drawer__checkout-btn">${_t('cart_checkout')}</button>
                 </div>
@@ -196,11 +196,11 @@
                 const cart = getCart();
                 const item = (cart.items || []).find(i => String(i.id) === String(id) || String(i.key) === String(id));
                 if (!item) return;
-                if (window.VittoriaCart) {
+                if (window.S54Cart) {
                     const key = item.key || item.id;
-                    if (action === 'increase') window.VittoriaCart.updateQuantity(key, item.quantity + 1);
-                    else if (action === 'decrease') window.VittoriaCart.updateQuantity(key, item.quantity - 1);
-                    else if (action === 'remove') window.VittoriaCart.updateQuantity(key, 0);
+                    if (action === 'increase') window.S54Cart.updateQuantity(key, item.quantity + 1);
+                    else if (action === 'decrease') window.S54Cart.updateQuantity(key, item.quantity - 1);
+                    else if (action === 'remove') window.S54Cart.updateQuantity(key, 0);
                 }
                 updateCartUI();
             });
@@ -248,7 +248,7 @@
        DOM Ready
        ===================================================================== */
     document.addEventListener('DOMContentLoaded', () => {
-        console.log('Vittoria Coffee Storefront initialized.');
+        console.log('S54 COFFEE Storefront initialized.');
 
         // Lazy image fallback
         document.querySelectorAll('img[data-src]').forEach(img => {
@@ -336,8 +336,8 @@
                     if (imgEl && (imgEl.src || imgEl.dataset.src)) img = imgEl.src || imgEl.dataset.src;
                 }
 
-                if (window.VittoriaCart) {
-                    window.VittoriaCart.addItem({
+                if (window.S54Cart) {
+                    window.S54Cart.addItem({
                         id, variant_id: id, title, price,
                         original_price: price, final_price: price, line_price: price,
                         quantity: 1, image: img, url: 'product-detail.html'

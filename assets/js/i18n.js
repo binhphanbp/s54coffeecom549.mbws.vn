@@ -1,14 +1,41 @@
 /**
- * Vittoria Coffee - Internationalization (i18n) Engine
+ * S54 COFFEE - Internationalization (i18n) Engine
  * Full Bidirectional Translation: Vietnamese (Primary/Default) & English
  */
 (function () {
     'use strict';
 
-    const STORAGE_KEY = 'vittoria_storefront_lang';
+    const STORAGE_KEY = 's54_storefront_lang';
 
     // Comprehensive Bidirectional Translation Pairs (VI <-> EN)
     const translationPairs = [
+        // S54 Coffee Specifics
+        ["MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC CHO ĐƠN TỪ 599.000₫ • HOTLINE: 0383.707.578", "FREE NATIONWIDE SHIPPING ON ORDERS OVER 599,000₫ • HOTLINE: (+84) 383 707 578"],
+        ["S54 COFFEE - Tinh Hoa Cà Phê Việt®", "S54 COFFEE - The Essence of Vietnamese Coffee®"],
+        ["Khám Phá Dòng Cà Phê S54", "Discover S54 Coffee Range"],
+        ["“S54 Coffee mang đến giải pháp cà phê sạch nguyên chất, đậm đà vị truyền thống và phong cách hiện đại cho hàng triệu người tiêu dùng.”", "“S54 Coffee delivers pure, clean coffee solutions with authentic rich flavor and modern style to millions of consumers.”"],
+        ["Mr. Paul Hieu (CEO) & Tony Hoan (Founder)", "Mr. Paul Hieu (CEO) & Tony Hoan (Founder)"],
+        ["Hơn 12 Năm Kinh Nghiệm & Đam Mê Cà Phê Sạch", "Over 12 Years of Clean Coffee Passion & Expertise"],
+        ["Thành lập từ năm 2012 bởi Công ty TNHH Giải Pháp Tốt (Good Solutions), S54 Coffee tự hào kế thừa tinh hoa cà phê Robusta & Arabica từ vùng đất đỏ bazan Tây Nguyên (Đắk Lắk, Lâm Đồng). Chúng tôi áp dụng quy trình kiểm soát nghiêm ngặt từ hạt giống, nông trại thông minh đến công nghệ rang mộc hiện đại, lưu giữ trọn vẹn hương thơm tự nhiên và hậu vị sâu lắng đặc trưng của cà phê Việt.", "Established in 2012 by Good Solutions Co., Ltd, S54 Coffee inherits the finest Robusta & Arabica beans from the Central Highlands (Dak Lak, Lam Dong). We employ rigorous quality control from smart farming to modern artisan roasting."],
+        ["Nghệ Thuật Pha Chế & Thưởng Thức Cà Phê S54 Chuẩn Vị", "The Art of Brewing & Enjoying Authentic S54 Coffee"],
+        ["Cùng chuyên gia S54 Coffee khám phá bí quyết chiết xuất tách Espresso thơm ngậy với lớp crema dày sánh mịn hoặc pha phin truyền thống đậm đà khó quên.", "Join S54 Coffee experts to discover the secrets of brewing rich Espresso with golden crema or traditional Vietnamese drip coffee."],
+        ["S54 Robusta Rang Mộc Nguyên Chất", "S54 Pure Roasted Robusta Beans"],
+        ["S54 Arabica Cầu Đất Thượng Hạng", "S54 Premium Cau Dat Arabica"],
+        ["S54 Hòa Tan 3-in-1 Hộp 456g", "S54 Instant Coffee 3-in-1 (456g)"],
+        ["S54 Cà Phê Sấy Lạnh Cao Cấp", "S54 Premium Freeze-Dried Blend"],
+        ["S54 Cà Phê Túi Lọc Drip Bag", "S54 Drip Bag Coffee Sachets"],
+        ["S54 Robusta Xay Pha Phin", "S54 Traditional Ground Robusta"],
+        ["5 Lợi Ích Tuyệt Vời Của Việc Uống Cà Phê Mỗi Ngày Cho Sức Khỏe", "5 Amazing Health Benefits of Drinking Coffee Daily"],
+        ["Bí Quyết Phân Biệt Cà Phê Rang Mộc Nguyên Chất & Cà Phê Pha Tạp", "How to Distinguish Pure Artisan Roasted Coffee from Mixed Coffee"],
+        ["So Sánh Hương Vị Đậm Đà Của S54 Robusta Và Chua Thanh Của S54 Arabica", "Comparing the Bold Flavor of S54 Robusta with the Crisp Acidity of S54 Arabica"],
+        ["Kết Nối Cùng S54 Coffee Trên Mạng Xã Hội", "Connect with S54 Coffee on Social Media"],
+        ["Đăng Ký Nhận Ưu Đãi & Tin Tức Cà Phê Mới Nhất", "Subscribe for Exclusive Offers & Coffee News"],
+        ["Nhận ngay voucher giảm 15% cho đơn hàng đầu tiên cùng cẩm nang pha chế cà phê độc quyền từ S54 Coffee.", "Get 15% off your first order plus an exclusive brewing guide from S54 Coffee."],
+        ["CÔNG TY TNHH GIẢI PHÁP TỐT (GOOD SOLUTIONS CO., LTD)", "GOOD SOLUTIONS COMPANY LIMITED (S54 COFFEE)"],
+        ["Số 35, Đường T8, Manhattan, Vinhomes Grand Park, P. Long Bình, TP. Thủ Đức, TP. Hồ Chí Minh", "No. 35, T8 Street, Manhattan, Vinhomes Grand Park, Long Binh Ward, Thu Duc City, HCMC, Vietnam"],
+        ["Chính Sách Đại Lý & Cung Ứng B2B", "Wholesale & B2B Supply Policy"],
+        ["Dịch Vụ Cung Ứng Cà Phê B2B & Gia Công OEM/ODM", "B2B Coffee Supply & Private Label OEM/ODM Services"],
+
         // Announcement
         ["MIỄN PHÍ VẬN CHUYỂN: ĐƠN HÀNG TỪ $69†", "Free Shipping: Orders over $69†"],
         ["MIỄN PHÍ VẬN CHUYỂN: ĐƠN HÀNG TỪ $69", "Free Shipping: Orders over $69"],
@@ -29,7 +56,7 @@
         ["Túi Lọc Cà Phê", "Coffee Bags"],
         ["Sô-cô-la Uống", "Drinking Chocolate"],
         ["Phụ Kiện Pha Chế", "Accessories"],
-        ["Đăng Ký Định Kỳ", "Subscriptions"],
+        ["Đăng Ký Định Kỳ", "Mua Hàng Định Kỳ"],
         ["Khám Phá", "Learn"],
         ["Câu Chuyện Thương Hiệu", "Our Story"],
         ["Quy Trình Rang Xay", "Roasting"],
@@ -76,13 +103,13 @@
 
         // Homepage Specifics
         ["Chuyên Gia Cà Phê Số 1®", "We Know Coffee®"],
-        ["Dòng Cà Phê Thượng Hạng Được Yêu Thích Số 1 Nước Úc", "Australia's Favourite Premium Blend"],
+        ["Dòng Cà Phê Thượng Hạng Được Yêu Thích Số 1 Việt Nam", "Australia's Favourite Premium Blend"],
         ["Sản Phẩm Bán Chạy Nhất", "Bestsellers"],
         ["Nghệ Nhân Rang Cà Phê Thủ Công Từ Năm 1958", "Master Roasters Since 1958"],
         ["Hơn 60 năm qua, các nghệ nhân rang bậc thầy của chúng tôi luôn tuyển chọn kỹ lưỡng và rang thủ công 100% hạt Arabica thượng hạng tại xưởng rang Sydney, Australia nhằm mang đến hương vị espresso Ý đích thực.",
          "For over 60 years, our master roasters have carefully selected and roasted 100% Arabica beans in Sydney, Australia."],
-        ["Di Sản Nước Ý, Chế Tác Tại Nước Úc", "Italian Heritage, Australian Made"],
-        ["Từ xưởng rang đầu tiên tại Sydney năm 1958 đến thương hiệu cà phê rang xay nguyên chất số 1 nước Úc.",
+        ["Di Sản Nước Ý, Chế Tác Tại Việt Nam", "Italian Heritage, Australian Made"],
+        ["Từ xưởng rang đầu tiên tại Sydney năm 1958 đến thương hiệu cà phê rang xay nguyên chất số 1 Việt Nam.",
          "From Sydney's first roastery in 1958 to Australia's favourite pure coffee brand."],
         ["Tin Tức Mới Nhất Từ Xưởng Rang", "Latest from the Roastery"],
         ["Đăng Ký Nhận Bản Tin", "Stay in Touch"],
@@ -93,18 +120,18 @@
         ["Khám Phá Dòng Sản Phẩm", "Discover our range"],
         ["“Khát vọng của chúng tôi là mang đến cho người yêu cà phê những hạt cà phê rang tươi mới và thượng hạng nhất ở mọi định dạng thưởng thức.”",
          "“Our ambition is to provide Australians with the best and freshest, roasted coffee in any format they choose.”"],
-        ["Les Schirato, Giám Đốc Điều Hành (CEO)", "Les Schirato, CEO"],
+        ["Paul Hieu, Giám Đốc Điều Hành (CEO)", "Paul Hieu, CEO"],
         ["Hơn 65 Năm Kinh Nghiệm Rang Xay Thủ Công", "Over 65 years of roasting expertise"],
-        ["Kết tinh từ ba thế hệ kinh nghiệm gia đình Cantarella cùng một trong những xưởng rang hiện đại bậc nhất bán cầu nam.",
+        ["Kết tinh từ ba thế hệ kinh nghiệm gia đình Good Solutions cùng một trong những xưởng rang hiện đại bậc nhất bán cầu nam.",
          "Combining three generations of family experience with one of the most advanced coffee bean roasting facilities in the southern hemisphere."],
         ["Đọc Tin Tức Mới Nhất", "Read the latest news"],
-        ["Cập nhật những tin tức và câu chuyện mới nhất từ thương hiệu cà phê rang xay nguyên chất số 1 nước Úc.^",
+        ["Cập nhật những tin tức và câu chuyện mới nhất từ thương hiệu cà phê rang xay nguyên chất số 1 Việt Nam.^",
          "Stay up to date with the latest news from Australia's No.1 pure coffee brand.^"],
-        ["Cách Bảo Quản Hạt Cà Phê Sau Khi Mở Gói Để Luôn Tươi Mới", "How to Store Coffee Beans Once Opened So They Stay Fresh"],
+        ["Bí Quyết Bảo Quản Cà Phê Luôn Tươi Mới", "How to Store Coffee Beans Once Opened So They Stay Fresh"],
         ["15 phút đọc", "Fifteen minute read"],
         ["Cà Phê Đặc Sản (Specialty Coffee) Là Gì?", "What is Specialty Coffee?"],
         ["10 phút đọc", "Ten minute read"],
-        ["Khám Phá Các Loại Cà Phê Phong Cách Nước Úc", "Australian Coffee Types Explained"],
+        ["Các Loại Cà Phê Đặc Sản S54", "Australian Coffee Types Explained"],
         ["13 phút đọc", "Thirteen minute read"],
         ["Bản Tin Extracts Số 7", "Extracts Issue no. 7"],
         ["1 phút đọc", "One minute read"],
@@ -112,7 +139,7 @@
         ["Khám Phá Video Hướng Dẫn", "Explore Brewtorials"],
         ["ĐỘC QUYỀN ONLINE", "ONLINE EXCLUSIVE"],
         ["Dòng blend phục vụ khách sạn & nhà hàng được ưa chuộng nhất", "Our most popular foodservice blend"],
-        ["Dòng blend được yêu thích nhất nước Úc", "Australia's favourite blend"],
+        ["Dòng blend được yêu thích nhất Việt Nam", "Australia's favourite blend"],
         ["Rang đậm cho hương vị dày dặn, thể chất mạnh mẽ", "Dark roasted for a full-bodied flavour"],
         ["Dòng blend đạt chứng nhận Hữu cơ Quốc tế", "Certified Organic blend"],
 
@@ -137,9 +164,9 @@
         // Product Detail
         ["Cà Phê Hạt Cinque Stelle® Special Bar 1kg", "Cinque Stelle® Special Bar Coffee Beans 1kg"],
         ["Cà Phê Hạt Cinque Stelle® Special Bar", "Cinque Stelle® Special Bar Coffee Beans"],
-        ["Cà Phê Hạt Cinque Stelle Special Bar", "Cinque Stelle Special Bar Beans"],
+        ["Cà Phê Hạt Cinque Stelle Special Bar", "S54 Robusta Rang Mộc Nguyên Chất"],
         ["Dòng blend espresso phức hợp và cao cấp bậc nhất của chúng tôi.", "Our premiere and most complex espresso blend."],
-        ["Ban đầu được chế tác độc quyền cho các nhà hàng danh tiếng hàng đầu nước Úc, Cinque Stelle mang đến hương vị đậm đà, hậu vị sô-cô-la đen ngọt ngào cùng lớp crema vàng óng sánh mịn.",
+        ["Ban đầu được chế tác độc quyền cho các nhà hàng danh tiếng hàng đầu Việt Nam, Cinque Stelle mang đến hương vị đậm đà, hậu vị sô-cô-la đen ngọt ngào cùng lớp crema vàng óng sánh mịn.",
          "Initially developed as an after-dinner espresso famously served at Australia's most recognized restaurants."],
         ["Chọn Định Dạng / Kích Cỡ", "Select Format"],
         ["Giao hàng định kỳ mỗi 4 tuần", "Deliver every 4 weeks"],
@@ -161,21 +188,21 @@
          "Store in a cool, dry place away from direct sunlight in an airtight container."],
 
         // Our Story
-        ["Thương Hiệu Cà Phê Rang Xay Nguyên Chất Số 1 Nước Úc", "Australia's No.1 Pure Coffee Brand"],
-        ["Được sáng lập vào năm 1958 bởi hai anh em người Ý Orazio và Carmelo Cantarella, Vittoria Coffee đã tiên phong mở đường cho làn sóng văn hóa thưởng thức espresso chuẩn phong cách Ý tại nước Úc.",
-         "Established in 1958 by two Italian brothers, Orazio and Carmelo Cantarella, Vittoria Coffee pioneered the espresso revolution in Australia."],
+        ["Thương Hiệu Cà Phê Rang Xay Nguyên Chất Số 1 Việt Nam", "Australia's No.1 Pure Coffee Brand"],
+        ["Được sáng lập vào năm 1958 bởi hai anh em người Ý Orazio và Carmelo Good Solutions, S54 COFFEE đã tiên phong mở đường cho làn sóng văn hóa thưởng thức espresso chuẩn phong cách Ý tại Việt Nam.",
+         "Established in 1958 by two Italian brothers, Orazio and Carmelo Good Solutions, S54 COFFEE pioneered the espresso revolution in Australia."],
         ["Chất Lượng Thượng Hạng Không Thỏa Hiệp", "Uncompromising Quality"],
         ["Từng mẻ cà phê được chế tác hoàn toàn từ 100% hạt Arabica thượng hạng tuyển chọn, rang đến độ hoàn hảo tuyệt đối tại xưởng rang Sydney.",
          "Every blend is crafted with 100% premium Arabica coffee beans, master roasted to perfection in our Sydney roastery."],
         ["Truyền Thống Gia Đình Ba Thế Hệ", "A Family Tradition"],
-        ["Ba thế hệ trong gia đình Cantarella luôn tận tâm gìn giữ và phát triển nghệ thuật rang cà phê truyền thống.",
+        ["Ba thế hệ trong gia đình Good Solutions luôn tận tâm gìn giữ và phát triển nghệ thuật rang cà phê truyền thống.",
          "Three generations of family dedication to the art of coffee roasting."],
         ["Phát Triển Bền Vững & Trách Nhiệm Cộng Đồng", "Sustainability & Community"],
         ["Cam kết 100% nguồn cung minh bạch, hỗ trợ cộng đồng nông dân vùng trồng cà phê và bảo vệ môi trường bền vững.",
          "Committed to ethical sourcing and supporting coffee farming communities worldwide."],
 
         // Wholesale
-        ["Tại Sao Chọn Vittoria Cho Giải Pháp Cà Phê Bán Sỉ & Doanh Nghiệp?", "Why Vittoria for Wholesale Coffee?"],
+        ["Tại Sao Chọn S54 Cho Giải Pháp Cà Phê Bán Sỉ & Doanh Nghiệp?", "Why S54 for Wholesale Coffee?"],
         ["Giải Pháp Bán Sỉ & Đối Tác Doanh Nghiệp (B2B)", "Wholesale & Business Solutions"],
         ["Đồng hành cùng đối tác cung cấp cà phê thượng hạng cho hơn 3.000+ quán café, nhà hàng, khách sạn cao cấp và tập đoàn lớn.",
          "Partner with Australia's premier coffee supplier for your café, restaurant, hotel or workplace."],
@@ -211,7 +238,7 @@
          "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable. Let us help you find the right brew."],
 
         // Footer
-        ["Về Vittoria Coffee", "About Vittoria"],
+        ["Về S54 COFFEE", "About S54"],
         ["Cửa Hàng", "Shop"],
         ["Hỗ Trợ Khách Hàng", "Customer Support"],
         ["Liên Hệ Với Chúng Tôi", "Contact Us"],
@@ -219,7 +246,7 @@
         ["Chính Sách Đổi Trả", "Returns Policy"],
         ["Chính Sách Bảo Mật", "Privacy Policy"],
         ["Điều Khoản & Điều Kiện", "Terms & Conditions"],
-        ["© 2026 Vittoria Coffee. Bảo lưu mọi quyền.", "© 2026 Vittoria Coffee. All rights reserved."],
+        ["© 2026 S54 COFFEE. Bảo lưu mọi quyền.", "© 2026 S54 COFFEE. All rights reserved."],
         ["Bảo lưu mọi quyền.", "All rights reserved."]
     ];
 
@@ -319,7 +346,7 @@
     }
 
     // Public API
-    window.VittoriaI18n = {
+    window.S54I18n = {
         setLanguage: translatePage,
         getLanguage: function () { return currentLang; },
         translate: translatePage
