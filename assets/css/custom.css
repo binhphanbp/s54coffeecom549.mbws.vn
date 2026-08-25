@@ -1,111 +1,71 @@
 /* ==========================================================================
-   Vittoria Coffee - Premium UX Stylesheet (Vietnamese + English)
-   Complete overhaul: typography, responsive, accessibility, animations
+   Vittoria Coffee - Immaculate Brand Stylesheet
+   Precision Typography, Authentic Layout, Pixel-Perfect Luxury E-Commerce
    ========================================================================== */
 
-/* ==========================================================================
-   1. Google Web Fonts (Vietnamese & English Luxury Fonts)
-   ========================================================================== */
+/* 1. Google Web Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 
-@font-face {
-    font-family: 'neutraface-book';
-    src: url('../fonts/neutra2text-book-webfont.woff2') format('woff2'),
-         url('../fonts/neutra2text-book-webfont.woff') format('woff');
-    font-weight: 400; font-style: normal; font-display: swap;
-}
-@font-face {
-    font-family: 'neutraface-demi';
-    src: url('../fonts/neutra2text-demi-webfont.woff2') format('woff2'),
-         url('../fonts/neutra2text-demi-webfont.woff') format('woff');
-    font-weight: 600; font-style: normal; font-display: swap;
-}
-@font-face {
-    font-family: 'domaine';
-    src: url('../fonts/domaine-regular.woff2') format('woff2'),
-         url('../fonts/domaine-regular.woff') format('woff');
-    font-weight: 400; font-style: normal; font-display: swap;
-}
-
-/* ==========================================================================
-   2. Base & Typography
-   ========================================================================== */
+/* 2. Base Typography & Smooth Scroll */
 html {
     scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Plus Jakarta Sans', 'neutraface-book', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #2F221A;
     background-color: #FAF8F5;
-    margin: 0; padding: 0;
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
-    line-height: 1.6;
-    letter-spacing: 0.01em;
 }
 
-/* Elegant Serif Headings */
+/* Luxury Serif Headings — Harmonious with original sizing */
 h1, h2, h3, h4, h5, h6,
-.o-heading, .o-heading--1, .o-heading--2, .o-heading--3,
-.o-heading--4, .o-heading--5, .o-heading--6,
-.c-hero-banner__title, .c-featured-video__title,
-.c-text-and-image__title, .c-text-and-image__text-title,
-.c-product-carousel__title, .c-featured-collections__header-title,
-.c-product-main__title, .c-article-feed__title {
+.o-heading,
+.c-hero-banner__title,
+.c-featured-video__title,
+.c-text-and-image__title,
+.c-text-and-image__text-title,
+.c-product-carousel__title,
+.c-featured-collections__header-title,
+.c-product-main__title,
+.c-article-feed__title {
     font-family: 'Cormorant Garamond', 'domaine', Georgia, serif !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.01em;
-    line-height: 1.2;
+    font-weight: 600;
+    letter-spacing: -0.01em;
     color: #2F221A;
 }
 
-h1, .o-heading--1 { font-size: clamp(34px, 5.5vw, 62px) !important; line-height: 1.12 !important; }
-h2, .o-heading--2 { font-size: clamp(28px, 4vw, 46px) !important; line-height: 1.18 !important; }
-h3, .o-heading--3 { font-size: clamp(24px, 3.2vw, 36px) !important; line-height: 1.22 !important; }
-h4, .o-heading--4 { font-size: clamp(20px, 2.4vw, 28px) !important; line-height: 1.3 !important; }
-h5, .o-heading--5 { font-size: clamp(17px, 1.8vw, 22px) !important; line-height: 1.35 !important; }
-h6, .o-heading--6 { font-size: clamp(14px, 1.4vw, 17px) !important; line-height: 1.4 !important; }
-
-p, .o-paragraph--1, .c-text-and-image__text-paragraph {
-    font-family: 'Plus Jakarta Sans', 'neutraface-book', sans-serif !important;
-    font-size: 15px;
-    line-height: 1.65;
+/* Body & Navigation */
+p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__description p {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
     color: #4A3E36;
+    line-height: 1.6;
 }
 
-/* Nav, Buttons, Labels */
-.c-main-menu__link-title, .c-navigation__link-title,
-.c-nav a, .o-btn, .c-lang-btn, .c-announcement-bar,
-.o-subtitle, .o-type--1, .o-type--2--caps {
-    font-family: 'Plus Jakarta Sans', 'neutraface-demi', sans-serif !important;
+.c-main-menu__link-title,
+.c-navigation__link-title,
+.c-nav a,
+.o-btn,
+.c-lang-btn,
+.o-subtitle {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-weight: 600;
 }
 
-/* ==========================================================================
-   3. Header, Topbar & Sticky Behavior
-   ========================================================================== */
-.c-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background-color: #FFFFFF;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
-    transition: box-shadow 0.3s ease;
-}
-.c-header.is-scrolled {
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-}
-
+/* 3. Header Topbar & Precision Alignment */
 .c-header__topbar {
     display: flex !important;
-    justify-content: center;
-    align-items: center;
-    background-color: #2F221A;
-    color: #FFFFFF;
-    padding: 7px 16px;
+    justify-content: space-between !important;
+    align-items: center !important;
+    background-color: #2F221A !important;
+    color: #FFFFFF !important;
+    padding: 7px 24px !important;
     position: relative;
+    z-index: 1001;
 }
 
 .c-header__topbar-messages {
@@ -119,37 +79,22 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph {
     text-transform: uppercase;
     color: #FFFFFF !important;
     text-decoration: none;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600;
 }
 
-/* Mega menu dropdowns */
-.c-nav__item:hover .c-mega-nav,
-.c-nav__item.is-active .c-mega-nav {
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
-    transform: translateY(0) !important;
-}
-.c-mega-nav {
-    z-index: 999;
-}
-
-/* ==========================================================================
-   4. Language Switcher (Header + Footer)
-   ========================================================================== */
-.c-lang-switcher {
+/* 4. Language Switcher (Header Pill) */
+.c-lang-switcher--header {
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    padding: 3px 8px;
+    padding: 2px 6px;
     background: rgba(255, 255, 255, 0.15);
     border-radius: 20px;
     font-size: 11px;
-    letter-spacing: 0.5px;
-    flex-shrink: 0;
+    margin-left: auto;
 }
-.c-lang-switcher--header {
-    margin-left: 12px;
-}
+
 .c-lang-btn {
     background: transparent;
     border: none;
@@ -158,49 +103,52 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph {
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-size: 11px;
     font-weight: 600;
-    padding: 3px 10px;
-    border-radius: 14px;
+    padding: 2px 8px;
+    border-radius: 12px;
     transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    white-space: nowrap;
 }
-.c-lang-btn:hover { color: #FFFFFF; }
+
+.c-lang-btn:hover {
+    color: #FFFFFF;
+}
+
 .c-lang-btn.is-active {
     background: #D68E1D !important;
     color: #FFFFFF !important;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
-.c-lang-btn:focus-visible {
-    outline: 2px solid #D68E1D;
-    outline-offset: 2px;
-}
+
 .c-lang-divider {
     color: rgba(255, 255, 255, 0.35);
     font-size: 10px;
     user-select: none;
 }
 
-/* Footer variant */
+/* 5. Footer Language Switcher */
 .c-lang-switcher--footer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background: rgba(0, 0, 0, 0.25);
     border: 1px solid rgba(255, 255, 255, 0.12);
     padding: 6px 16px;
     border-radius: 24px;
     margin: 20px auto 10px;
-    display: inline-flex;
-    justify-content: center;
 }
+
 .c-lang-switcher--footer .c-lang-btn {
     color: #D8CEBE;
     font-size: 12px;
     padding: 4px 12px;
 }
+
 .c-lang-switcher--footer .c-lang-btn.is-active {
     background: #D68E1D !important;
     color: #FFFFFF !important;
 }
+
 .c-lang-label {
     font-size: 11px;
     text-transform: uppercase;
@@ -208,184 +156,25 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph {
     margin-right: 8px;
     color: #AC8A62;
     font-weight: 600;
-    white-space: nowrap;
 }
 
-/* ==========================================================================
-   5. Section Spacing System
-   ========================================================================== */
-.shopify-section,
-.c-section {
-    padding-top: clamp(40px, 6vw, 80px);
-    padding-bottom: clamp(40px, 6vw, 80px);
-}
-.c-section:first-child,
-.c-section__hero_banner { padding-top: 0; }
-
-/* ==========================================================================
-   6. Images & Lazy Loading
-   ========================================================================== */
-img[data-src], img.lazyload, img.lazyloaded {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transition: opacity 0.3s ease;
-}
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* ==========================================================================
-   7. Product Cards — Clean Hover (Touch-safe)
-   ========================================================================== */
-.o-product-thumbnail {
-    position: relative;
-    background: #FFFFFF;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-}
-.o-product-thumbnail__inner {
-    padding: 12px;
-    text-align: center;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.o-product-thumbnail__content {
-    position: relative;
-    min-height: 120px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
-.o-product-thumbnail__content-inner {
-    transition: opacity 0.2s ease;
-}
-.o-product-thumbnail__hover {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: #FFFFFF !important;
-    opacity: 0;
-    visibility: hidden;
-    pointer-events: none;
-    transition: opacity 0.2s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
-    z-index: 25;
-    padding: 8px;
-}
-
-/* Hover only on devices that support hover (NOT touch) */
-@media (hover: hover) and (pointer: fine) {
-    .o-product-thumbnail:hover {
-        transform: translateY(-4px);
-        box-shadow: 0 8px 24px rgba(47, 34, 26, 0.08);
-    }
-    .o-product-thumbnail:hover .o-product-thumbnail__content-inner {
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-    }
-    .o-product-thumbnail:hover .o-product-thumbnail__hover {
-        display: flex !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        pointer-events: auto !important;
-    }
-}
-
-/* Size selection pills */
-.o-swatches__swatch-button {
-    border: 1px solid #2F221A !important;
-    padding: 6px 14px !important;
-    border-radius: 20px !important;
-    font-size: 12px !important;
-    font-family: 'Plus Jakarta Sans', sans-serif !important;
-    color: #2F221A !important;
-    background: #FAF8F5 !important;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-weight: 600;
-}
-.o-swatches__swatch-button.is-selected,
-.o-swatches__swatch-button:hover {
-    background: #2F221A !important;
-    color: #FFFFFF !important;
-}
-
-/* Add to Bag button */
-.o-product-thumbnail__add-btn,
-.o-product-thumbnail__hover .o-btn {
-    background-color: #D68E1D !important;
-    color: #FFFFFF !important;
-    border: none;
-    padding: 12px 18px;
-    border-radius: 4px;
-    font-size: 12px;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-weight: 600;
-    width: 100%;
-    max-width: 220px;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.15s ease;
-}
-.o-product-thumbnail__add-btn:hover,
-.o-product-thumbnail__hover .o-btn:hover {
-    background-color: #B57715 !important;
-    transform: scale(1.02);
-}
-
-/* Rating Stars */
-.oke-stars-foreground { color: #D68E1D; }
-
-/* ==========================================================================
-   8. Buttons (CTA) — Unified Style
-   ========================================================================== */
-.o-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.25s ease;
-    border-radius: 4px;
-    cursor: pointer;
-}
+/* 6. Buttons & Interactions */
 .o-btn.is-primary.is-dark {
-    background-color: #2F221A;
-    color: #FAF8F5;
-    padding: 14px 24px;
-    font-size: 12px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    text-decoration: none;
-    border: none;
-}
-.o-btn.is-primary.is-dark:hover {
-    background-color: #463428;
-    transform: translateX(4px);
-}
-.o-btn.is-primary.is-dark .o-btn__arrow {
-    transition: transform 0.25s ease;
-    width: 20px;
-    height: 20px;
-}
-.o-btn.is-primary.is-dark:hover .o-btn__arrow {
-    transform: translateX(4px);
+    background-color: #2F221A !important;
+    color: #FAF8F5 !important;
+    transition: all 0.25s ease;
 }
 
-/* ==========================================================================
-   9. Cart Drawer
-   ========================================================================== */
+.o-btn.is-primary.is-dark:hover {
+    background-color: #463428 !important;
+}
+
+/* 7. Slide-out Cart Drawer */
 .c-cart-drawer {
     position: fixed;
-    top: 0; right: 0; bottom: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
     width: 100%;
     max-width: 440px;
     background-color: #FAF8F5;
@@ -396,11 +185,17 @@ img {
     display: flex;
     flex-direction: column;
 }
-.c-cart-drawer.is-open { transform: translateX(0) !important; }
+
+.c-cart-drawer.is-open {
+    transform: translateX(0) !important;
+}
 
 .c-cart-drawer__overlay {
     position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-color: rgba(47, 34, 26, 0.6);
     backdrop-filter: blur(2px);
     z-index: 9999998;
@@ -408,7 +203,11 @@ img {
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
-.c-cart-drawer__overlay.is-open { opacity: 1 !important; visibility: visible !important; }
+
+.c-cart-drawer__overlay.is-open {
+    opacity: 1 !important;
+    visibility: visible !important;
+}
 
 .c-cart-drawer__header {
     display: flex;
@@ -418,17 +217,24 @@ img {
     border-bottom: 1px solid #EBE7E1;
     background: #FFFFFF;
 }
+
 .c-cart-drawer__title {
     font-family: 'Cormorant Garamond', serif !important;
     font-size: 24px;
     margin: 0;
     color: #2F221A;
 }
+
 .c-cart-drawer__close {
-    background: none; border: none;
-    font-size: 24px; cursor: pointer;
-    color: #2F221A; padding: 4px 8px; line-height: 1;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #2F221A;
+    padding: 4px 8px;
+    line-height: 1;
 }
+
 .c-cart-drawer__free-shipping {
     background-color: #F0EAE1;
     padding: 12px 24px;
@@ -437,6 +243,7 @@ img {
     border-bottom: 1px solid #E2D9CD;
     color: #2F221A;
 }
+
 .c-cart-drawer__progress-bar {
     height: 5px;
     background: #D8CEBE;
@@ -444,22 +251,26 @@ img {
     margin-top: 8px;
     overflow: hidden;
 }
+
 .c-cart-drawer__progress-fill {
     height: 100%;
     background: #D68E1D;
     width: 65%;
     transition: width 0.35s ease;
 }
+
 .c-cart-drawer__body {
     flex: 1;
     overflow-y: auto;
     padding: 20px 24px;
 }
+
 .c-cart-drawer__footer {
     padding: 20px 24px;
     background: #FFFFFF;
     border-top: 1px solid #EBE7E1;
 }
+
 .c-cart-drawer__subtotal {
     display: flex;
     justify-content: space-between;
@@ -469,6 +280,7 @@ img {
     margin-bottom: 16px;
     color: #2F221A;
 }
+
 .c-cart-drawer__checkout-btn {
     width: 100%;
     background: #2F221A;
@@ -485,42 +297,12 @@ img {
     border-radius: 4px;
     transition: background 0.25s ease;
 }
-.c-cart-drawer__checkout-btn:hover { background: #463428; }
 
-/* ==========================================================================
-   10. Footer
-   ========================================================================== */
-.c-footer__bottom-bar {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    padding: 24px 0;
-    margin-top: 30px;
-    border-top: 1px solid #EBE7E1;
-    font-size: 12px;
-    color: #676986;
-    gap: 16px;
-}
-.c-footer__payment-icons {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    flex-wrap: wrap;
-}
-.c-footer__payment-badge {
-    background: #FFFFFF;
-    border: 1px solid #EBE7E1;
-    border-radius: 4px;
-    padding: 4px 8px;
-    font-size: 11px;
-    font-weight: 700;
-    color: #2F221A;
+.c-cart-drawer__checkout-btn:hover {
+    background: #463428;
 }
 
-/* ==========================================================================
-   11. Toast Notifications
-   ========================================================================== */
+/* 8. Toast & Scroll to Top */
 .c-toast {
     position: fixed;
     bottom: 30px;
@@ -540,14 +322,12 @@ img {
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     pointer-events: none;
 }
+
 .c-toast.is-active {
     transform: translateX(-50%) translateY(0);
     opacity: 1;
 }
 
-/* ==========================================================================
-   12. Scroll-to-Top Button
-   ========================================================================== */
 .c-scroll-top {
     position: fixed;
     bottom: 30px;
@@ -569,31 +349,50 @@ img {
     transform: translateY(10px);
     transition: all 0.3s ease;
 }
+
 .c-scroll-top.is-visible {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
+
 .c-scroll-top:hover {
     background: #D68E1D;
     transform: translateY(-2px);
 }
 
-/* ==========================================================================
-   13. Focus & Accessibility
-   ========================================================================== */
-*:focus-visible {
-    outline: 2px solid #D68E1D;
-    outline-offset: 2px;
-}
-a:focus-visible, button:focus-visible {
-    outline: 2px solid #D68E1D;
-    outline-offset: 2px;
+/* 9. Footer Payment Bar */
+.c-footer__bottom-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+    margin-top: 30px;
+    border-top: 1px solid #EBE7E1;
+    font-size: 12px;
+    color: #676986;
+    gap: 16px;
 }
 
-/* ==========================================================================
-   14. Hide Orbe/Third-party Junk
-   ========================================================================== */
+.c-footer__payment-icons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.c-footer__payment-badge {
+    background: #FFFFFF;
+    border: 1px solid #EBE7E1;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #2F221A;
+}
+
+/* 10. Hide Orbe Junk */
 #md-footer-selector-block,
 .md-footer-selector__container,
 .md-footer-selector__content,
@@ -610,70 +409,27 @@ md-footer-selector__form {
     pointer-events: none !important;
 }
 
-/* ==========================================================================
-   15. Mobile Responsive (≤ 768px)
-   ========================================================================== */
+/* 11. Responsive Design */
 @media (max-width: 768px) {
     .c-header__topbar {
         flex-wrap: wrap;
         gap: 4px;
-        padding: 6px 12px;
+        padding: 6px 12px !important;
     }
     .c-header__topbar-message {
         font-size: 10px;
-        letter-spacing: 1px;
     }
     .c-lang-switcher--header {
-        margin-left: 0;
-        margin-top: 2px;
+        margin: 2px auto 0;
     }
-
-    .shopify-section, .c-section {
-        padding-top: clamp(24px, 5vw, 48px);
-        padding-bottom: clamp(24px, 5vw, 48px);
-    }
-
-    .o-product-thumbnail__content {
-        min-height: 80px;
-    }
-
     .c-footer__bottom-bar {
         flex-direction: column;
         text-align: center;
-        gap: 12px;
     }
     .c-footer__payment-icons {
         justify-content: center;
     }
-
     .c-cart-drawer {
         max-width: 100%;
-    }
-
-    .c-scroll-top {
-        bottom: 20px;
-        right: 20px;
-        width: 40px;
-        height: 40px;
-    }
-
-    .c-lang-switcher--footer {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 6px;
-    }
-}
-
-/* ==========================================================================
-   16. Small Mobile (≤ 480px)
-   ========================================================================== */
-@media (max-width: 480px) {
-    h1, .o-heading--1 { font-size: 28px !important; }
-    h2, .o-heading--2 { font-size: 24px !important; }
-    h3, .o-heading--3 { font-size: 20px !important; }
-
-    .o-btn.is-primary.is-dark {
-        padding: 12px 18px;
-        font-size: 11px;
     }
 }
