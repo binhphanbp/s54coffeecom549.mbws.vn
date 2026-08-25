@@ -54,8 +54,8 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
     top: 0 !important;
     width: 100% !important;
     z-index: 1000 !important;
-    background-color: #FAF8F5 !important;
-    box-shadow: 0 1px 4px rgba(47, 34, 26, 0.08);
+    background-color: #2F221A !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
 }
 
 .c-header__margin {
@@ -63,31 +63,39 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
     height: 0 !important;
 }
 
+/* TOPBAR: Crisp Clean White / Off-White */
 .c-header__topbar {
     display: flex !important;
     justify-content: space-between !important;
     align-items: center !important;
-    background-color: #2F221A !important;
-    color: #FFFFFF !important;
-    padding: 8px clamp(16px, 4vw, 48px) !important;
+    background-color: #FFFFFF !important;
+    color: #2F221A !important;
+    padding: 7px clamp(16px, 4vw, 48px) !important;
+    border-bottom: 1px solid rgba(47, 34, 26, 0.08) !important;
 }
 
 .c-header__topbar-message {
     font-size: 11px !important;
     letter-spacing: 1.2px !important;
     text-transform: uppercase !important;
-    color: #FFFFFF !important;
+    color: #2F221A !important;
     text-decoration: none !important;
-    font-weight: 600 !important;
+    font-weight: 700 !important;
     font-family: 'Plus Jakarta Sans', sans-serif !important;
+    transition: color 0.2s ease !important;
 }
 
+.c-header__topbar-message:hover {
+    color: #D68E1D !important;
+}
+
+/* MAIN HEADER: Luxury Coffee Brown */
 .c-header__inner {
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
     padding: 14px clamp(16px, 4vw, 48px) !important;
-    background-color: #FAF8F5 !important;
+    background-color: #2F221A !important;
     max-width: 1440px !important;
     margin: 0 auto !important;
     width: 100% !important;
@@ -110,9 +118,10 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
     max-height: 42px !important;
     object-fit: contain !important;
     display: block !important;
+    filter: brightness(1.05) drop-shadow(0 1px 3px rgba(0,0,0,0.4)) !important;
 }
 
-/* Nav Menu Center */
+/* Nav Menu Center (Light Cream on Dark Brown) */
 .c-main-menu {
     display: flex !important;
     align-items: center !important;
@@ -130,11 +139,11 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
 }
 
 .c-main-menu__link.is-level-1 {
-    color: #2F221A !important;
+    color: #FAF6F1 !important;
     text-decoration: none !important;
-    font-size: 12px !important;
-    font-weight: 700 !important;
-    letter-spacing: 1px !important;
+    font-size: 12.5px !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.8px !important;
     text-transform: uppercase !important;
     white-space: nowrap !important;
     padding: 6px 0 !important;
@@ -149,23 +158,23 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
     left: 0 !important;
     width: 0 !important;
     height: 2px !important;
-    background-color: #D68E1D !important;
+    background-color: #E5B869 !important;
     transition: width 0.25s ease !important;
 }
 
 .c-main-menu__link.is-level-1:hover {
-    color: #D68E1D !important;
+    color: #E5B869 !important;
 }
 
 .c-main-menu__link.is-level-1:hover:after {
     width: 100% !important;
 }
 
-/* Right Actions */
+/* Right Actions (Hotline, Cart, Search) */
 .c-header__additional {
     display: flex !important;
     align-items: center !important;
-    gap: 20px !important;
+    gap: 16px !important;
     list-style: none !important;
     margin: 0 !important;
     padding: 0 !important;
@@ -177,19 +186,34 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
     align-items: center !important;
     gap: 6px !important;
     text-decoration: none !important;
-    color: #2F221A !important;
-    font-size: 13px !important;
+    color: #FAF6F1 !important;
+    font-size: 12.5px !important;
     font-weight: 700 !important;
-    background: rgba(214, 142, 29, 0.12) !important;
+    background: rgba(229, 184, 105, 0.15) !important;
     padding: 6px 14px !important;
     border-radius: 20px !important;
-    border: 1px solid rgba(214, 142, 29, 0.25) !important;
+    border: 1px solid rgba(229, 184, 105, 0.35) !important;
     transition: all 0.2s ease !important;
 }
 
 .c-header__phone-link:hover {
     background: #D68E1D !important;
     color: #FFFFFF !important;
+    border-color: #D68E1D !important;
+    transform: translateY(-1px);
+}
+
+.c-header__icon.is-cart {
+    stroke: #FAF6F1 !important;
+}
+
+.c-header__icon.is-cart path,
+.c-header__icon.is-cart line {
+    stroke: #FAF6F1 !important;
+}
+
+.c-header__icon.is-hamburger path {
+    stroke: #FAF6F1 !important;
 }
 
 .c-header__cart-count {
@@ -206,15 +230,17 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3) !important;
 }
 
-/* 4. Language Switcher */
+/* 4. Language Switcher on White Topbar */
 .c-lang-switcher--header {
     display: inline-flex;
     align-items: center;
     gap: 4px;
-    padding: 2px 8px;
-    background: rgba(255, 255, 255, 0.15);
+    padding: 2px 6px;
+    background: rgba(47, 34, 26, 0.05);
+    border: 1px solid rgba(47, 34, 26, 0.12);
     border-radius: 20px;
     font-size: 11px;
     margin-left: auto;
@@ -223,12 +249,12 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
 .c-lang-btn {
     background: transparent;
     border: none;
-    color: rgba(255, 255, 255, 0.7);
+    color: #4A3528;
     cursor: pointer;
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-size: 11px;
     font-weight: 600;
-    padding: 2px 8px;
+    padding: 3px 8px;
     border-radius: 12px;
     transition: all 0.2s ease;
     display: inline-flex;
@@ -236,15 +262,18 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
     gap: 4px;
 }
 
-.c-lang-btn:hover { color: #FFFFFF; }
+.c-lang-btn:hover {
+    color: #D68E1D;
+}
+
 .c-lang-btn.is-active {
     background: #D68E1D !important;
     color: #FFFFFF !important;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 4px rgba(214, 142, 29, 0.35);
 }
 
 .c-lang-divider {
-    color: rgba(255, 255, 255, 0.35);
+    color: rgba(47, 34, 26, 0.2);
     font-size: 10px;
     user-select: none;
 }
@@ -715,8 +744,8 @@ md-footer-selector__form {
         left: 0 !important;
         bottom: 0 !important;
         width: 280px !important;
-        background: #FAF8F5 !important;
-        box-shadow: 4px 0 24px rgba(0, 0, 0, 0.2) !important;
+        background: #2F221A !important;
+        box-shadow: 4px 0 24px rgba(0, 0, 0, 0.4) !important;
         z-index: 99999 !important;
         transform: translateX(-100%) !important;
         transition: transform 0.3s ease !important;
@@ -727,6 +756,13 @@ md-footer-selector__form {
     }
     .c-main-menu.is-open {
         transform: translateX(0) !important;
+    }
+    .c-main-menu__close {
+        color: #FAF6F1 !important;
+        background: none !important;
+        border: none !important;
+        font-size: 20px !important;
+        cursor: pointer !important;
     }
     .c-main-menu__list.is-level-1 {
         flex-direction: column !important;
