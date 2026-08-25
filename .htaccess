@@ -15,11 +15,14 @@ AddDefaultCharset UTF-8
   # Redirect /products or /products/* to product-detail.html
   RewriteRule ^products(/.*)?$ product-detail.html [L,QSA]
 
-  # Redirect /pages/our-story or /our-story to our-story.html
-  RewriteRule ^(pages/)?our-story$ our-story.html [L,QSA]
+  # Redirect /pages/our-story, roasting, news, community to our-story.html
+  RewriteRule ^(pages/)?(our-story|roasting|community|brewing-guides|news|subscriptions)$ our-story.html [L,QSA]
 
-  # Redirect /pages/wholesale or /wholesale to wholesale.html
-  RewriteRule ^(pages/)?wholesale$ wholesale.html [L,QSA]
+  # Redirect /pages/wholesale, business, contact to wholesale.html
+  RewriteRule ^(pages/)?(wholesale|business|contact)$ wholesale.html [L,QSA]
+
+  # Redirect /search to collections-coffee.html
+  RewriteRule ^search$ collections-coffee.html [L,QSA]
 
   # Existing files and directories serve normally
   RewriteCond %{REQUEST_FILENAME} -f [OR]

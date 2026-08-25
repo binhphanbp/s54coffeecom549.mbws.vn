@@ -167,10 +167,12 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
             self.path = '/collections-coffee.html'
         elif path.startswith('/products') or path.startswith('/product-detail'):
             self.path = '/product-detail.html'
-        elif path.startswith('/pages/our-story') or path == '/our-story':
+        elif path.startswith('/pages/our-story') or path == '/our-story' or path.startswith('/pages/roasting') or path.startswith('/pages/community') or path.startswith('/pages/brewing') or path.startswith('/pages/news') or path.startswith('/pages/subscriptions'):
             self.path = '/our-story.html'
-        elif path.startswith('/pages/wholesale') or path == '/wholesale':
+        elif path.startswith('/pages/wholesale') or path == '/wholesale' or path.startswith('/pages/business') or path == '/business' or path.startswith('/pages/contact') or path == '/contact':
             self.path = '/wholesale.html'
+        elif path.startswith('/search'):
+            self.path = '/collections-coffee.html'
         elif (BASE_DIR / path.lstrip('/')).is_file():
             self.path = path
         elif (BASE_DIR / (path.lstrip('/') + '.html')).is_file():
