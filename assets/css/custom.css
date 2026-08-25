@@ -387,8 +387,6 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
     min-height: 520px !important;
     max-height: 650px !important;
     height: 70vh !important;
-    display: flex !important;
-    align-items: center !important;
     padding-bottom: 0 !important;
     overflow: hidden !important;
     background-color: #1A120D !important;
@@ -396,8 +394,7 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
 
 .c-hero-banner__media {
     position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
+    inset: 0 !important;
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
@@ -406,15 +403,19 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
 }
 
 .c-hero-banner__container {
-    position: relative !important;
-    z-index: 5 !important;
+    position: absolute !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
     width: 100% !important;
     max-width: 1440px !important;
-    margin: 0 auto !important;
-    padding: 0 clamp(20px, 4vw, 56px) !important;
+    padding: 0 clamp(40px, 6vw, 100px) !important;
     box-sizing: border-box !important;
+    z-index: 5 !important;
     display: flex !important;
     align-items: center !important;
+    pointer-events: none !important;
 }
 
 /* Mobile & Tablet Styles (≤ 1099px) - High-contrast luminous text for dark coffee background */
@@ -539,11 +540,12 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
 
     .c-hero-banner__overlay {
         position: relative !important;
-        z-index: 5 !important;
+        z-index: 6 !important;
         max-width: 680px !important;
         margin: 0 !important;
         padding: 0 !important;
         color: #2F221A !important;
+        pointer-events: auto !important;
         top: unset !important;
         left: unset !important;
         bottom: unset !important;
