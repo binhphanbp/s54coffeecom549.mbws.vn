@@ -1,11 +1,18 @@
 /**
  * Main Interactive Controller for Vittoria Coffee Clone
- * Fully integrated with window.VittoriaCart
+ * Fully integrated with window.VittoriaCart & window.VittoriaI18n
  */
 (function() {
     'use strict';
 
     const freeShippingThreshold = 69.00;
+
+    function _t(key, params) {
+        if (window.VittoriaI18n && typeof window.VittoriaI18n.t === 'function') {
+            return window.VittoriaI18n.t(key, params);
+        }
+        return key;
+    }
 
     function formatPrice(amount) {
         if (typeof amount !== 'number') {
@@ -33,14 +40,26 @@
             badge.style.display = totalItems > 0 ? 'inline-flex' : 'none';
         });
 
+        // Update header drawer title
+        const drawerTitle = document.querySelector('.c-cart-drawer__title');
+        if (drawerTitle) drawerTitle.textContent = _t('cart_title');
+
+        // Update checkout button
+        const checkoutBtn = document.querySelector('.c-cart-drawer__checkout-btn');
+        if (checkoutBtn) checkoutBtn.textContent = _t('cart_checkout');
+
+        // Update subtotal label
+        const subtotalLabel = document.querySelector('.c-cart-drawer__subtotal span:first-child');
+        if (subtotalLabel) subtotalLabel.textContent = _t('cart_subtotal');
+
         // Update items inside drawer
         const cartBody = document.querySelector('.c-cart-drawer__body');
         if (cartBody) {
             if (items.length === 0) {
                 cartBody.innerHTML = `
                     <div style="text-align: center; padding: 60px 20px; color: #676986;">
-                        <p style="font-size: 16px; font-family: 'neutraface-demi', sans-serif;">Your bag is currently empty.</p>
-                        <button onclick="document.querySelector('.c-cart-drawer').classList.remove('is-open'); document.querySelector('.c-cart-drawer__overlay').classList.remove('is-open');" class="o-btn is-primary" style="margin-top: 20px; padding: 12px 24px; background-color: #2F221A; color: #FAF8F5;">Start Shopping</button>
+                        <p style="font-size: 16px; font-family: 'neutraface-demi', sans-serif;">${_t('cart_empty_title')}</p>
+                        <button onclick="document.querySelector('.c-cart-drawer').classList.remove('is-open'); document.querySelector('.c-cart-drawer__overlay').classList.remove('is-open');" class="o-btn is-primary" style="margin-top: 20px; padding: 12px 24px; background-color: #2F221A; color: #FAF8F5;">${_t('cart_start_shopping')}</button>
                     </div>
                 `;
             } else {
@@ -70,11 +89,11 @@
         const progressFill = document.querySelector('.c-cart-drawer__progress-fill');
         if (freeShippingMsg && progressFill) {
             if (subtotal >= freeShippingThreshold) {
-                freeShippingMsg.textContent = '🎉 You qualify for FREE Delivery!';
+                freeShippingMsg.textContent = _t('cart_freeship_qualified');
                 progressFill.style.width = '100%';
             } else {
                 const diff = freeShippingThreshold - subtotal;
-                freeShippingMsg.textContent = `You're ${formatPrice(diff)} away from FREE shipping!`;
+                freeShippingMsg.textContent = _t('cart_freeship_remaining', { amount: formatPrice(diff) });
                 const pct = Math.min(100, (subtotal / freeShippingThreshold) * 100);
                 progressFill.style.width = `${pct}%`;
             }
@@ -100,11 +119,11 @@
             drawer.className = 'c-cart-drawer';
             drawer.innerHTML = `
                 <div class="c-cart-drawer__header">
-                    <h3 class="c-cart-drawer__title">Your Bag</h3>
+                    <h3 class="c-cart-drawer__title">${_t('cart_title')}</h3>
                     <button class="c-cart-drawer__close" aria-label="Close">✕</button>
                 </div>
                 <div class="c-cart-drawer__free-shipping">
-                    <div class="c-cart-drawer__free-shipping-text">You're $25.00 away from FREE shipping!</div>
+                    <div class="c-cart-drawer__free-shipping-text">${_t('cart_freeship_remaining', { amount: '$25.00' })}</div>
                     <div class="c-cart-drawer__progress-bar">
                         <div class="c-cart-drawer__progress-fill"></div>
                     </div>
@@ -112,10 +131,10 @@
                 <div class="c-cart-drawer__body"></div>
                 <div class="c-cart-drawer__footer">
                     <div class="c-cart-drawer__subtotal">
-                        <span>Subtotal</span>
+                        <span>${_t('cart_subtotal')}</span>
                         <span class="c-cart-drawer__subtotal-amount">$44.00</span>
                     </div>
-                    <button class="c-cart-drawer__checkout-btn" onclick="alert('Proceeding to Secure Checkout...');">CHECKOUT</button>
+                    <button class="c-cart-drawer__checkout-btn" onclick="alert('${_t('cart_proceed_checkout')}');">${_t('cart_checkout')}</button>
                 </div>
             `;
 
@@ -189,10 +208,9 @@
     window.closeCartDrawer = closeCartDrawer;
     window.showToast = showToast;
 
-    // Listen for cart state update events
-    window.addEventListener('cart:updated', () => {
-        updateCartUI();
-    });
+    // Listen for cart & language state update events
+    window.addEventListener('cart:updated', updateCartUI);
+    window.addEventListener('language:changed', updateCartUI);
 
     document.addEventListener('DOMContentLoaded', () => {
         console.log('Vittoria Coffee Clone initialized successfully.');
@@ -258,7 +276,7 @@
                 }
 
                 const originalText = addBtn.textContent;
-                addBtn.textContent = 'ADDED!';
+                addBtn.textContent = _t('cart_btn_added');
                 addBtn.style.backgroundColor = '#2F221A';
                 addBtn.style.color = '#FFFFFF';
                 setTimeout(() => {
@@ -267,7 +285,7 @@
                     addBtn.style.color = '';
                 }, 1200);
 
-                showToast(`✓ Added "${title}" to your Bag`);
+                showToast(_t('cart_added_toast', { title: title }));
                 openCartDrawer();
                 return;
             }
@@ -327,7 +345,7 @@
                 e.preventDefault();
                 const input = form.querySelector('input[type="email"]');
                 if (input && input.value) {
-                    showToast(`Thank you! 10% discount code sent to ${input.value}`);
+                    showToast(_t('home_newsletter_success', { email: input.value }));
                     input.value = '';
                 }
             });
