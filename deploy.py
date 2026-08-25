@@ -16,6 +16,15 @@ import ssl
 import time
 from pathlib import Path
 
+# Force UTF-8 on Windows terminal
+try:
+    if hasattr(sys.stdout, 'reconfigure'):
+        sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    if hasattr(sys.stderr, 'reconfigure'):
+        sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+except Exception:
+    pass
+
 FTP_HOST = "203.205.31.252"
 FTP_USER = "u513776f0"
 FTP_PASS = "1~dzR0hkLJ0~tlgm"
@@ -29,7 +38,7 @@ EXCLUDE_FILES = {'deploy.py', 'deploy.zip', 'extractor.php', '.gitignore'}
 
 def print_header():
     print("=" * 65)
-    print("      Vittoria Coffee Storefront - Deployment Pipeline")
+    print("      S54 Coffee Storefront - Deployment Pipeline")
     print(f"      Target: https://{DOMAIN}/ ({FTP_HOST})")
     print("=" * 65)
 
@@ -58,7 +67,7 @@ def create_deploy_package(zip_filename="deploy.zip"):
                 file_count += 1
 
     size_mb = os.path.getsize(zip_path) / (1024 * 1024)
-    print(f"      ✓ Package built: {file_count} files ({size_mb:.2f} MB)")
+    print(f"      [OK] Package built: {file_count} files ({size_mb:.2f} MB)")
     return zip_path
 
 def create_extractor_script():
@@ -111,12 +120,12 @@ def upload_via_ftp(zip_path, extractor_path):
 
     with open(zip_path, "rb") as f:
         ftp.storbinary("STOR deploy.zip", f, callback=progress)
-    print("\n      ✓ deploy.zip uploaded.")
+    print("\n      [OK] deploy.zip uploaded.")
 
     # Upload extractor.php
     with open(extractor_path, "rb") as f:
         ftp.storbinary("STOR extractor.php", f)
-    print("      ✓ extractor.php uploaded.")
+    print("      [OK] extractor.php uploaded.")
 
     ftp.quit()
 
@@ -166,9 +175,9 @@ def verify_deployment():
         try:
             req = urllib.request.Request(u, headers={'User-Agent': 'Mozilla/5.0', 'Host': DOMAIN})
             with urllib.request.urlopen(req, context=ctx, timeout=15) as resp:
-                print(f"      ✓ {u:55} -> Status: {resp.status}")
+                print(f"      [OK] {u:55} -> Status: {resp.status}")
         except Exception as e:
-            print(f"      ✗ {u:55} -> Error: {e}")
+            print(f"      [FAIL] {u:55} -> Error: {e}")
 
 def cleanup_local(zip_path, extractor_path):
     if zip_path.exists():

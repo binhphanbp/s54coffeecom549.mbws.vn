@@ -69,7 +69,7 @@
 <link rel="alternate" hreflang="en-IT" href="https://www.s54coffee.com/en-it/products/cinque-stelle-beans-1kg">
 <link rel="alternate" hreflang="it-IT" href="https://www.s54coffee.com/it-it/products/cinque-stelle-beans-1kg">
 <link rel="alternate" type="application/json+oembed" href="product-detail.html">
-<script async="async" src="/checkouts/internal/preloads.js?locale=en-AU&default_configuration_id=426159"></script>
+
 <link rel="preconnect" href="https://shop.app" crossorigin="anonymous">
 
 <script id="apple-pay-shop-capabilities" type="application/json">{"shopId":55608606895,"countryCode":"AU","currencyCode":"AUD","merchantCapabilities":["supports3DS"],"merchantId":"gid:\/\/shopify\/Shop\/55608606895","merchantName":"S54 COFFEE","requiredBillingContactFields":["postalAddress","email","phone"],"requiredShippingContactFields":["postalAddress","email","phone"],"shippingType":"shipping","supportedNetworks":["visa","masterCard","amex","jcb"],"total":{"type":"pending","label":"S54 COFFEE","amount":"1.00"},"shopifyPaymentsEnabled":true,"supportsMua Hàng Định Kỳ":true}</script>
@@ -103,7 +103,7 @@ Shopify.SignInWithShop.User.recognized = false;</script>
   window.Shopify.SignInWithShop.eligible = true;
 </script>
 <script id="shop-js-analytics" type="application/json">{"pageType":"product"}</script>
-<script defer="defer" async type="module" src="//www.s54coffee.com/cdn/shopifycloud/shop-js/modules/v2/loader.init-shop-cart-sync.en.esm.js"></script>
+
 <script type="module">
   await import("//www.s54coffee.com/cdn/shopifycloud/shop-js/modules/v2/loader.init-shop-cart-sync.en.esm.js");
 
@@ -140,7 +140,7 @@ Shopify.SignInWithShop.User.recognized = false;</script>
 <script>window.ShopifyPaypalV4VisibilityTracking = true;</script>
 <script id="captcha-bootstrap">!function(){'use strict';const t='contact',e='account',n='new_comment',o=[[t,t],['blogs',n],['comments',n],[t,'customer']],c=[[e,'customer_login'],[e,'guest_login'],[e,'recover_customer_password'],[e,'create_customer']],r=t=>t.map((([t,e])=>`form[action*='/${t}']:not([data-nocaptcha='true']) input[name='form_type'][value='${e}']`)).join(','),a=t=>()=>t?[...document.querySelectorAll(t)].map((t=>t.form)):[];function s(){const t=[...o],e=r(t);return a(e)}const i='password',u='form_key',d=['recaptcha-v3-token','g-recaptcha-response','h-captcha-response',i],f=()=>{try{return window.sessionStorage}catch{return}},m='__shopify_v',_=t=>t.elements[u];function p(t,e,n=!1){try{const o=window.sessionStorage,c=JSON.parse(o.getItem(e)),{data:r}=function(t){const{data:e,action:n}=t;return t[m]||n?{data:e,action:n}:{data:t,action:n}}(c);for(const[e,n]of Object.entries(r))t.elements[e]&&(t.elements[e].value=n);n&&o.removeItem(e)}catch(o){console.error('form repopulation failed',{error:o})}}const l='form_type',E='cptcha';function T(t){t.dataset[E]=!0}const w=window,h=w.document,L='Shopify',v='ce_forms',y='captcha';let A=!1;((t,e)=>{const n=(g='f06e6c50-85a8-45c8-87d0-21a2b65856fe',I='https://cdn.shopify.com/shopifycloud/storefront-forms-hcaptcha/ce_storefront_forms_captcha_hcaptcha.v1.5.2.iife.js',D={infoText:'Protected by hCaptcha',privacyText:'Privacy',termsText:'Terms'},(t,e,n)=>{const o=w[L][v],c=o.bindForm;if(c)return c(t,g,e,D).then(n);var r;o.q.push([[t,g,e,D],n]),r=I,A||(h.body.append(Object.assign(h.createElement('script'),{id:'captcha-provider',async:!0,src:r})),A=!0)});var g,I,D;w[L]=w[L]||{},w[L][v]=w[L][v]||{},w[L][v].q=[],w[L][y]=w[L][y]||{},w[L][y].protect=function(t,e){n(t,void 0,e),T(t)},Object.freeze(w[L][y]),function(t,e,n,w,h,L){const[v,y,A,g]=function(t,e,n){const i=e?o:[],u=t?c:[],d=[...i,...u],f=r(d),m=r(i),_=r(d.filter((([t,e])=>n.includes(e))));return[a(f),a(m),a(_),s()]}(w,h,L),I=t=>{const e=t.target;return e instanceof HTMLFormElement?e:e&&e.form},D=t=>v().includes(t);t.addEventListener('submit',(t=>{const e=I(t);if(!e)return;const n=D(e)&&!e.dataset.hcaptchaBound&&!e.dataset.recaptchaBound,o=_(e),c=g().includes(e)&&(!o||!o.value);(n||c)&&t.preventDefault(),c&&!n&&(function(t){try{if(!f())return;!function(t){const e=f();if(!e)return;const n=_(t);if(!n)return;const o=n.value;o&&e.removeItem(o)}(t);const e=Array.from(Array(32),(()=>Math.random().toString(36)[2])).join('');!function(t,e){_(t)||t.append(Object.assign(document.createElement('input'),{type:'hidden',name:u})),t.elements[u].value=e}(t,e),function(t,e){const n=f();if(!n)return;const o=[...t.querySelectorAll(`input[type='${i}']`)].map((({name:t})=>t)),c=[...d,...o],r={};for(const[a,s]of new FormData(t).entries())c.includes(a)||(r[a]=s);n.setItem(e,JSON.stringify({[m]:1,action:t.action,data:r}))}(t,e)}catch(e){console.error('failed to persist form',e)}}(e),e.submit())}));const S=(t,e)=>{t&&!t.dataset[E]&&(n(t,e.some((e=>e===t))),T(t))};for(const o of['focusin','change'])t.addEventListener(o,(t=>{const e=I(t);D(e)&&S(e,y())}));const B=e.get('form_key'),M=e.get(l),P=B&&M;t.addEventListener('DOMContentLoaded',(()=>{const t=y();if(P)for(const e of t)e.elements[l].value===M&&p(e,B);[...new Set([...A(),...v().filter((t=>'true'===t.dataset.shopifyCaptcha))])].forEach((e=>S(e,t)))}))}(h,new URLSearchParams(w.location.search),n,t,e,['guest_login'])})(!0,!0)}();</script>
 
-<script>(function () {var userAgent = navigator.userAgent;var platform = navigator.platform;var maxTouchPoints = navigator.maxTouchPoints || 0;var isIOS = /iPad|iPhone|iPod/.test(platform) || (platform === 'MacIntel' && maxTouchPoints > 1);var isMacSafari = platform.indexOf('Mac') === 0 && /Safari/.test(userAgent) && !/Chrome|Chromium|CriOS|FxiOS|Edg|OPR|Android/.test(userAgent);var isAppleSafari = isIOS || isMacSafari;if (isAppleSafari) {fetch('/sf_private_access_tokens' + location.search).catch(function () {});}function browserMajorVersion(pattern) {var match = userAgent.match(pattern);return match ? parseInt(match[1], 10) : null;}function shouldLoadAutosizesPolyfill() {if (!window.PerformanceObserver?.supportedEntryTypes?.includes('paint')) {return false;}var chromeVersion = browserMajorVersion(/Chrome\/(\d+)/);if (chromeVersion !== null) {return chromeVersion < 126;}var firefoxVersion = browserMajorVersion(/Firefox\/(\d+)/);if (firefoxVersion !== null) {return firefoxVersion < 150;}var safariVersion = isAppleSafari ? browserMajorVersion(/Version\/(\d+).*Safari\//) : null;if (safariVersion !== null) {return safariVersion < 27;}return true;}if (shouldLoadAutosizesPolyfill()) {var autosizesScript = document.createElement('script');autosizesScript.async = true;autosizesScript.crossOrigin = 'anonymous';autosizesScript.src = "//www.s54coffee.com/cdn/shopifycloud/storefront/assets/storefront/autosizes-84416378.js";(document.head || document.documentElement).appendChild(autosizesScript);}window.ShopifyAnalytics = window.ShopifyAnalytics || {};window.ShopifyAnalytics.performance = window.ShopifyAnalytics.performance || {};(function () {var LONG_FRAME_THRESHOLD = 50;var longAnimationFrames = [];var activeRafId = null;function collectLongFrames() {var previousTime = null;function rafMonitor(now) {if (activeRafId === null) {return;}var delta = now - previousTime;if (delta > LONG_FRAME_THRESHOLD) {longAnimationFrames.push({startTime: previousTime,endTime: now,});}previousTime = now;activeRafId = requestAnimationFrame(rafMonitor);}previousTime = performance.now();activeRafId = requestAnimationFrame(rafMonitor);}if (!window.PerformanceObserver?.supportedEntryTypes?.includes('long-animation-frame')) {collectLongFrames();var timeoutId = setTimeout(function () {cancelAnimationFrame(activeRafId);}, 10000);window.ShopifyAnalytics.performance.getLongAnimationFrames = function (stopCollection) {if (stopCollection === undefined) {stopCollection = false;}if (stopCollection) {clearTimeout(timeoutId);cancelAnimationFrame(activeRafId);}return longAnimationFrames;};}})();})();</script><script crossorigin="anonymous" defer="defer" src="//www.s54coffee.com/cdn/shopifycloud/storefront/assets/shopify_pay/storefront-bf1cdb70.js?v=20250812"></script>
+<script>(function () {var userAgent = navigator.userAgent;var platform = navigator.platform;var maxTouchPoints = navigator.maxTouchPoints || 0;var isIOS = /iPad|iPhone|iPod/.test(platform) || (platform === 'MacIntel' && maxTouchPoints > 1);var isMacSafari = platform.indexOf('Mac') === 0 && /Safari/.test(userAgent) && !/Chrome|Chromium|CriOS|FxiOS|Edg|OPR|Android/.test(userAgent);var isAppleSafari = isIOS || isMacSafari;if (isAppleSafari) {fetch('/sf_private_access_tokens' + location.search).catch(function () {});}function browserMajorVersion(pattern) {var match = userAgent.match(pattern);return match ? parseInt(match[1], 10) : null;}function shouldLoadAutosizesPolyfill() {if (!window.PerformanceObserver?.supportedEntryTypes?.includes('paint')) {return false;}var chromeVersion = browserMajorVersion(/Chrome\/(\d+)/);if (chromeVersion !== null) {return chromeVersion < 126;}var firefoxVersion = browserMajorVersion(/Firefox\/(\d+)/);if (firefoxVersion !== null) {return firefoxVersion < 150;}var safariVersion = isAppleSafari ? browserMajorVersion(/Version\/(\d+).*Safari\//) : null;if (safariVersion !== null) {return safariVersion < 27;}return true;}if (shouldLoadAutosizesPolyfill()) {var autosizesScript = document.createElement('script');autosizesScript.async = true;autosizesScript.crossOrigin = 'anonymous';autosizesScript.src = "//www.s54coffee.com/cdn/shopifycloud/storefront/assets/storefront/autosizes-84416378.js";(document.head || document.documentElement).appendChild(autosizesScript);}window.ShopifyAnalytics = window.ShopifyAnalytics || {};window.ShopifyAnalytics.performance = window.ShopifyAnalytics.performance || {};(function () {var LONG_FRAME_THRESHOLD = 50;var longAnimationFrames = [];var activeRafId = null;function collectLongFrames() {var previousTime = null;function rafMonitor(now) {if (activeRafId === null) {return;}var delta = now - previousTime;if (delta > LONG_FRAME_THRESHOLD) {longAnimationFrames.push({startTime: previousTime,endTime: now,});}previousTime = now;activeRafId = requestAnimationFrame(rafMonitor);}previousTime = performance.now();activeRafId = requestAnimationFrame(rafMonitor);}if (!window.PerformanceObserver?.supportedEntryTypes?.includes('long-animation-frame')) {collectLongFrames();var timeoutId = setTimeout(function () {cancelAnimationFrame(activeRafId);}, 10000);window.ShopifyAnalytics.performance.getLongAnimationFrames = function (stopCollection) {if (stopCollection === undefined) {stopCollection = false;}if (stopCollection) {clearTimeout(timeoutId);cancelAnimationFrame(activeRafId);}return longAnimationFrames;};}})();})();</script>
 
 <script>
   window.Shopify = window.Shopify || {};
@@ -159,7 +159,7 @@ Shopify.SignInWithShop.User.recognized = false;</script>
 </script>
 <script data-source-attribution="shopify.dynamic_checkout.cart.bootstrap">document.addEventListener("DOMContentLoaded",(function(){function t(){return document.querySelector("shopify-accelerated-checkout-cart, shopify-accelerated-checkout")}if(t())Shopify.PaymentButton.init();else{new MutationObserver((function(e,n){t()&&(Shopify.PaymentButton.init(),n.disconnect())})).observe(document.body,{childList:!0,subtree:!0})}}));
 </script>
-<script id='scb4127' type='text/javascript' async='' src='https://www.s54coffee.com/cdn/shopifycloud/privacy-banner/storefront-banner.js'></script><link id="shopify-accelerated-checkout-styles" rel="stylesheet" media="screen" href="assets/css/accelerated-checkout-backwards-compat.css" crossorigin="anonymous">
+<link id="shopify-accelerated-checkout-styles" rel="stylesheet" media="screen" href="assets/css/accelerated-checkout-backwards-compat.css" crossorigin="anonymous">
 <style id="shopify-accelerated-checkout-cart">
         #shopify-buyer-consent {
   margin-top: 1em;
@@ -563,24 +563,7 @@ first.parentNode.insertBefore(script, first);
     }
   }
 </script>
-<script
-  defer
-  src="https://www.s54coffee.com/cdn/shopifycloud/perf-kit/shopify-perf-kit-3.8.4.min.js"
-  data-application="storefront-renderer"
-  data-shop-id="55608606895"
-  data-render-region="gcp-asia-southeast1"
-  data-page-type="product"
-  data-theme-instance-id="131031498927"
-  data-theme-name="Process Creative"
-  data-theme-version="3.0.0"
-  data-monorail-region="shop_domain"
-  data-resource-timing-sampling-rate="10"
-  data-shs="true"
-  data-shs-beacon="true"
-  data-shs-export-with-fetch="true"
-  data-shs-logs-sample-rate="1"
-  data-shs-beacon-endpoint="https://www.s54coffee.com/api/collect"
-></script>
+
 <meta name="shopify-y" content="c7a7fd26-a4fc-47d4-bd32-00b894c8e61f"><meta name="shopify-s" content="d492b383-c466-4dfa-8083-584a563a63d1"><meta name="new-cookie-storage-activated" content="f">
 
     <link rel="stylesheet" href="assets/css/custom.css">
@@ -1419,7 +1402,7 @@ first.parentNode.insertBefore(script, first);
               </div></div></div>
     </div>
   </div></div><div id="shopify-section-template--15747875176623__2def7f96-093d-449f-bc5a-2cc979138607" class="shopify-section c-section c-section__collection-carousel">
-<link href="assets/css/sections.collection-carousel.css" rel="stylesheet" type="text/css" media="all" /><script src="//www.s54coffee.com/cdn/shop/t/196/assets/sections.collection-carousel.js?v=33947106279481388831715045619" type="text/javascript" defer="defer"></script><section class="c-collection-carousel">
+<link href="assets/css/sections.collection-carousel.css" rel="stylesheet" type="text/css" media="all" /><section class="c-collection-carousel">
   <div class="c-collection-carousel__header"><h3 class="c-collection-carousel__header-title o-heading--3">Có Thể Bạn Cũng Thích</h3></div>
 
   <div class="c-collection-carousel__products" data-collection-carousel>
