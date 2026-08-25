@@ -5,7 +5,7 @@
 (function() {
     'use strict';
 
-    const freeShippingThreshold = 69.00;
+    const freeShippingThreshold = 599000;
 
     /* =====================================================================
        i18n Translation Helper with full string dictionary
@@ -53,7 +53,14 @@
 
     function formatPrice(amount) {
         if (typeof amount !== 'number') amount = parseFloat(amount) || 0;
-        return '$' + amount.toFixed(2);
+        const lang = (window.VittoriaI18n && window.VittoriaI18n.getLanguage) 
+            ? window.VittoriaI18n.getLanguage() : 'vi';
+        if (lang === 'vi') {
+            const val = amount < 1000 ? amount * 1000 : amount;
+            return new Intl.NumberFormat('vi-VN').format(val) + '₫';
+        }
+        const usdVal = amount > 1000 ? (amount / 25000) : amount;
+        return '$' + usdVal.toFixed(2);
     }
 
     function getCart() {
@@ -101,7 +108,7 @@
                     const itemPrice = item.price > 1000 ? (item.price / 100) : item.price;
                     return `
                     <div class="c-cart-drawer__item" data-id="${item.id || item.key}" style="display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid #ECE7E1; align-items: center;">
-                        <img src="${item.image || 'assets/images/000_sb_beans_1kg_oro_f_V2_HOMEPAGE_500x_4_120x_2x.png'}" alt="${item.title}" style="width: 70px; height: 70px; object-fit: contain; background: #FFF; border-radius: 4px; padding: 4px;">
+                        <img src="${item.image || 'assets/images/s54/robusta_1.jpg'}" alt="${item.title}" style="width: 70px; height: 70px; object-fit: contain; background: #FFF; border-radius: 4px; padding: 4px;">
                         <div style="flex: 1;">
                             <h4 style="margin: 0 0 6px; font-size: 14px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; color: #2F221A;">${item.title}</h4>
                             <div style="font-size: 13px; color: #676986; margin-bottom: 8px;">${formatPrice(itemPrice)}</div>
@@ -312,9 +319,9 @@
                 e.stopPropagation();
 
                 const card = addBtn.closest('.o-product-thumbnail') || addBtn.closest('.c-product-card') || addBtn.closest('[data-product-card]') || addBtn.closest('.shopify-section');
-                let title = 'Cinque Stelle Special Bar Beans';
+                let title = 'S54 Robusta Cà Phê Rang Mộc Nguyên Chất';
                 let price = 4400;
-                let img = 'assets/images/000_sb_beans_1kg_oro_f_V2_HOMEPAGE_500x_4_120x_2x.png';
+                let img = 'assets/images/s54/robusta_1.jpg';
                 let id = Date.now();
 
                 if (card) {
