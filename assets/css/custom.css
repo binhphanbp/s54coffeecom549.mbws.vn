@@ -1,7 +1,10 @@
-/* Custom enhancements & fixes for 100% accurate Vittoria Coffee clone */
+/* ==========================================================================
+   Vittoria Coffee - Premium UX Stylesheet (Vietnamese + English)
+   Complete overhaul: typography, responsive, accessibility, animations
+   ========================================================================== */
 
 /* ==========================================================================
-   Typography & Google Web Fonts (Vietnamese & English Luxury Fonts)
+   1. Google Web Fonts (Vietnamese & English Luxury Fonts)
    ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
 
@@ -9,60 +12,48 @@
     font-family: 'neutraface-book';
     src: url('../fonts/neutra2text-book-webfont.woff2') format('woff2'),
          url('../fonts/neutra2text-book-webfont.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+    font-weight: 400; font-style: normal; font-display: swap;
 }
-
 @font-face {
     font-family: 'neutraface-demi';
     src: url('../fonts/neutra2text-demi-webfont.woff2') format('woff2'),
          url('../fonts/neutra2text-demi-webfont.woff') format('woff');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
+    font-weight: 600; font-style: normal; font-display: swap;
 }
-
 @font-face {
     font-family: 'domaine';
     src: url('../fonts/domaine-regular.woff2') format('woff2'),
          url('../fonts/domaine-regular.woff') format('woff');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+    font-weight: 400; font-style: normal; font-display: swap;
 }
 
 /* ==========================================================================
-   Base Typography & Balanced Scale
+   2. Base & Typography
    ========================================================================== */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Plus Jakarta Sans', 'neutraface-book', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #2F221A;
     background-color: #FAF8F5;
-    margin: 0;
-    padding: 0;
+    margin: 0; padding: 0;
     overflow-x: hidden;
     line-height: 1.6;
     letter-spacing: 0.01em;
 }
 
-/* Elegant Luxury Serif Headings */
+/* Elegant Serif Headings */
 h1, h2, h3, h4, h5, h6,
-.o-heading,
-.o-heading--1,
-.o-heading--2,
-.o-heading--3,
-.o-heading--4,
-.o-heading--5,
-.o-heading--6,
-.c-hero-banner__title,
-.c-featured-video__title,
-.c-text-and-image__title,
-.c-product-carousel__title,
-.c-featured-collections__header-title,
-.c-product-main__title {
+.o-heading, .o-heading--1, .o-heading--2, .o-heading--3,
+.o-heading--4, .o-heading--5, .o-heading--6,
+.c-hero-banner__title, .c-featured-video__title,
+.c-text-and-image__title, .c-text-and-image__text-title,
+.c-product-carousel__title, .c-featured-collections__header-title,
+.c-product-main__title, .c-article-feed__title {
     font-family: 'Cormorant Garamond', 'domaine', Georgia, serif !important;
     font-weight: 600 !important;
     letter-spacing: 0.01em;
@@ -70,35 +61,12 @@ h1, h2, h3, h4, h5, h6,
     color: #2F221A;
 }
 
-h1, .o-heading--1, .c-hero-banner__title.o-heading--1 {
-    font-size: clamp(34px, 5.5vw, 62px) !important;
-    line-height: 1.12 !important;
-}
-
-h2, .o-heading--2, .c-hero-banner__title.o-heading--2 {
-    font-size: clamp(28px, 4vw, 46px) !important;
-    line-height: 1.18 !important;
-}
-
-h3, .o-heading--3, .c-product-carousel__title {
-    font-size: clamp(24px, 3.2vw, 36px) !important;
-    line-height: 1.22 !important;
-}
-
-h4, .o-heading--4 {
-    font-size: clamp(20px, 2.4vw, 28px) !important;
-    line-height: 1.3 !important;
-}
-
-h5, .o-heading--5 {
-    font-size: clamp(17px, 1.8vw, 22px) !important;
-    line-height: 1.35 !important;
-}
-
-h6, .o-heading--6 {
-    font-size: clamp(14px, 1.4vw, 17px) !important;
-    line-height: 1.4 !important;
-}
+h1, .o-heading--1 { font-size: clamp(34px, 5.5vw, 62px) !important; line-height: 1.12 !important; }
+h2, .o-heading--2 { font-size: clamp(28px, 4vw, 46px) !important; line-height: 1.18 !important; }
+h3, .o-heading--3 { font-size: clamp(24px, 3.2vw, 36px) !important; line-height: 1.22 !important; }
+h4, .o-heading--4 { font-size: clamp(20px, 2.4vw, 28px) !important; line-height: 1.3 !important; }
+h5, .o-heading--5 { font-size: clamp(17px, 1.8vw, 22px) !important; line-height: 1.35 !important; }
+h6, .o-heading--6 { font-size: clamp(14px, 1.4vw, 17px) !important; line-height: 1.4 !important; }
 
 p, .o-paragraph--1, .c-text-and-image__text-paragraph {
     font-family: 'Plus Jakarta Sans', 'neutraface-book', sans-serif !important;
@@ -107,43 +75,50 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph {
     color: #4A3E36;
 }
 
-/* Nav Links, Buttons & Badges with Refined Spacing */
-.c-main-menu__link-title,
-.c-navigation__link-title,
-.c-nav a,
-.o-btn,
-.c-lang-btn,
-.c-announcement-bar {
+/* Nav, Buttons, Labels */
+.c-main-menu__link-title, .c-navigation__link-title,
+.c-nav a, .o-btn, .c-lang-btn, .c-announcement-bar,
+.o-subtitle, .o-type--1, .o-type--2--caps {
     font-family: 'Plus Jakarta Sans', 'neutraface-demi', sans-serif !important;
     font-weight: 600;
-    letter-spacing: 1.2px;
 }
 
-/* Ensure lazyloaded images are visible immediately without JS flicker */
-img[data-src], img.lazyload, img.lazyloaded {
-    opacity: 1 !important;
-    visibility: visible !important;
-    transition: opacity 0.3s ease;
-}
-
-/* Header & Announcement Bar */
+/* ==========================================================================
+   3. Header, Topbar & Sticky Behavior
+   ========================================================================== */
 .c-header {
     position: sticky;
     top: 0;
     z-index: 1000;
     background-color: #FFFFFF;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s ease;
+}
+.c-header.is-scrolled {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
 }
 
-.c-announcement-bar {
+.c-header__topbar {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
     background-color: #2F221A;
     color: #FFFFFF;
-    font-family: 'neutraface-demi', 'Gilroy', sans-serif;
+    padding: 7px 16px;
+    position: relative;
+}
+
+.c-header__topbar-messages {
+    flex: 1;
+    text-align: center;
+}
+
+.c-header__topbar-message {
     font-size: 11px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    padding: 8px 16px;
-    text-align: center;
+    color: #FFFFFF !important;
+    text-decoration: none;
 }
 
 /* Mega menu dropdowns */
@@ -154,8 +129,115 @@ img[data-src], img.lazyload, img.lazyloaded {
     pointer-events: auto !important;
     transform: translateY(0) !important;
 }
+.c-mega-nav {
+    z-index: 999;
+}
 
-/* Product Card Layout & Clean Hover State without any overlapping text */
+/* ==========================================================================
+   4. Language Switcher (Header + Footer)
+   ========================================================================== */
+.c-lang-switcher {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+}
+.c-lang-switcher--header {
+    margin-left: 12px;
+}
+.c-lang-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 14px;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+}
+.c-lang-btn:hover { color: #FFFFFF; }
+.c-lang-btn.is-active {
+    background: #D68E1D !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+.c-lang-btn:focus-visible {
+    outline: 2px solid #D68E1D;
+    outline-offset: 2px;
+}
+.c-lang-divider {
+    color: rgba(255, 255, 255, 0.35);
+    font-size: 10px;
+    user-select: none;
+}
+
+/* Footer variant */
+.c-lang-switcher--footer {
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 6px 16px;
+    border-radius: 24px;
+    margin: 20px auto 10px;
+    display: inline-flex;
+    justify-content: center;
+}
+.c-lang-switcher--footer .c-lang-btn {
+    color: #D8CEBE;
+    font-size: 12px;
+    padding: 4px 12px;
+}
+.c-lang-switcher--footer .c-lang-btn.is-active {
+    background: #D68E1D !important;
+    color: #FFFFFF !important;
+}
+.c-lang-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-right: 8px;
+    color: #AC8A62;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* ==========================================================================
+   5. Section Spacing System
+   ========================================================================== */
+.shopify-section,
+.c-section {
+    padding-top: clamp(40px, 6vw, 80px);
+    padding-bottom: clamp(40px, 6vw, 80px);
+}
+.c-section:first-child,
+.c-section__hero_banner { padding-top: 0; }
+
+/* ==========================================================================
+   6. Images & Lazy Loading
+   ========================================================================== */
+img[data-src], img.lazyload, img.lazyloaded {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transition: opacity 0.3s ease;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ==========================================================================
+   7. Product Cards — Clean Hover (Touch-safe)
+   ========================================================================== */
 .o-product-thumbnail {
     position: relative;
     background: #FFFFFF;
@@ -164,12 +246,6 @@ img[data-src], img.lazyload, img.lazyloaded {
     display: flex;
     flex-direction: column;
 }
-
-.o-product-thumbnail:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(47, 34, 26, 0.08);
-}
-
 .o-product-thumbnail__inner {
     padding: 12px;
     text-align: center;
@@ -178,28 +254,19 @@ img[data-src], img.lazyload, img.lazyloaded {
     flex-direction: column;
     justify-content: space-between;
 }
-
 .o-product-thumbnail__content {
     position: relative;
-    min-height: 150px;
+    min-height: 120px;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
 }
-
 .o-product-thumbnail__content-inner {
     transition: opacity 0.2s ease;
-    opacity: 1;
-    display: block;
-    width: 100%;
 }
-
 .o-product-thumbnail__hover {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 0; left: 0; right: 0; bottom: 0;
     background: #FFFFFF !important;
     opacity: 0;
     visibility: hidden;
@@ -214,85 +281,111 @@ img[data-src], img.lazyload, img.lazyloaded {
     padding: 8px;
 }
 
-/* On hover: clean switch with zero text overlap */
-.o-product-thumbnail:hover .o-product-thumbnail__content-inner {
-    display: none !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
+/* Hover only on devices that support hover (NOT touch) */
+@media (hover: hover) and (pointer: fine) {
+    .o-product-thumbnail:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(47, 34, 26, 0.08);
+    }
+    .o-product-thumbnail:hover .o-product-thumbnail__content-inner {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+    .o-product-thumbnail:hover .o-product-thumbnail__hover {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+    }
 }
 
-.o-product-thumbnail:hover .o-product-thumbnail__hover {
-    display: flex !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: auto !important;
-}
-
-.o-product-thumbnail__hover .o-swatches__swatch-options {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    margin-bottom: 6px;
-    flex-wrap: wrap;
-}
-
-/* Size selection pill with high contrast */
-.o-product-thumbnail__hover .o-swatches__swatch-button,
+/* Size selection pills */
 .o-swatches__swatch-button {
     border: 1px solid #2F221A !important;
     padding: 6px 14px !important;
     border-radius: 20px !important;
-    font-size: 11px !important;
-    font-family: 'neutraface-demi', sans-serif !important;
+    font-size: 12px !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
     color: #2F221A !important;
     background: #FAF8F5 !important;
     cursor: pointer;
     transition: all 0.2s ease;
     font-weight: 600;
 }
-
-.o-product-thumbnail__hover .o-swatches__swatch-button.is-selected,
-.o-product-thumbnail__hover .o-swatches__swatch-button:hover,
 .o-swatches__swatch-button.is-selected,
 .o-swatches__swatch-button:hover {
     background: #2F221A !important;
     color: #FFFFFF !important;
-    border-color: #2F221A !important;
 }
 
-.o-product-thumbnail__add-btn, .o-product-thumbnail__hover .o-btn {
+/* Add to Bag button */
+.o-product-thumbnail__add-btn,
+.o-product-thumbnail__hover .o-btn {
     background-color: #D68E1D !important;
     color: #FFFFFF !important;
     border: none;
     padding: 12px 18px;
-    border-radius: 2px;
-    font-size: 11px;
-    letter-spacing: 1.5px;
+    border-radius: 4px;
+    font-size: 12px;
+    letter-spacing: 1.2px;
     text-transform: uppercase;
-    font-family: 'neutraface-demi', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600;
     width: 100%;
     max-width: 220px;
     cursor: pointer;
-    transition: background-color 0.2s ease;
-    display: inline-block;
+    transition: background-color 0.2s ease, transform 0.15s ease;
 }
-
-.o-product-thumbnail__add-btn:hover, .o-product-thumbnail__hover .o-btn:hover {
+.o-product-thumbnail__add-btn:hover,
+.o-product-thumbnail__hover .o-btn:hover {
     background-color: #B57715 !important;
+    transform: scale(1.02);
 }
 
 /* Rating Stars */
-.oke-stars-foreground {
-    color: #D68E1D;
+.oke-stars-foreground { color: #D68E1D; }
+
+/* ==========================================================================
+   8. Buttons (CTA) — Unified Style
+   ========================================================================== */
+.o-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.25s ease;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.o-btn.is-primary.is-dark {
+    background-color: #2F221A;
+    color: #FAF8F5;
+    padding: 14px 24px;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+}
+.o-btn.is-primary.is-dark:hover {
+    background-color: #463428;
+    transform: translateX(4px);
+}
+.o-btn.is-primary.is-dark .o-btn__arrow {
+    transition: transform 0.25s ease;
+    width: 20px;
+    height: 20px;
+}
+.o-btn.is-primary.is-dark:hover .o-btn__arrow {
+    transform: translateX(4px);
 }
 
-/* Slide-out Cart Drawer */
+/* ==========================================================================
+   9. Cart Drawer
+   ========================================================================== */
 .c-cart-drawer {
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
+    top: 0; right: 0; bottom: 0;
     width: 100%;
     max-width: 440px;
     background-color: #FAF8F5;
@@ -303,17 +396,11 @@ img[data-src], img.lazyload, img.lazyloaded {
     display: flex;
     flex-direction: column;
 }
-
-.c-cart-drawer.is-open {
-    transform: translateX(0) !important;
-}
+.c-cart-drawer.is-open { transform: translateX(0) !important; }
 
 .c-cart-drawer__overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 0; left: 0; right: 0; bottom: 0;
     background-color: rgba(47, 34, 26, 0.6);
     backdrop-filter: blur(2px);
     z-index: 9999998;
@@ -321,11 +408,7 @@ img[data-src], img.lazyload, img.lazyloaded {
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
-
-.c-cart-drawer__overlay.is-open {
-    opacity: 1 !important;
-    visibility: visible !important;
-}
+.c-cart-drawer__overlay.is-open { opacity: 1 !important; visibility: visible !important; }
 
 .c-cart-drawer__header {
     display: flex;
@@ -335,24 +418,17 @@ img[data-src], img.lazyload, img.lazyloaded {
     border-bottom: 1px solid #EBE7E1;
     background: #FFFFFF;
 }
-
 .c-cart-drawer__title {
-    font-family: 'domaine', serif;
+    font-family: 'Cormorant Garamond', serif !important;
     font-size: 24px;
     margin: 0;
     color: #2F221A;
 }
-
 .c-cart-drawer__close {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: #2F221A;
-    padding: 4px 8px;
-    line-height: 1;
+    background: none; border: none;
+    font-size: 24px; cursor: pointer;
+    color: #2F221A; padding: 4px 8px; line-height: 1;
 }
-
 .c-cart-drawer__free-shipping {
     background-color: #F0EAE1;
     padding: 12px 24px;
@@ -361,7 +437,6 @@ img[data-src], img.lazyload, img.lazyloaded {
     border-bottom: 1px solid #E2D9CD;
     color: #2F221A;
 }
-
 .c-cart-drawer__progress-bar {
     height: 5px;
     background: #D8CEBE;
@@ -369,96 +444,31 @@ img[data-src], img.lazyload, img.lazyloaded {
     margin-top: 8px;
     overflow: hidden;
 }
-
 .c-cart-drawer__progress-fill {
     height: 100%;
     background: #D68E1D;
     width: 65%;
     transition: width 0.35s ease;
 }
-
 .c-cart-drawer__body {
     flex: 1;
     overflow-y: auto;
     padding: 20px 24px;
 }
-
-.c-cart-drawer__item {
-    display: flex;
-    gap: 16px;
-    padding-bottom: 16px;
-    margin-bottom: 16px;
-    border-bottom: 1px solid #EBE7E1;
-    align-items: center;
-}
-
-.c-cart-drawer__item-img {
-    width: 75px;
-    height: 75px;
-    object-fit: contain;
-    background: #FFFFFF;
-    border-radius: 4px;
-    border: 1px solid #EBE7E1;
-    padding: 4px;
-}
-
-.c-cart-drawer__item-info {
-    flex: 1;
-}
-
-.c-cart-drawer__item-title {
-    font-family: 'neutraface-demi', sans-serif;
-    font-size: 14px;
-    margin: 0 0 4px;
-    color: #2F221A;
-}
-
-.c-cart-drawer__item-price {
-    font-weight: 600;
-    font-size: 14px;
-    color: #2F221A;
-    margin-bottom: 8px;
-}
-
-.c-cart-drawer__qty-control {
-    display: inline-flex;
-    align-items: center;
-    border: 1px solid #D8CEBE;
-    border-radius: 3px;
-    background: #FFFFFF;
-}
-
-.c-cart-drawer__qty-btn {
-    background: none;
-    border: none;
-    padding: 4px 10px;
-    cursor: pointer;
-    font-size: 14px;
-    color: #2F221A;
-}
-
-.c-cart-drawer__qty-num {
-    padding: 0 8px;
-    font-size: 13px;
-    min-width: 16px;
-    text-align: center;
-}
-
 .c-cart-drawer__footer {
     padding: 20px 24px;
     background: #FFFFFF;
     border-top: 1px solid #EBE7E1;
 }
-
 .c-cart-drawer__subtotal {
     display: flex;
     justify-content: space-between;
     font-size: 16px;
-    font-family: 'neutraface-demi', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600;
     margin-bottom: 16px;
     color: #2F221A;
 }
-
 .c-cart-drawer__checkout-btn {
     width: 100%;
     background: #2F221A;
@@ -466,20 +476,20 @@ img[data-src], img.lazyload, img.lazyloaded {
     padding: 16px;
     text-align: center;
     border: none;
-    font-family: 'neutraface-demi', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
     letter-spacing: 2px;
     font-size: 14px;
     text-transform: uppercase;
     cursor: pointer;
-    border-radius: 2px;
+    border-radius: 4px;
     transition: background 0.25s ease;
 }
+.c-cart-drawer__checkout-btn:hover { background: #463428; }
 
-.c-cart-drawer__checkout-btn:hover {
-    background: #463428;
-}
-
-/* Footer Payment & Copyright */
+/* ==========================================================================
+   10. Footer
+   ========================================================================== */
 .c-footer__bottom-bar {
     display: flex;
     flex-wrap: wrap;
@@ -490,15 +500,14 @@ img[data-src], img.lazyload, img.lazyloaded {
     border-top: 1px solid #EBE7E1;
     font-size: 12px;
     color: #676986;
+    gap: 16px;
 }
-
 .c-footer__payment-icons {
     display: flex;
-    gap: 10px;
+    gap: 8px;
     align-items: center;
     flex-wrap: wrap;
 }
-
 .c-footer__payment-badge {
     background: #FFFFFF;
     border: 1px solid #EBE7E1;
@@ -509,7 +518,9 @@ img[data-src], img.lazyload, img.lazyloaded {
     color: #2F221A;
 }
 
-/* Toast notifications */
+/* ==========================================================================
+   11. Toast Notifications
+   ========================================================================== */
 .c-toast {
     position: fixed;
     bottom: 30px;
@@ -519,141 +530,150 @@ img[data-src], img.lazyload, img.lazyloaded {
     color: #FFFFFF;
     padding: 14px 28px;
     border-radius: 40px;
-    font-family: 'neutraface-demi', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600;
     font-size: 13px;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     box-shadow: 0 8px 24px rgba(0,0,0,0.25);
     z-index: 10000000;
     opacity: 0;
     transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     pointer-events: none;
 }
-
 .c-toast.is-active {
     transform: translateX(-50%) translateY(0);
     opacity: 1;
 }
 
 /* ==========================================================================
-   Language Switcher (Bilingual VN / EN)
+   12. Scroll-to-Top Button
    ========================================================================== */
-.c-lang-switcher {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 3px 8px;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 20px;
-    font-family: 'neutraface-demi', 'Gilroy', sans-serif;
-    font-size: 11px;
-    letter-spacing: 1px;
-    z-index: 10;
-}
-
-.c-lang-btn {
-    background: transparent;
+.c-scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #2F221A;
+    color: #FAF8F5;
     border: none;
-    color: rgba(255, 255, 255, 0.75);
     cursor: pointer;
-    font-family: inherit;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 2px 8px;
-    border-radius: 12px;
-    transition: all 0.2s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 4px;
-    text-transform: uppercase;
-}
-
-.c-lang-btn:hover {
-    color: #FFFFFF;
-}
-
-.c-lang-btn.is-active {
-    background: #D68E1D !important;
-    color: #FFFFFF !important;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
-}
-
-.c-lang-divider {
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 10px;
-}
-
-.c-lang-switcher--footer {
-    background: rgba(0, 0, 0, 0.25);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    padding: 6px 14px;
-    border-radius: 24px;
-    display: inline-flex;
+    z-index: 9999;
+    display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+.c-scroll-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.c-scroll-top:hover {
+    background: #D68E1D;
+    transform: translateY(-2px);
 }
 
-.c-lang-switcher--footer .c-lang-btn {
-    color: #D8CEBE;
-    font-size: 12px;
-    padding: 4px 12px;
+/* ==========================================================================
+   13. Focus & Accessibility
+   ========================================================================== */
+*:focus-visible {
+    outline: 2px solid #D68E1D;
+    outline-offset: 2px;
+}
+a:focus-visible, button:focus-visible {
+    outline: 2px solid #D68E1D;
+    outline-offset: 2px;
 }
 
-.c-lang-switcher--footer .c-lang-btn.is-active {
-    background: #D68E1D !important;
-    color: #FFFFFF !important;
-}
-
-/* Force Hide any lingering third-party geolocation / country modals */
+/* ==========================================================================
+   14. Hide Orbe/Third-party Junk
+   ========================================================================== */
 #md-footer-selector-block,
 .md-footer-selector__container,
 .md-footer-selector__content,
-md-footer-selector__form,
+.md-footer-selector__form,
 #md-app-modal,
 .md-app-modal,
 .md-app-modal-overlay,
 .md-modal__content,
 .md-modal__formContent,
-[data-orbe-flags] {
+[data-orbe-flags],
+md-footer-selector__form {
     display: none !important;
     visibility: hidden !important;
-    opacity: 0 !important;
     pointer-events: none !important;
 }
 
-/* Announcement Bar with flex container */
-.c-announcement-bar {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    padding: 6px 16px !important;
-    background-color: #2F221A !important;
-    color: #FFFFFF !important;
+/* ==========================================================================
+   15. Mobile Responsive (≤ 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .c-header__topbar {
+        flex-wrap: wrap;
+        gap: 4px;
+        padding: 6px 12px;
+    }
+    .c-header__topbar-message {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+    .c-lang-switcher--header {
+        margin-left: 0;
+        margin-top: 2px;
+    }
+
+    .shopify-section, .c-section {
+        padding-top: clamp(24px, 5vw, 48px);
+        padding-bottom: clamp(24px, 5vw, 48px);
+    }
+
+    .o-product-thumbnail__content {
+        min-height: 80px;
+    }
+
+    .c-footer__bottom-bar {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+    .c-footer__payment-icons {
+        justify-content: center;
+    }
+
+    .c-cart-drawer {
+        max-width: 100%;
+    }
+
+    .c-scroll-top {
+        bottom: 20px;
+        right: 20px;
+        width: 40px;
+        height: 40px;
+    }
+
+    .c-lang-switcher--footer {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+    }
 }
 
-.c-announcement-bar__inner {
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    width: 100% !important;
-    max-width: 1200px !important;
-    margin: 0 auto !important;
-}
+/* ==========================================================================
+   16. Small Mobile (≤ 480px)
+   ========================================================================== */
+@media (max-width: 480px) {
+    h1, .o-heading--1 { font-size: 28px !important; }
+    h2, .o-heading--2 { font-size: 24px !important; }
+    h3, .o-heading--3 { font-size: 20px !important; }
 
-/* Crisp Clean Language Switcher */
-.c-lang-switcher {
-    display: inline-flex !important;
-    align-items: center !important;
-    gap: 4px !important;
-    padding: 2px 6px !important;
-    background: rgba(255, 255, 255, 0.18) !important;
-    border-radius: 20px !important;
-    font-size: 11px !important;
+    .o-btn.is-primary.is-dark {
+        padding: 12px 18px;
+        font-size: 11px;
+    }
 }
-
-.c-lang-switcher--footer {
-    background: rgba(0, 0, 0, 0.3) !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    padding: 6px 14px !important;
-    border-radius: 24px !important;
-}
-

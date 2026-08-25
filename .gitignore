@@ -16,3 +16,5 @@ desktop.ini
 
 # Temporary scraping dumps (optional, comment out if you want to keep them)
 # *_raw.html
+deploy.zip
+extractor.php
