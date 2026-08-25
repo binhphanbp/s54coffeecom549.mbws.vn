@@ -37,7 +37,13 @@
         ["Hướng dẫn phân biệt cà phê sạch nguyên chất 100% không tẩm ướp bắp cau, đậu nành hay hương liệu hóa học nhân tạo.", "A guide to distinguishing 100% pure clean coffee with no corn, soy or artificial flavors."],
         ["S54 Robusta Cà Phê Rang Nguyên Chất 500g / 1kg", "S54 Pure Roasted Robusta Beans 500g / 1kg"],
         ["100% Robusta Đắk Lắk Nguyên Chất", "100% Pure Dak Lak Robusta"],
-        ["Rang mộc công nghệ cao Hot-Air, đậm đà vị truyền thống, hậu vị ngọt sâu và hương thơm nồng nàn", "High-tech Hot-Air artisan roast, rich traditional flavor, deep sweet aftertaste and intense aroma."],
+        // Topbar & Natural Case Menu
+        ["Miễn phí vận chuyển toàn quốc cho đơn từ 599.000₫ • Hotline: 0383.707.578", "Free nationwide shipping on orders over 599,000₫ • Hotline: (+84) 383 707 578"],
+        ["Tất Cả Sản Phẩm", "All Products"],
+        ["Cà Phê Hạt & Rang Mộc", "Coffee Beans & Roast"],
+        ["Hòa Tan & Sấy Lạnh", "Instant & Freeze-Dried"],
+        ["Câu Chuyện S54", "Our Story"],
+        ["B2B & Đại Lý", "B2B & Wholesale"],
 
         // S54 Coffee Specifics
         ["MIỄN PHÍ VẬN CHUYỂN TOÀN QUỐC CHO ĐƠN TỪ 599.000₫ • HOTLINE: 0383.707.578", "FREE NATIONWIDE SHIPPING ON ORDERS OVER 599,000₫ • HOTLINE: (+84) 383 707 578"],
