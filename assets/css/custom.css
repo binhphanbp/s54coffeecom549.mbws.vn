@@ -139,25 +139,26 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
 }
 
 .c-main-menu__link.is-level-1 {
-    font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
     color: #FAF6F1 !important;
     text-decoration: none !important;
     font-size: 13.5px !important;
     font-weight: 500 !important;
-    letter-spacing: 0.2px !important;
+    letter-spacing: 0.3px !important;
     text-transform: none !important;
     white-space: nowrap !important;
-    padding: 6px 12px !important;
-    border-radius: 6px !important;
+    padding: 8px 12px !important;
+    border-radius: 0 !important;
     position: relative !important;
-    transition: all 0.2s ease !important;
+    background: transparent !important;
+    transition: color 0.25s ease !important;
     display: inline-flex !important;
     align-items: center !important;
 }
 
 .c-main-menu__link.is-level-1 .c-main-menu__link-title {
     color: inherit !important;
-    transition: color 0.2s ease !important;
+    transition: color 0.25s ease !important;
 }
 
 .c-main-menu__link.is-level-1:after {
@@ -166,23 +167,22 @@ p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__desc
     bottom: 2px !important;
     left: 12px !important;
     right: 12px !important;
-    width: auto !important;
     height: 2px !important;
-    background-color: #FFD56B !important;
-    box-shadow: 0 0 8px rgba(255, 213, 107, 0.8) !important;
+    background-color: #D68E1D !important;
     transform: scaleX(0) !important;
     transform-origin: center !important;
     transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    box-shadow: none !important;
 }
 
 .c-main-menu__link.is-level-1:hover {
-    color: #FFFFFF !important;
-    background: rgba(255, 255, 255, 0.1) !important;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4) !important;
+    color: #D68E1D !important;
+    background: transparent !important;
+    text-shadow: none !important;
 }
 
 .c-main-menu__link.is-level-1:hover .c-main-menu__link-title {
-    color: #FFFFFF !important;
+    color: #D68E1D !important;
 }
 
 .c-main-menu__link.is-level-1:hover:after {
