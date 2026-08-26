@@ -2206,3 +2206,137 @@ h5, h6,
         font-size: 14px !important;
     }
 }
+
+
+/* ==========================================================================
+   Master S54 Page Hero (Our Story, Wholesale, Collections)
+   High-contrast, pure white typography, rich dark espresso gradient
+   ========================================================================== */
+.s54-page-hero {
+    position: relative;
+    width: 100%;
+    min-height: 440px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 80px 6% 70px;
+    overflow: hidden;
+    background-color: #1A110C;
+    box-sizing: border-box;
+}
+
+.s54-page-hero__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scale(1.02);
+    z-index: 1;
+}
+
+.s54-page-hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(26, 17, 12, 0.95) 0%, rgba(35, 23, 16, 0.82) 48%, rgba(26, 17, 12, 0.6) 100%);
+    z-index: 2;
+}
+
+.s54-page-hero__container {
+    position: relative;
+    z-index: 3;
+    max-width: 920px;
+    margin: 0;
+    text-align: left;
+}
+
+.s54-page-hero__tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: rgba(214, 142, 29, 0.18);
+    border: 1px solid rgba(214, 142, 29, 0.45);
+    border-radius: 30px;
+    color: #F4C472;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    backdrop-filter: blur(8px);
+}
+
+.s54-page-hero__tag-dot {
+    width: 7px;
+    height: 7px;
+    background-color: #D68E1D;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #D68E1D;
+}
+
+.s54-page-hero__title {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 54px !important;
+    font-weight: 700 !important;
+    line-height: 1.15 !important;
+    color: #FFFFFF !important;
+    margin: 0 0 16px !important;
+    letter-spacing: -0.5px !important;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5) !important;
+}
+
+.s54-page-hero__subtitle {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    line-height: 1.7 !important;
+    color: #E6D7C3 !important;
+    margin: 0 0 28px !important;
+    max-width: 760px !important;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+.s54-page-hero__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.s54-page-hero__badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 18px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 6px;
+    color: #FAF8F5;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+}
+
+@media (max-width: 768px) {
+    .s54-page-hero {
+        min-height: 380px;
+        padding: 50px 20px 45px;
+    }
+    .s54-page-hero__title {
+        font-size: 36px !important;
+    }
+    .s54-page-hero__subtitle {
+        font-size: 14.5px !important;
+    }
+    .s54-page-hero__badge {
+        font-size: 12px;
+        padding: 6px 14px;
+    }
+}
