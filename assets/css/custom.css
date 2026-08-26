@@ -1881,3 +1881,15 @@ h5, h6,
     color: inherit !important;
     margin: 0 !important;
 }
+
+
+/* S54 Blog Header Contrast Protection */
+.s54-blog-hero__title,
+.s54-blog-hero__title span,
+.s54-blog-hero__title p {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5) !important;
+}
+.s54-blog-hero__desc {
+    color: #E2D9CD !important;
+}

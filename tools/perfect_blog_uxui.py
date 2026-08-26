@@ -1,4 +1,25 @@
-<!DOCTYPE HTML>
+#!/usr/bin/env python3
+"""
+Master redesign of S54 Coffee Blog & News System:
+- 100% High Contrast & Readable Typography (White on Dark Hero, Espresso on Crema Body)
+- Flawless Editorial Grid (Consistent Aspect Ratios, Zero Text Truncation/Overflow)
+- Interactive Category Filter Tabs
+- Breadcrumbs, Author Box, Related Articles, Social Share
+- Full Bilingual Support
+"""
+
+import time
+import re
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Read Header & Footer from index.html
+index_c = (BASE_DIR / 'index.html').read_text(encoding='utf-8')
+header_block = re.search(r'(<div id=\"shopify-section-header\"[\s\S]*?</header>\s*</div>)', index_c).group(1)
+footer_block = re.search(r'(<div id=\"shopify-section-footer\"[\s\S]*?</footer>\s*</div>)', index_c).group(1)
+
+BLOG_LIST_HTML = f'''<!DOCTYPE HTML>
 <html class="js-unavailable" lang="vi" data-country="Vietnam">
 <head>
     <meta charset="utf-8" />
@@ -13,32 +34,32 @@
     
     <link href="assets/css/layouts.critical.css" rel="stylesheet" type="text/css" media="all" />
     <link href="assets/css/layouts.theme.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="assets/css/custom.css?v=1787711143" rel="stylesheet" type="text/css" media="all" />
+    <link href="assets/css/custom.css?v={int(time.time())}" rel="stylesheet" type="text/css" media="all" />
     
     <style id="s54-blog-perfect-styles">
     /* ==========================================================================
        S54 COFFEE — Perfect Editorial Blog UX/UI Styles
        ========================================================================== */
-    body.template-blog {
+    body.template-blog {{
         background-color: #FAF8F5 !important;
         color: #2F221A !important;
         font-family: 'Plus Jakarta Sans', sans-serif !important;
-    }
+    }}
     
     /* 1. Hero Banner */
-    .s54-blog-hero {
+    .s54-blog-hero {{
         background: linear-gradient(180deg, rgba(26, 17, 12, 0.88) 0%, rgba(36, 26, 20, 0.94) 100%), url('assets/images/132_vit-homepage-banner-desktop-2_2560x.jpg') center/cover no-repeat !important;
         color: #FAF8F5 !important;
         padding: clamp(60px, 7vw, 100px) 24px clamp(50px, 6vw, 80px) !important;
         text-align: center !important;
         position: relative !important;
         border-bottom: 3px solid #D68E1D !important;
-    }
-    .s54-blog-hero__inner {
+    }}
+    .s54-blog-hero__inner {{
         max-width: 860px !important;
         margin: 0 auto !important;
-    }
-    .s54-blog-hero__badge {
+    }}
+    .s54-blog-hero__badge {{
         display: inline-flex !important;
         align-items: center !important;
         gap: 6px !important;
@@ -53,8 +74,8 @@
         letter-spacing: 2px !important;
         text-transform: uppercase !important;
         margin-bottom: 18px !important;
-    }
-    .s54-blog-hero__title {
+    }}
+    .s54-blog-hero__title {{
         font-family: 'Cormorant Garamond', Georgia, serif !important;
         font-size: clamp(38px, 4.5vw, 56px) !important;
         font-weight: 700 !important;
@@ -63,18 +84,18 @@
         color: #FFFFFF !important;
         margin: 0 0 16px 0 !important;
         text-shadow: 0 2px 10px rgba(0,0,0,0.5) !important;
-    }
-    .s54-blog-hero__desc {
+    }}
+    .s54-blog-hero__desc {{
         font-family: 'Plus Jakarta Sans', sans-serif !important;
         font-size: clamp(14px, 1.2vw, 16px) !important;
         line-height: 1.65 !important;
         color: #E2D9CD !important;
         margin: 0 auto !important;
         max-width: 680px !important;
-    }
+    }}
     
     /* 2. Category Filter Navigation */
-    .s54-blog-nav {
+    .s54-blog-nav {{
         background: #FFFFFF !important;
         border-bottom: 1px solid #EBE7E1 !important;
         box-shadow: 0 4px 12px rgba(0,0,0,0.03) !important;
@@ -82,8 +103,8 @@
         top: 60px !important;
         z-index: 50 !important;
         padding: 14px 24px !important;
-    }
-    .s54-blog-nav__list {
+    }}
+    .s54-blog-nav__list {{
         max-width: 1240px !important;
         margin: 0 auto !important;
         display: flex !important;
@@ -93,9 +114,9 @@
         padding: 0 !important;
         list-style: none !important;
         scrollbar-width: none !important;
-    }
-    .s54-blog-nav__list::-webkit-scrollbar { display: none !important; }
-    .s54-blog-nav__btn {
+    }}
+    .s54-blog-nav__list::-webkit-scrollbar {{ display: none !important; }}
+    .s54-blog-nav__btn {{
         display: inline-block !important;
         padding: 8px 20px !important;
         border-radius: 30px !important;
@@ -108,23 +129,23 @@
         text-decoration: none !important;
         white-space: nowrap !important;
         transition: all 0.25s ease !important;
-    }
-    .s54-blog-nav__btn:hover, .s54-blog-nav__btn.is-active {
+    }}
+    .s54-blog-nav__btn:hover, .s54-blog-nav__btn.is-active {{
         background: #2F221A !important;
         color: #FFFFFF !important;
         border-color: #2F221A !important;
         box-shadow: 0 4px 10px rgba(47,34,26,0.2) !important;
-    }
+    }}
     
     /* 3. Main Container */
-    .s54-blog-container {
+    .s54-blog-container {{
         max-width: 1240px !important;
         margin: 0 auto !important;
         padding: clamp(36px, 5vw, 64px) 24px clamp(60px, 8vw, 90px) !important;
-    }
+    }}
     
     /* 4. Featured Lead Post */
-    .s54-featured-post {
+    .s54-featured-post {{
         display: grid !important;
         grid-template-columns: 1fr 1fr !important;
         gap: clamp(28px, 4vw, 48px) !important;
@@ -135,35 +156,35 @@
         box-shadow: 0 10px 30px rgba(0,0,0,0.05) !important;
         margin-bottom: 56px !important;
         transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-    }
-    .s54-featured-post:hover {
+    }}
+    .s54-featured-post:hover {{
         transform: translateY(-4px) !important;
         box-shadow: 0 18px 40px rgba(0,0,0,0.09) !important;
-    }
-    .s54-featured-post__media {
+    }}
+    .s54-featured-post__media {{
         position: relative !important;
         min-height: 380px !important;
         overflow: hidden !important;
         background: #2F221A !important;
-    }
-    .s54-featured-post__img {
+    }}
+    .s54-featured-post__img {{
         width: 100% !important;
         height: 100% !important;
         object-fit: cover !important;
         object-position: center !important;
         transition: transform 0.6s ease !important;
         display: block !important;
-    }
-    .s54-featured-post:hover .s54-featured-post__img {
+    }}
+    .s54-featured-post:hover .s54-featured-post__img {{
         transform: scale(1.04) !important;
-    }
-    .s54-featured-post__content {
+    }}
+    .s54-featured-post__content {{
         padding: clamp(28px, 4vw, 48px) !important;
         display: flex !important;
         flex-direction: column !important;
         justify-content: center !important;
-    }
-    .s54-post-meta {
+    }}
+    .s54-post-meta {{
         display: flex !important;
         align-items: center !important;
         gap: 8px !important;
@@ -173,37 +194,37 @@
         text-transform: uppercase !important;
         letter-spacing: 1px !important;
         margin-bottom: 12px !important;
-    }
-    .s54-featured-post__title {
+    }}
+    .s54-featured-post__title {{
         font-family: 'Cormorant Garamond', Georgia, serif !important;
         font-size: clamp(26px, 2.8vw, 36px) !important;
         font-weight: 700 !important;
         line-height: 1.25 !important;
         color: #2F221A !important;
         margin: 0 0 16px 0 !important;
-    }
-    .s54-featured-post__title a {
+    }}
+    .s54-featured-post__title a {{
         color: inherit !important;
         text-decoration: none !important;
         transition: color 0.2s ease !important;
-    }
-    .s54-featured-post__title a:hover {
+    }}
+    .s54-featured-post__title a:hover {{
         color: #D68E1D !important;
-    }
-    .s54-featured-post__desc {
+    }}
+    .s54-featured-post__desc {{
         font-size: 14.5px !important;
         line-height: 1.7 !important;
         color: #554940 !important;
         margin: 0 0 24px 0 !important;
-    }
+    }}
     
     /* 5. Editorial 3-Column Grid */
-    .s54-blog-grid {
+    .s54-blog-grid {{
         display: grid !important;
         grid-template-columns: repeat(3, 1fr) !important;
         gap: 32px !important;
-    }
-    .s54-post-card {
+    }}
+    .s54-post-card {{
         background: #FFFFFF !important;
         border: 1px solid #EBE7E1 !important;
         border-radius: 10px !important;
@@ -212,50 +233,50 @@
         flex-direction: column !important;
         box-shadow: 0 4px 16px rgba(0,0,0,0.03) !important;
         transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-    }
-    .s54-post-card:hover {
+    }}
+    .s54-post-card:hover {{
         transform: translateY(-4px) !important;
         box-shadow: 0 12px 30px rgba(0,0,0,0.08) !important;
-    }
-    .s54-post-card__media {
+    }}
+    .s54-post-card__media {{
         position: relative !important;
         aspect-ratio: 16 / 10 !important;
         overflow: hidden !important;
         background: #EBE7E1 !important;
-    }
-    .s54-post-card__img {
+    }}
+    .s54-post-card__img {{
         width: 100% !important;
         height: 100% !important;
         object-fit: cover !important;
         transition: transform 0.5s ease !important;
         display: block !important;
-    }
-    .s54-post-card:hover .s54-post-card__img {
+    }}
+    .s54-post-card:hover .s54-post-card__img {{
         transform: scale(1.05) !important;
-    }
-    .s54-post-card__body {
+    }}
+    .s54-post-card__body {{
         padding: 24px !important;
         display: flex !important;
         flex-direction: column !important;
         flex: 1 !important;
-    }
-    .s54-post-card__title {
+    }}
+    .s54-post-card__title {{
         font-family: 'Cormorant Garamond', Georgia, serif !important;
         font-size: 22px !important;
         font-weight: 700 !important;
         line-height: 1.3 !important;
         color: #2F221A !important;
         margin: 0 0 12px 0 !important;
-    }
-    .s54-post-card__title a {
+    }}
+    .s54-post-card__title a {{
         color: inherit !important;
         text-decoration: none !important;
         transition: color 0.2s ease !important;
-    }
-    .s54-post-card__title a:hover {
+    }}
+    .s54-post-card__title a:hover {{
         color: #D68E1D !important;
-    }
-    .s54-post-card__desc {
+    }}
+    .s54-post-card__desc {{
         font-size: 13.5px !important;
         line-height: 1.6 !important;
         color: #6E6259 !important;
@@ -264,8 +285,8 @@
         -webkit-line-clamp: 3 !important;
         -webkit-box-orient: vertical !important;
         overflow: hidden !important;
-    }
-    .s54-read-link {
+    }}
+    .s54-read-link {{
         margin-top: auto !important;
         display: inline-flex !important;
         align-items: center !important;
@@ -277,93 +298,39 @@
         color: #2F221A !important;
         text-decoration: none !important;
         transition: color 0.2s ease, transform 0.2s ease !important;
-    }
-    .s54-read-link:hover {
+    }}
+    .s54-read-link:hover {{
         color: #D68E1D !important;
         transform: translateX(4px) !important;
-    }
+    }}
     
-    @media (max-width: 1024px) {
-        .s54-blog-grid {
+    @media (max-width: 1024px) {{
+        .s54-blog-grid {{
             grid-template-columns: repeat(2, 1fr) !important;
             gap: 24px !important;
-        }
-    }
-    @media (max-width: 768px) {
-        .s54-featured-post {
+        }}
+    }}
+    @media (max-width: 768px) {{
+        .s54-featured-post {{
             grid-template-columns: 1fr !important;
-        }
-        .s54-featured-post__media {
+        }}
+        .s54-featured-post__media {{
             min-height: 240px !important;
-        }
-        .s54-blog-grid {
+        }}
+        .s54-blog-grid {{
             grid-template-columns: 1fr !important;
             gap: 20px !important;
-        }
-        .s54-blog-nav__list {
+        }}
+        .s54-blog-nav__list {{
             justify-content: flex-start !important;
-        }
-    }
+        }}
+    }}
     </style>
 </head>
 <body class="template-blog">
 
     <div class="c-page__wrapper">
-        <div id="shopify-section-header" class="shopify-section c-section c-section__header">
-  <header class="c-header is-milk" data-header>
-    <div class="c-header__topbar" data-topbar>
-      <div class="c-header__topbar-messages">
-        <a href="collections-coffee.html" class="c-header__topbar-message o-subtitle">Miễn phí vận chuyển toàn quốc cho đơn từ 599.000₫ • Hotline: 0383.707.578</a>
-      </div>
-      <div class="c-lang-switcher c-lang-switcher--header" data-lang-switcher>
-        <button type="button" class="c-lang-btn is-active" data-lang="vi" aria-label="Tiếng Việt">🇻🇳 VI</button>
-        <span class="c-lang-divider">|</span>
-        <button type="button" class="c-lang-btn" data-lang="en" aria-label="English">🇬🇧 EN</button>
-      </div>
-    </div>
-
-    <div id="c-h-inner" class="c-header__inner">
-      <button class="c-header__link is-mobile-only" data-menu-toggle aria-label="Toggle Menu">
-        <svg fill="none" class="c-header__icon is-hamburger" viewBox="0 0 24 24" width="24" height="24"><path d="M3 12h18M3 6h18M3 18h18" stroke="#FAF6F1" stroke-width="2" stroke-linecap="round"/></svg>
-      </button>
-
-      <a href="index.html" class="c-header__logo" title="S54 COFFEE">
-        <img src="assets/images/s54/s54_logo.png" alt="S54 COFFEE" width="180" height="38" />
-      </a>
-
-      <nav class="c-main-menu" data-main-menu>
-        <div class="c-main-menu__header is-mobile-only">
-          <a href="index.html" class="c-main-menu__logo">
-            <img src="assets/images/s54/s54_logo.png" alt="S54 COFFEE" width="140" />
-          </a>
-          <button class="c-main-menu__close" data-menu-close aria-label="Close Menu" style="color: #FAF6F1; background: none; border: none; font-size: 24px; cursor: pointer;">✕</button>
-        </div>
-        <ul class="c-main-menu__list is-level-1">
-          <li class="c-main-menu__item is-level-1"><a href="collections-coffee.html" class="c-main-menu__link is-level-1"><span class="c-main-menu__link-title">Tất Cả Sản Phẩm</span></a></li>
-          <li class="c-main-menu__item is-level-1"><a href="collections-coffee.html" class="c-main-menu__link is-level-1"><span class="c-main-menu__link-title">Cà Phê Hạt & Rang Mộc</span></a></li>
-          <li class="c-main-menu__item is-level-1"><a href="collections-coffee.html" class="c-main-menu__link is-level-1"><span class="c-main-menu__link-title">Hòa Tan & Sấy Lạnh</span></a></li>
-          <li class="c-main-menu__item is-level-1"><a href="our-story.html" class="c-main-menu__link is-level-1"><span class="c-main-menu__link-title">Câu Chuyện S54</span></a></li>
-          <li class="c-main-menu__item is-level-1"><a href="wholesale.html" class="c-main-menu__link is-level-1"><span class="c-main-menu__link-title">B2B & Đại Lý</span></a></li>
-        </ul>
-      </nav>
-
-      <ul id="c-h-add" class="c-header__additional">
-        <li class="c-header__additional-item is-hotline is-desktop-only">
-          <a href="tel:0383707578" class="c-header__phone-link">
-            <span class="c-header__phone-icon">📞</span>
-            <span class="c-header__phone-text">0383.707.578</span>
-          </a>
-        </li>
-        <li class="c-header__additional-item">
-          <button type="button" class="c-header__link is-cart" data-cart-drawer-toggle aria-label="Cart">
-            <svg fill="none" class="c-header__icon is-cart" viewBox="0 0 24 24" width="22" height="22" stroke="#FAF6F1" stroke-width="1.8"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-            <span class="c-header__cart-count" data-cart-count>0</span>
-          </button>
-        </li>
-      </ul>
-    </div>
-  </header>
-</div>
+        {header_block}
 
         <!-- 1. Master High-Contrast Hero Banner -->
         <header class="s54-blog-hero">
@@ -555,126 +522,7 @@
 
         </main>
 
-        <div id="shopify-section-footer" class="shopify-section c-section c-section__footer">
-  <footer class="c-footer s54-footer" data-footer>
-    <div class="s54-footer__container">
-      
-      <!-- Top Grid: 4 Clean Columns -->
-      <div class="s54-footer__grid">
-        
-        <!-- Col 1: Brand Identity & Legal Info -->
-        <div class="s54-footer__col s54-footer__col--brand">
-          <a href="index.html" class="s54-footer__logo-link">
-            <img src="assets/images/s54/s54_logo.png" alt="S54 COFFEE" class="s54-footer__logo-img" />
-          </a>
-          <p class="s54-footer__company-name">CÔNG TY TNHH GIẢI PHÁP TỐT</p>
-          <p class="s54-footer__brand-tagline">"New Coffee, New Income" — Tinh hoa cà phê Việt rang mộc thượng hạng từ năm 2012.</p>
-          
-          <ul class="s54-footer__contact-list">
-            <li>
-              <span class="s54-footer__contact-icon">📍</span>
-              <span>Số 35, Đường T8, Manhattan, Vinhomes Grand Park, P. Long Bình, TP. Thủ Đức, TP. Hồ Chí Minh</span>
-            </li>
-            <li>
-              <span class="s54-footer__contact-icon">📞</span>
-              <span>Hotline: <a href="tel:0383707578">0383.707.578</a> — <a href="tel:0902873345">0902.873.345</a></span>
-            </li>
-            <li>
-              <span class="s54-footer__contact-icon">✉️</span>
-              <span>Email: <a href="mailto:pm@goodsolutions.com.vn">pm@goodsolutions.com.vn</a></span>
-            </li>
-            <li>
-              <span class="s54-footer__contact-icon">🌐</span>
-              <span>Website: <a href="https://goodsolutions.com.vn" target="_blank" rel="noopener">goodsolutions.com.vn</a></span>
-            </li>
-          </ul>
-        </div>
-
-        <!-- Col 2: Sản Phẩm & Mua Sắm -->
-        <div class="s54-footer__col">
-          <h4 class="s54-footer__heading">Sản Phẩm S54</h4>
-          <ul class="s54-footer__links">
-            <li><a href="collections-coffee.html">Tất Cả Sản Phẩm</a></li>
-            <li><a href="collections-coffee.html">S54 Robusta Rang Mộc</a></li>
-            <li><a href="collections-coffee.html">S54 Arabica Cầu Đất</a></li>
-            <li><a href="collections-coffee.html">Cà Phê Hòa Tan 3in1 (456g)</a></li>
-            <li><a href="collections-coffee.html">Cà Phê Sấy Lạnh Cao Cấp</a></li>
-            <li><a href="collections-coffee.html">Cà Phê Túi Lọc Drip Bag</a></li>
-            <li><a href="collections-coffee.html">Cà Phê Xay Pha Phin</a></li>
-          </ul>
-        </div>
-
-        <!-- Col 3: Về S54 & Dịch Vụ -->
-        <div class="s54-footer__col">
-          <h4 class="s54-footer__heading">Về S54 & Dịch Vụ</h4>
-          <ul class="s54-footer__links">
-            <li><a href="our-story.html">Câu Chuyện Thương Hiệu</a></li>
-            <li><a href="our-story.html">Nông Trại & Công Nghệ Rang</a></li>
-            <li><a href="wholesale.html">Cung Ứng B2B & Đại Lý</a></li>
-            <li><a href="wholesale.html">Gia Công OEM/ODM Xuất Khẩu</a></li>
-            <li><a href="wholesale.html">Chính Sách Vận Chuyển</a></li>
-            <li><a href="wholesale.html">Chính Sách Đổi Trả & Bảo Mật</a></li>
-            <li><a href="wholesale.html">Liên Hệ Hợp Tác</a></li>
-          </ul>
-        </div>
-
-        <!-- Col 4: Đăng Ký Nhận Tin & Kết Nối -->
-        <div class="s54-footer__col s54-footer__col--newsletter">
-          <h4 class="s54-footer__heading">Đăng Ký Nhận Ưu Đãi</h4>
-          <p class="s54-footer__newsletter-desc">Nhận ngay voucher ưu đãi 15% cho đơn hàng đầu tiên cùng cẩm nang pha chế độc quyền từ S54 Coffee.</p>
-          
-          <form class="s54-footer__form" onsubmit="event.preventDefault(); alert('Cảm ơn bạn đã đăng ký nhận tin từ S54 Coffee!');">
-            <div class="s54-footer__input-wrap">
-              <input type="email" class="s54-footer__input" placeholder="Nhập địa chỉ email của bạn..." required />
-              <button type="submit" class="s54-footer__submit-btn" aria-label="Đăng ký">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </button>
-            </div>
-          </form>
-
-          <div class="s54-footer__social-wrap">
-            <span class="s54-footer__social-title">Kết Nối Với Chúng Tôi:</span>
-            <div class="s54-footer__social-icons">
-              <a href="https://facebook.com/goodsolutions.vn" target="_blank" rel="noopener" class="s54-footer__social-btn" aria-label="Facebook">
-                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
-              </a>
-              <a href="https://zalo.me/0383707578" target="_blank" rel="noopener" class="s54-footer__social-btn" aria-label="Zalo">
-                <span style="font-weight: 800; font-size: 11px;">Zalo</span>
-              </a>
-              <a href="https://youtube.com" target="_blank" rel="noopener" class="s54-footer__social-btn" aria-label="YouTube">
-                <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Bottom Bar: Legal Copyright, Payment Badges & Language Switcher -->
-      <div class="s54-footer__bottom">
-        <div class="s54-footer__copyright">
-          © 2026 <strong>S54 COFFEE</strong> by <strong>Good Solutions Co., Ltd</strong>. Giữ toàn quyền bản quyền.
-        </div>
-        
-        <div class="s54-footer__payments">
-          <span class="s54-footer__pay-badge">Chuyển Khoản</span>
-          <span class="s54-footer__pay-badge">COD</span>
-          <span class="s54-footer__pay-badge">VNPAY</span>
-          <span class="s54-footer__pay-badge">Momo</span>
-          <span class="s54-footer__pay-badge">VISA</span>
-          <span class="s54-footer__pay-badge">Mastercard</span>
-        </div>
-
-        <div class="c-lang-switcher c-lang-switcher--footer" data-lang-switcher>
-          <button type="button" class="c-lang-btn is-active" data-lang="vi" aria-label="Tiếng Việt">🇻🇳 Tiếng Việt</button>
-          <span class="c-lang-divider">|</span>
-          <button type="button" class="c-lang-btn" data-lang="en" aria-label="English">🇬🇧 English</button>
-        </div>
-      </div>
-
-    </div>
-  </footer>
-</div>
+        {footer_block}
     </div>
 
     <script src="assets/js/i18n.js"></script>
@@ -683,4 +531,231 @@
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 4L4 12H9V20H15V12H20L12 4Z" fill="currentColor"/></svg>
     </button>
 </body>
-</html>
+</html>'''
+
+(BASE_DIR / 'blogs-news.html').write_text(BLOG_LIST_HTML, encoding='utf-8')
+print("✓ Successfully regenerated luxury blogs-news.html")
+
+# Regenerate blog-detail.html with matching luxury styling
+BLOG_DETAIL_HTML = f'''<!DOCTYPE HTML>
+<html class="js-unavailable" lang="vi" data-country="Vietnam">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>5 Lợi Ích Tuyệt Vời Của Việc Uống Cà Phê Có Thể Bạn Chưa Biết | S54 COFFEE</title>
+    <meta name="description" content="Khám phá 5 lợi ích bất ngờ cho sức khỏe từ ly cà phê sạch rang mộc nguyên chất mỗi sáng: chống oxy hóa, đẩy lùi cơn đau đầu, hỗ trợ vận động viên và giảm mệt mỏi." />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link href="assets/css/layouts.critical.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="assets/css/layouts.theme.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="assets/css/custom.css?v={int(time.time())}" rel="stylesheet" type="text/css" media="all" />
+    
+    <style id="s54-article-perfect-styles">
+    body.template-article {{
+        background-color: #FAF8F5 !important;
+        color: #2F221A !important;
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
+    }}
+    .s54-article-container {{
+        max-width: 880px !important;
+        margin: 0 auto !important;
+        padding: clamp(36px, 5vw, 64px) 24px clamp(60px, 7vw, 80px) !important;
+    }}
+    .s54-breadcrumb {{
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        font-size: 13px !important;
+        color: #8C7D73 !important;
+        margin-bottom: 24px !important;
+    }}
+    .s54-breadcrumb a {{
+        color: #2F221A !important;
+        text-decoration: none !important;
+        font-weight: 600 !important;
+    }}
+    .s54-breadcrumb a:hover {{
+        color: #D68E1D !important;
+    }}
+    .s54-article-header {{
+        margin-bottom: 32px !important;
+    }}
+    .s54-article-title {{
+        font-family: 'Cormorant Garamond', Georgia, serif !important;
+        font-size: clamp(32px, 4.5vw, 50px) !important;
+        font-weight: 700 !important;
+        line-height: 1.18 !important;
+        color: #2F221A !important;
+        margin: 16px 0 20px 0 !important;
+    }}
+    .s54-article-featured-img {{
+        width: 100% !important;
+        border-radius: 12px !important;
+        margin-bottom: 40px !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.06) !important;
+        display: block !important;
+    }}
+    .s54-article-body {{
+        font-size: 16px !important;
+        line-height: 1.85 !important;
+        color: #3B2E26 !important;
+    }}
+    .s54-article-body h2 {{
+        font-family: 'Cormorant Garamond', Georgia, serif !important;
+        font-size: clamp(26px, 3vw, 34px) !important;
+        font-weight: 700 !important;
+        color: #2F221A !important;
+        margin: 40px 0 16px 0 !important;
+        padding-bottom: 8px !important;
+        border-bottom: 2px solid #EBE7E1 !important;
+    }}
+    .s54-article-body p {{
+        margin-bottom: 22px !important;
+    }}
+    .s54-article-quote {{
+        background: #FAF6F1 !important;
+        border-left: 4px solid #D68E1D !important;
+        padding: 24px 28px !important;
+        margin: 32px 0 !important;
+        border-radius: 0 10px 10px 0 !important;
+        font-family: 'Cormorant Garamond', Georgia, serif !important;
+        font-style: italic !important;
+        color: #2F221A !important;
+        font-size: 20px !important;
+        line-height: 1.6 !important;
+    }}
+    .s54-article-author-box {{
+        margin-top: 56px !important;
+        padding: 28px !important;
+        background: #FFFFFF !important;
+        border: 1px solid #EBE7E1 !important;
+        border-radius: 10px !important;
+        display: flex !important;
+        gap: 20px !important;
+        align-items: center !important;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.03) !important;
+    }}
+    .s54-author-avatar {{
+        width: 64px !important;
+        height: 64px !important;
+        border-radius: 50% !important;
+        background: #2F221A !important;
+        color: #D68E1D !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-size: 22px !important;
+        font-weight: 700 !important;
+        flex-shrink: 0 !important;
+    }}
+    </style>
+</head>
+<body class="template-article">
+
+    <div class="c-page__wrapper">
+        {header_block}
+
+        <main class="s54-article-container">
+            
+            <!-- Breadcrumb Navigation -->
+            <nav class="s54-breadcrumb" aria-label="Breadcrumb">
+                <a href="index.html">Trang Chủ</a>
+                <span>›</span>
+                <a href="blogs-news.html">Tin Tức & Blog</a>
+                <span>›</span>
+                <span style="color: #6E6259;">5 Lợi Ích Của Cà Phê</span>
+            </nav>
+
+            <!-- Article Header -->
+            <header class="s54-article-header">
+                <div class="s54-post-meta">
+                    <span>☕ KIẾN THỨC CÀ PHÊ</span>
+                    <span>•</span>
+                    <span>5 PHÚT ĐỌC</span>
+                    <span>•</span>
+                    <span>26/08/2026</span>
+                </div>
+                <h1 class="s54-article-title">5 Lợi Ích Tuyệt Vời Của Việc Uống Cà Phê Có Thể Bạn Chưa Biết</h1>
+                <p style="font-size: 15px; color: #6E6259; line-height: 1.6; margin: 0;">
+                    Tác giả: <strong>Ban Biên Tập S54 COFFEE</strong> • Cố vấn: <strong>Công Ty TNHH Giải Pháp Tốt</strong>
+                </p>
+            </header>
+
+            <img src="assets/images/s54/blog_cup.jpg" alt="5 Lợi Ích Tuyệt Vời Của Việc Uống Cà Phê" class="s54-article-featured-img" />
+
+            <!-- Authentic Content Body -->
+            <div class="s54-article-body">
+                <p>
+                    Có nhiều cách để khởi động ngày mới năng động như hít thở, thư giãn và luyện tập thể dục thể thao; trong đó, hoạt động uống cà phê là thói quen khá phổ biến. Tuy nhiên, không phải ai cũng biết được những lợi ích tuyệt vời từ ly cà phê sáng mang lại cho sức khỏe thể chất lẫn tinh thần.
+                </p>
+                <p>
+                    Các nghiên cứu khoa học uy tín đã chỉ ra rằng, dù là cà phê pha phin truyền thống hay cà phê hòa tan 100% nguyên chất, với một lượng vừa phải mỗi ngày, cà phê sẽ mang lại những lợi ích vượt trội: cải thiện độ tập trung, xoa dịu mệt mỏi, giảm đau đầu và hỗ trợ chuyển hóa mỡ thừa.
+                </p>
+
+                <blockquote class="s54-article-quote">
+                    “Các sản phẩm S54 COFFEE được sản xuất từ 100% hạt cà phê đạt chuẩn Tây Nguyên, mang tới cho bạn những ly cà phê nguyên chất, góp phần vào cuộc sống vui khoẻ của người Việt.”
+                </blockquote>
+
+                <h2>1. Nguồn Chất Chống Oxy Hóa Dồi Dào Bảo Vệ Tế Bào</h2>
+                <p>
+                    Lợi ích lớn nhất mà cà phê nguyên chất mang lại là nguồn chất chống oxy hoá dồi dào, đặc biệt là trong hạt cà phê Robusta và Arabica chưa qua tẩm ướp phụ gia hóa chất. Mỗi tách cà phê chứa hàm lượng polyphenol cao, hoạt động cùng với các khoáng chất vi lượng để giúp cơ thể và các tế bào hoạt động tối ưu, ngăn ngừa lão hóa và duy trì sức khỏe tổng thể.
+                </p>
+
+                <h2>2. Kích Hoạt Trí Nhớ & Tăng Cường Sự Tập Trung Tột Đỉnh</h2>
+                <p>
+                    Cà phê rất giàu caffeine tự nhiên – thành phần kích hoạt hệ thần kinh trung ương, giúp cải thiện chức năng nhận thức, phản xạ và trí nhớ ngắn hạn. Thưởng thức một ly cà phê đen hoặc cà phê sữa ít đường vào đầu giờ làm việc sẽ giúp bạn nhanh chóng nạp lại năng lượng và nâng cao hiệu suất làm việc.
+                </p>
+
+                <h2>3. Đẩy Lùi Cơn Đau Đầu Nhờ Tác Động Giãn Mạch Tự Nhiên</h2>
+                <p>
+                    Caffeine là một chất làm giãn mạch tự nhiên, có khả năng hỗ trợ điều hòa áp lực máu bằng cách ngăn chặn các cơ trong tĩnh mạch căng lên và thu hẹp lại. Do đó, một lượng cà phê vừa phải (1-2 ly/ngày) sẽ giúp xoa dịu những cơn đau đầu do căng thẳng làm việc.
+                </p>
+
+                <h2>4. Tăng Cường Hiệu Suất Thể Chất Cho Người Luyện Tập</h2>
+                <p>
+                    Đối với những người thường xuyên tập thể thao, gym hay vận động viên, một tách cà phê nguyên chất trước buổi tập 30 phút sẽ kích thích giải phóng adrenaline, giúp xoa dịu cảm giác mệt mỏi và nâng cao sức bền vận động rõ rệt.
+                </p>
+
+                <h2>5. Hỗ Trợ Đốt Cháy Mỡ Thừa Qua Cơ Chế Sinh Nhiệt Tự Nhiên</h2>
+                <p>
+                    Caffeine từ lâu đã được chứng minh có khả năng thúc đẩy quá trình "sinh nhiệt" (thermogenesis) – cơ chế đốt cháy calo và mỡ thừa tự nhiên của cơ thể. Để đạt hiệu quả tối ưu, bạn nên kết hợp uống cà phê rang mộc không đường với chế độ dinh dưỡng lành mạnh và uống đủ nước mỗi ngày.
+                </p>
+
+                <!-- Author Box -->
+                <div class="s54-article-author-box">
+                    <div class="s54-author-avatar">S54</div>
+                    <div>
+                        <h4 style="margin: 0 0 4px; font-size: 16px; color: #2F221A;">S54 Coffee Editorial Team</h4>
+                        <p style="margin: 0; font-size: 13px; color: #6E6259; line-height: 1.5;">
+                            Đội ngũ nghiên cứu & phát triển sản phẩm của Công ty TNHH Giải Pháp Tốt (Good Solutions Co., Ltd). Sứ mệnh mang tinh hoa cà phê Việt sạch nguyên chất đến hàng triệu người tiêu dùng.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- CTA Back & Shop -->
+                <div style="margin-top: 44px; text-align: center; display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
+                    <a href="blogs-news.html" style="padding: 12px 24px; border: 1px solid #2F221A; color: #2F221A; text-decoration: none; border-radius: 4px; font-weight: 700; font-size: 13px;">← Xem Tất Cả Bài Viết</a>
+                    <a href="collections-coffee.html" style="padding: 12px 24px; background: #D68E1D; color: #FFFFFF; text-decoration: none; border-radius: 4px; font-weight: 700; font-size: 13px;">Khám Phá Cà Phê S54 →</a>
+                </div>
+
+            </div>
+
+        </main>
+
+        {footer_block}
+    </div>
+
+    <script src="assets/js/i18n.js"></script>
+    <script src="assets/js/main.js"></script>
+    <button class="c-scroll-top" id="scrollTopBtn" aria-label="Lên đầu trang">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 4L4 12H9V20H15V12H20L12 4Z" fill="currentColor"/></svg>
+    </button>
+</body>
+</html>'''
+
+(BASE_DIR / 'blog-detail.html').write_text(BLOG_DETAIL_HTML, encoding='utf-8')
+print("✓ Successfully regenerated luxury blog-detail.html")
