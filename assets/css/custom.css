@@ -2417,16 +2417,16 @@ h5, h6,
 
 
 /* ==========================================================================
-   MASTER S54 LUXURY PRODUCT CARD SYSTEM (Unified, Equal Height, Pristine UI)
+   S54 Product Grid & Thumbnail - Clean Original Editorial Alignment
    ========================================================================== */
 
-/* 1. Grid & Flex Uniformity */
+/* 1. Grid layout */
 .o-products-list__products,
 .c-product-grid {
     display: grid !important;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)) !important;
-    gap: 24px !important;
-    align-items: stretch !important;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+    gap: 36px 24px !important;
+    align-items: start !important;
 }
 
 @media (min-width: 1200px) {
@@ -2435,62 +2435,64 @@ h5, h6,
     }
 }
 
-/* 2. Unified Master Card Box */
+/* 2. Original Floating Minimalist Thumbnail */
 .o-product-thumbnail {
-    background: #FFFFFF !important;
-    border: 1px solid #EBE7E1 !important;
-    border-radius: 12px !important;
-    padding: 18px !important;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: space-between !important;
-    height: 100% !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
     box-sizing: border-box !important;
-    position: relative !important;
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease !important;
-    box-shadow: 0 4px 16px rgba(47, 34, 26, 0.04) !important;
-    overflow: visible !important;
+    transition: none !important;
 }
 
 .o-product-thumbnail:hover {
-    transform: translateY(-6px) !important;
-    box-shadow: 0 16px 36px rgba(47, 34, 26, 0.12) !important;
-    border-color: #D68E1D !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
 }
 
 .o-product-thumbnail__inner {
     display: flex !important;
     flex-direction: column !important;
-    height: 100% !important;
-    justify-content: space-between !important;
+    align-items: center !important;
+    width: 100% !important;
 }
 
 .o-product-thumbnail__link {
     display: flex !important;
     flex-direction: column !important;
+    align-items: center !important;
     text-decoration: none !important;
     color: inherit !important;
-    flex: 1 0 auto !important;
+    width: 100% !important;
 }
 
-/* 3. Product Image Container & Aspect Ratio */
+/* 3. Image Container - Original White Floating Box with Smooth Shadow */
 .o-product-thumbnail__image-container {
-    background-color: #FAF8F5 !important;
+    background: #FFFFFF !important;
     border-radius: 8px !important;
-    overflow: hidden !important;
-    padding: 16px !important;
+    padding: 18px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     aspect-ratio: 1 / 1 !important;
-    position: relative !important;
-    margin-bottom: 14px !important;
-    box-shadow: none !important;
+    width: 100% !important;
+    max-width: 260px !important;
+    margin: 0 auto 16px auto !important;
+    box-shadow: 0 4px 16px rgba(47, 34, 26, 0.06) !important;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease !important;
+    box-sizing: border-box !important;
 }
 
-.o-product-thumbnail__image-container:after,
-.o-product-thumbnail__image:after {
-    display: none !important;
+.o-product-thumbnail:hover .o-product-thumbnail__image-container {
+    transform: translateY(-6px) !important;
+    box-shadow: 0 14px 30px rgba(47, 34, 26, 0.12) !important;
 }
 
 .o-product-thumbnail__image-container img,
@@ -2499,63 +2501,60 @@ h5, h6,
     height: 100% !important;
     object-fit: contain !important;
     background: transparent !important;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
-    filter: drop-shadow(0 4px 12px rgba(47, 34, 26, 0.08)) !important;
+    border-radius: 0 !important;
+    filter: none !important;
 }
 
-.o-product-thumbnail:hover .o-product-thumbnail__image-container img,
-.o-product-thumbnail:hover .o-product-thumbnail__image {
-    transform: scale(1.05) !important;
-}
-
-/* 4. Luxury Corner Badge */
+/* 4. Original Centered Gold Pill Badge */
 .o-product-thumbnail__badge {
-    position: absolute !important;
-    top: 10px !important;
-    left: 10px !important;
-    z-index: 10 !important;
-    background: rgba(214, 142, 29, 0.94) !important;
+    position: static !important;
+    margin: 0 auto 10px auto !important;
+    background-color: #D68E1D !important;
     color: #FFFFFF !important;
     font-family: 'Plus Jakarta Sans', sans-serif !important;
-    font-size: 10.5px !important;
+    font-size: 11px !important;
     font-weight: 700 !important;
     letter-spacing: 0.8px !important;
     text-transform: uppercase !important;
-    padding: 4px 10px !important;
-    border-radius: 4px !important;
-    box-shadow: 0 2px 8px rgba(214, 142, 29, 0.35) !important;
-    margin: 0 !important;
+    padding: 5px 18px !important;
+    border-radius: 20px !important;
     display: inline-block !important;
+    box-shadow: none !important;
 }
 
-/* 5. Product Title - Strict 2-Line Uniform Height */
+/* 5. Title - Strictly Aligned 2-Line Baseline */
 .o-product-thumbnail__title {
     font-family: 'Plus Jakarta Sans', sans-serif !important;
-    font-size: 15px !important;
+    font-size: 14.5px !important;
     font-weight: 700 !important;
     line-height: 1.35 !important;
     color: #2F221A !important;
     text-align: center !important;
-    margin: 0 0 8px 0 !important;
+    margin: 0 auto 8px auto !important;
     display: -webkit-box !important;
     -webkit-line-clamp: 2 !important;
     -webkit-box-orient: vertical !important;
     overflow: hidden !important;
-    height: 42px !important;
-    min-height: 42px !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    max-width: 260px !important;
 }
 
-.o-product-thumbnail:hover .o-product-thumbnail__title {
-    color: #D68E1D !important;
-}
-
-/* 6. Clean Reviews & Star Rating */
+/* 6. Rating & Reviews - Clean Single Line */
 .o-product-thumbnail__star-reviews {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    margin: 0 0 8px 0 !important;
+    gap: 4px !important;
+    margin: 0 auto 8px auto !important;
+    height: 20px !important;
     min-height: 20px !important;
+}
+
+.oke-a11yText,
+.oke-sr-label-text,
+.oke-sr-rating {
+    display: none !important;
 }
 
 .o-reviews__stars,
@@ -2564,7 +2563,7 @@ h5, h6,
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 4px !important;
+    gap: 3px !important;
 }
 
 .oke-stars-foreground svg,
@@ -2572,12 +2571,7 @@ h5, h6,
 .o-reviews__stars svg {
     color: #D68E1D !important;
     fill: #D68E1D !important;
-    height: 14px !important;
-}
-
-.oke-a11yText,
-.oke-sr-label-text {
-    display: none !important;
+    height: 13px !important;
 }
 
 .oke-sr-count,
@@ -2585,88 +2579,81 @@ h5, h6,
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-size: 12.5px !important;
     font-weight: 600 !important;
-    color: #8C7E74 !important;
-    margin-left: 4px !important;
+    color: #2F221A !important;
+    margin-left: 3px !important;
 }
 
-/* 7. Product Excerpt - Strict 2-Line Height */
+/* 7. Product Excerpt - Uniform 2-Line Baseline */
 .o-product-thumbnail__excerpt {
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-size: 13px !important;
     line-height: 1.45 !important;
-    color: #6E6259 !important;
+    color: #5C4A3E !important;
     text-align: center !important;
-    margin: 0 0 12px 0 !important;
+    margin: 0 auto 10px auto !important;
     display: -webkit-box !important;
     -webkit-line-clamp: 2 !important;
     -webkit-box-orient: vertical !important;
     overflow: hidden !important;
     height: 38px !important;
     min-height: 38px !important;
+    max-width: 240px !important;
 }
 
-/* 8. Price Section */
+/* 8. Price - Uniform Baseline */
 .o-product-thumbnail__price {
     font-family: 'Plus Jakarta Sans', sans-serif !important;
-    font-size: 18px !important;
+    font-size: 16px !important;
     font-weight: 700 !important;
     color: #D68E1D !important;
     text-align: center !important;
-    margin: 0 0 14px 0 !important;
-    letter-spacing: -0.2px !important;
+    margin: 0 auto 12px auto !important;
 }
 
-/* 9. Content / Hover Actions Form */
+/* 9. Content / Form Actions */
 .o-product-thumbnail__content {
-    margin-top: auto !important;
     width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
 }
 
 .o-product-thumbnail__form {
     width: 100% !important;
-    margin: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
 }
 
-/* 10. Add To Cart Button - Always Clean & Prominent */
-.o-product-thumbnail__add-btn,
-.o-btn.is-primary.is-dark.is-smaller {
+.o-product-thumbnail__hover {
+    display: block !important;
     width: 100% !important;
-    background-color: #2F221A !important;
-    color: #FFFFFF !important;
-    border: none !important;
-    border-radius: 6px !important;
-    padding: 12px 16px !important;
+    max-width: 180px !important;
+    margin: 0 auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: static !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+.o-product-thumbnail__add-btn {
+    width: 100% !important;
+    background-color: transparent !important;
+    color: #2F221A !important;
+    border: 1.5px solid #2F221A !important;
+    border-radius: 4px !important;
+    padding: 8px 14px !important;
     font-family: 'Plus Jakarta Sans', sans-serif !important;
-    font-size: 12px !important;
+    font-size: 11px !important;
     font-weight: 700 !important;
     letter-spacing: 1px !important;
     text-transform: uppercase !important;
     cursor: pointer !important;
-    transition: all 0.25s ease !important;
-    display: block !important;
-    text-align: center !important;
-    box-sizing: border-box !important;
+    transition: all 0.2s ease !important;
 }
 
-.o-product-thumbnail__add-btn:hover,
-.o-btn.is-primary.is-dark.is-smaller:hover {
-    background-color: #D68E1D !important;
-    box-shadow: 0 4px 14px rgba(214, 142, 29, 0.35) !important;
+.o-product-thumbnail__add-btn:hover {
+    background-color: #2F221A !important;
+    color: #FAF6F1 !important;
     transform: translateY(-1px) !important;
-}
-
-.o-product-thumbnail__hover {
-    opacity: 1 !important;
-    visibility: visible !important;
-    position: static !important;
-    transform: none !important;
-    width: 100% !important;
-    display: block !important;
-    background: transparent !important;
-    box-shadow: none !important;
-    padding: 0 !important;
-}
-
-.o-product-thumbnail__swatches {
-    display: none !important;
 }
