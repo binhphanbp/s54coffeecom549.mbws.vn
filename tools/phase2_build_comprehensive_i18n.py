@@ -1,4 +1,15 @@
-/**
+#!/usr/bin/env python3
+"""
+Phase 2 & 3: Master i18n Engine & Comprehensive Bilingual Dictionary for S54 COFFEE
+Zero-leakage bidirectional translation (VI <-> EN)
+"""
+
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+i18n_path = BASE_DIR / 'assets/js/i18n.js'
+
+i18n_content = '''/**
  * S54 COFFEE - Master Internationalization (i18n) Engine
  * 100% Comprehensive Bidirectional Translation: Vietnamese (Canonical Default) & English
  */
@@ -336,3 +347,7 @@
         }
     });
 })();
+'''
+
+i18n_path.write_text(i18n_content, encoding='utf-8')
+print("✓ Successfully upgraded assets/js/i18n.js with master bilingual dictionary")
