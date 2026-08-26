@@ -1537,20 +1537,20 @@ md-footer-selector__form {
 
 
 /* ==========================================================================
-   STRICT TYPOGRAPHIC HIERARCHY (H1 > H2 > H3 > H4 > H5 > H6)
-   Fix: H2 was occasionally larger than H1. Now standardized & proportional.
+   STRICT TYPOGRAPHIC HIERARCHY (H1: 68px > H2: 56px > H3: 36px > H4: 26px > H5/H6: 16px)
+   Standardized as requested: H2 is 56px on Desktop with smooth responsive clamp.
    ========================================================================== */
 
-/* H1 / Primary Hero Headings */
+/* H1 / Primary Hero Headings (Desktop: 68px) */
 h1,
 .o-heading--1,
 .s54-hero-title,
 .c-hero-banner__title {
     font-family: 'Cormorant Garamond', Georgia, serif !important;
-    font-size: clamp(34px, 4.2vw, 52px) !important;
-    line-height: 1.15 !important;
+    font-size: clamp(40px, 5.2vw, 68px) !important;
+    line-height: 1.1 !important;
     font-weight: 700 !important;
-    letter-spacing: -0.01em !important;
+    letter-spacing: -0.015em !important;
     color: #2F221A !important;
     margin-top: 0 !important;
 }
@@ -1559,7 +1559,7 @@ h1,
     color: #FFFFFF !important;
 }
 
-/* H2 / Major Section Headings (Always ~75% of H1) */
+/* H2 / Major Section Headings (Desktop: 56px) */
 h2,
 .o-heading--2,
 .c-text-and-image__text-title,
@@ -1568,44 +1568,44 @@ h2,
 .c-product-main__title,
 .c-article-feed__title {
     font-family: 'Cormorant Garamond', Georgia, serif !important;
-    font-size: clamp(26px, 3vw, 38px) !important;
-    line-height: 1.25 !important;
+    font-size: clamp(32px, 4vw, 56px) !important;
+    line-height: 1.15 !important;
     font-weight: 600 !important;
     letter-spacing: -0.01em !important;
     color: #2F221A !important;
     margin-top: 0 !important;
-    margin-bottom: 16px !important;
+    margin-bottom: 20px !important;
 }
 
-/* H3 / Subsection Headings & Carousel Titles */
+/* H3 / Subsection Headings & Carousel Titles (Desktop: 36px) */
 h3,
 .o-heading--3,
 .c-product-carousel__title,
 .c-featured-collections__header-title,
 .c-featured-collections__title {
     font-family: 'Cormorant Garamond', Georgia, serif !important;
-    font-size: clamp(22px, 2.4vw, 30px) !important;
-    line-height: 1.3 !important;
+    font-size: clamp(24px, 2.8vw, 36px) !important;
+    line-height: 1.25 !important;
     font-weight: 600 !important;
     letter-spacing: -0.005em !important;
     color: #2F221A !important;
     margin-top: 0 !important;
-    margin-bottom: 14px !important;
+    margin-bottom: 16px !important;
 }
 
-/* H4 / Cards & Content Blocks */
+/* H4 / Cards & Content Blocks (Desktop: 26px) */
 h4,
 .o-heading--4,
 .c-article-feed__card-title,
 .c-product-carousel__product-title {
     font-family: 'Cormorant Garamond', Georgia, serif !important;
-    font-size: clamp(18px, 1.8vw, 24px) !important;
+    font-size: clamp(20px, 2vw, 26px) !important;
     line-height: 1.35 !important;
     font-weight: 600 !important;
     color: #2F221A !important;
 }
 
-/* H5 & H6 / Product Card Labels & Subtitles */
+/* H5 & H6 / Product Card Labels & Subtitles (Desktop: 16px) */
 h5, h6,
 .o-heading--5,
 .o-heading--6,
@@ -1617,7 +1617,7 @@ h5, h6,
     color: #2F221A !important;
 }
 
-/* Ensure paragraph inside headings don't blow up */
+/* Ensure nested paragraphs inside headings retain exact typography */
 .o-heading--1 p, .o-heading--2 p, .o-heading--3 p, .o-heading--4 p, .o-heading--5 p, .o-heading--6 p {
     font-family: inherit !important;
     font-size: inherit !important;
