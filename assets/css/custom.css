@@ -2070,3 +2070,43 @@ h5, h6,
 .s54-blog-hero__desc {
     color: #E2D9CD !important;
 }
+
+/* ==========================================================================
+   10. S54 COLLECTION HERO & FACETED NAV LUXURY POLISH
+   ========================================================================== */
+.s54-coll-hero {
+    border-bottom: 1px solid #2F221A;
+}
+
+@media (max-width: 767px) {
+    .s54-coll-hero {
+        min-height: 320px !important;
+    }
+    .s54-coll-hero .c-hero-banner__overlay {
+        padding: 40px 20px 30px !important;
+    }
+    .s54-coll-hero .c-hero-banner__title {
+        font-size: 32px !important;
+    }
+    .s54-coll-hero .c-hero-banner__subtitle {
+        font-size: 13.5px !important;
+    }
+}
+
+.c-collection-template__faceted-nav__open-btn {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 13.5px !important;
+    border-radius: 4px !important;
+    color: #2F221A !important;
+}
+
+.c-collection-template__faceted-nav__open-btn:hover {
+    background: #2F221A !important;
+    color: #FFFFFF !important;
+}
+
+.c-collection-template__faceted-nav__group .c-faceted-nav__item {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 13px !important;
+}
