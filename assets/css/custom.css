@@ -2340,3 +2340,77 @@ h5, h6,
         padding: 6px 14px;
     }
 }
+
+
+/* ==========================================================================
+   S54 Story Timeline - 100% Connected Line & Alternating Nodes
+   ========================================================================== */
+.c-stories {
+    background-color: #FAF8F5 !important;
+    padding: 6rem 0 7rem !important;
+    position: relative !important;
+}
+
+.c-stories__stories {
+    position: relative !important;
+}
+
+/* Master Vertical Connecting Line - 100% full height from first to last node */
+.c-stories__stories:after {
+    content: "" !important;
+    display: block !important;
+    width: 2px !important;
+    height: 100% !important;
+    position: absolute !important;
+    top: 2rem !important;
+    bottom: 2rem !important;
+    left: calc(50% - 1px) !important;
+    background: linear-gradient(to bottom, #D68E1D 0%, #D68E1D 95%, rgba(214, 142, 29, 0.2) 100%) !important;
+    z-index: 1 !important;
+}
+
+/* Connecting Horizontal Branch Lines */
+.c-stories__story-image-panel:after {
+    background-color: #D68E1D !important;
+    height: 2px !important;
+    opacity: 0.8 !important;
+    z-index: 1 !important;
+}
+
+/* Central Node Dots */
+.c-stories__story-text-panel:after {
+    background-color: #D68E1D !important;
+    width: 1.75rem !important;
+    height: 1.75rem !important;
+    border: 4px solid #FAF8F5 !important;
+    box-shadow: 0 0 0 2px #D68E1D, 0 4px 12px rgba(214, 142, 29, 0.35) !important;
+    z-index: 3 !important;
+}
+
+.c-stories__story {
+    margin-bottom: 5.5rem !important;
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+.c-stories__story:last-child {
+    margin-bottom: 0 !important;
+}
+
+.c-stories__story-image-container {
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    box-shadow: 0 8px 30px rgba(47, 34, 26, 0.12) !important;
+}
+
+@media (max-width: 1099px) {
+    .c-stories__stories:after {
+        left: 1.5rem !important;
+        height: calc(100% - 3rem) !important;
+    }
+    .c-stories__story-title:after {
+        background-color: #D68E1D !important;
+        border: 3px solid #FAF8F5 !important;
+        box-shadow: 0 0 0 1px #D68E1D !important;
+    }
+}
