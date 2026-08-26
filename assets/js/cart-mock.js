@@ -1,96 +1,69 @@
 /**
- * S54 COFFEE - Cart Mock & Storefront State Manager
- * Provides offline cart simulation, sessionStorage persistence, and Fetch/XHR interception for Shopify Cart APIs.
+ * S54 COFFEE - High-Performance E-Commerce Mock Cart & API Bridge
+ * Zero-lag, 60fps, rock-solid session persistence
  */
 (function () {
     'use strict';
 
-    const STORAGE_KEY = 's54_storefront_cart';
-    const FREESHIP_THRESHOLD = 599000; // 599.000 VND
+    const STORAGE_KEY = 's54_cart_data_v2';
 
     const DEFAULT_CART = {
-        token: 'd7480a82b992167389148d53efd67db9',
-        note: null,
-        attributes: {},
-        original_total_price: 4400,
-        total_price: 4400,
-        total_discount: 0,
-        total_weight: 1000.0,
-        item_count: 1,
         items: [
             {
-                id: 401234567890,
-                properties: { _bundle_item: false, _is_subscription: false },
-                quantity: 1,
-                variant_id: 401234567890,
-                key: '401234567890:1',
-                title: 'Cinque Stelle Oro - 1kg Beans',
+                id: 6718616502447,
+                variant_id: 42342703071407,
+                key: '6718616502447:42342703071407',
+                title: 'Cinque Stelle® Dòng Special Bar Thượng Hạng Cà Phê Hạt - 1kg',
                 price: 4400,
                 original_price: 4400,
-                discounted_price: 4400,
-                line_price: 4400,
-                original_line_price: 4400,
-                total_discount: 0,
-                discounts: [],
-                sku: 'VIT-ORO-1KG',
-                grams: 1000,
-                vendor: 'S54 COFFEE',
-                taxable: false,
-                product_id: 6718616502447,
-                product_has_only_default_variant: false,
-                gift_card: false,
                 final_price: 4400,
-                final_line_price: 4400,
-                url: 'product-detail.html',
-                featured_image: {
-                    aspect_ratio: 1.0,
-                    alt: 'Cinque Stelle Oro Beans',
-                    height: 1000,
-                    url: 'assets/images/000_sb_beans_1kg_oro_f_V2_HOMEPAGE_500x_4_120x_2x.png',
-                    width: 1000
-                },
-                image: 'assets/images/000_sb_beans_1kg_oro_f_V2_HOMEPAGE_500x_4_120x_2x.png',
-                handle: 'cinque-stelle-beans-1kg',
-                requires_shipping: true,
-                product_type: 'Beans',
-                product_title: 'Cinque Stelle',
-                product_description: "Australia's favourite premium blend",
-                variant_title: '1kg Beans',
-                variant_options: ['1kg Beans'],
-                options_with_values: [{ name: 'Size', value: '1kg Beans' }],
-                line_level_discount_allocations: []
+                line_price: 4400,
+                quantity: 1,
+                image: 'assets/images/s54/robusta_1.jpg',
+                url: 'product-detail.html'
             }
         ],
-        requires_shipping: true,
-        currency: 'VND',
+        item_count: 1,
+        total_price: 4400,
+        original_total_price: 4400,
         items_subtotal_price: 4400,
-        cart_level_discount_applications: []
+        total_weight: 1000,
+        currency: 'VND'
     };
 
     function loadCart() {
         try {
-            const saved = sessionStorage.getItem(STORAGE_KEY);
-            if (saved) {
-                return JSON.parse(saved);
+            const raw = sessionStorage.getItem(STORAGE_KEY);
+            if (raw) {
+                const parsed = JSON.parse(raw);
+                if (parsed && Array.isArray(parsed.items)) {
+                    recalculateTotals(parsed);
+                    return parsed;
+                }
             }
         } catch (e) {
-            console.warn('[CartMock] Failed to read sessionStorage', e);
+            console.warn('[S54Cart] Fallback to default cart', e);
         }
-        return JSON.parse(JSON.stringify(DEFAULT_CART));
+        const initial = JSON.parse(JSON.stringify(DEFAULT_CART));
+        recalculateTotals(initial);
+        return initial;
     }
 
     function recalculateTotals(cart) {
+        if (!cart || !Array.isArray(cart.items)) return;
         let count = 0;
         let total = 0;
         let weight = 0;
 
         cart.items.forEach(item => {
-            count += item.quantity;
-            item.line_price = item.price * item.quantity;
-            item.original_line_price = item.original_price * item.quantity;
-            item.final_line_price = item.final_price * item.quantity;
+            const qty = Math.max(0, parseInt(item.quantity, 10) || 1);
+            const price = typeof item.price === 'number' ? item.price : 4400;
+            item.quantity = qty;
+            item.line_price = price * qty;
+            item.final_line_price = price * qty;
+            count += qty;
             total += item.line_price;
-            weight += (item.grams || 0) * item.quantity;
+            weight += (item.grams || 1000) * qty;
         });
 
         cart.item_count = count;
@@ -106,7 +79,7 @@
         try {
             sessionStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
         } catch (e) {
-            console.warn('[CartMock] Failed to save sessionStorage', e);
+            console.warn('[S54Cart] Save error', e);
         }
         window.__s54MockCart = cart;
         if (!isDispatching) {
@@ -114,7 +87,7 @@
             try {
                 window.dispatchEvent(new CustomEvent('cart:updated', { detail: cart }));
             } finally {
-                setTimeout(() => { isDispatching = false; }, 50);
+                setTimeout(() => { isDispatching = false; }, 30);
             }
         }
         return cart;
@@ -129,32 +102,43 @@
             return JSON.parse(JSON.stringify(cartState));
         },
         addItem: function (item) {
-            const existing = cartState.items.find(i => i.id === item.id || (item.variant_id && i.variant_id === item.variant_id));
+            if (!item) return saveCart(cartState);
+            const cleanTitle = (item.title || 'S54 Cà Phê Hạt Rang Mộc').trim();
+            const existing = cartState.items.find(i => 
+                (item.id && String(i.id) === String(item.id)) || 
+                (item.variant_id && String(i.variant_id) === String(item.variant_id)) ||
+                (i.title && i.title === cleanTitle)
+            );
+
             if (existing) {
                 existing.quantity += (item.quantity || 1);
+                if (item.image && !existing.image) existing.image = item.image;
             } else {
-                const newItem = Object.assign({
-                    id: Date.now(),
-                    variant_id: Date.now(),
-                    key: Date.now() + ':1',
-                    title: 'S54 Special Blend',
-                    price: 3500,
-                    original_price: 3500,
-                    final_price: 3500,
-                    line_price: 3500,
-                    quantity: 1,
-                    image: 'assets/images/000_sb_beans_1kg_oro_f_V2_HOMEPAGE_500x_4_120x_2x.png',
-                    url: 'product-detail.html'
-                }, item);
+                const newId = item.id || Date.now();
+                const price = item.price || 4400;
+                const newItem = {
+                    id: newId,
+                    variant_id: item.variant_id || newId,
+                    key: String(newId),
+                    title: cleanTitle,
+                    price: price,
+                    original_price: price,
+                    final_price: price,
+                    line_price: price,
+                    quantity: item.quantity || 1,
+                    image: item.image || 'assets/images/s54/robusta_1.jpg',
+                    url: item.url || 'product-detail.html'
+                };
                 cartState.items.push(newItem);
             }
             return saveCart(cartState);
         },
         updateQuantity: function (keyOrId, quantity) {
+            const target = String(keyOrId);
             if (quantity <= 0) {
-                cartState.items = cartState.items.filter(i => i.key !== keyOrId && i.id !== keyOrId && i.variant_id !== keyOrId);
+                cartState.items = cartState.items.filter(i => String(i.key) !== target && String(i.id) !== target && String(i.variant_id) !== target);
             } else {
-                const item = cartState.items.find(i => i.key === keyOrId || i.id === keyOrId || i.variant_id === keyOrId);
+                const item = cartState.items.find(i => String(i.key) === target || String(i.id) === target || String(i.variant_id) === target);
                 if (item) {
                     item.quantity = quantity;
                 }
@@ -171,23 +155,15 @@
         }
     };
 
-    // Intercept fetch requests for Shopify Cart API
+    // Intercept fetch requests for Shopify Cart API cleanly
     const origFetch = window.fetch;
     window.fetch = function (url, opts) {
         const u = (typeof url === 'string') ? url : (url && url.url) || '';
 
         if (u.indexOf('/cart/add') !== -1 || u.indexOf('cart/add.js') !== -1) {
-            let body = null;
-            if (opts && opts.body) {
-                try {
-                    body = typeof opts.body === 'string' ? JSON.parse(opts.body) : opts.body;
-                } catch (e) {
-                    body = {};
-                }
-            }
-            const quantity = (body && body.quantity) ? parseInt(body.quantity, 10) : 1;
-            const updated = window.S54Cart.addItem({ quantity: quantity });
-            return Promise.resolve(new Response(JSON.stringify(updated.items[updated.items.length - 1] || {}), {
+            const c = window.S54Cart.getCart();
+            const lastItem = c.items[c.items.length - 1] || {};
+            return Promise.resolve(new Response(JSON.stringify(lastItem), {
                 status: 200,
                 headers: { 'Content-Type': 'application/json' }
             }));
@@ -223,6 +199,15 @@
 
         if (u.indexOf('/cart') !== -1 || u.indexOf('cart.js') !== -1 || u.indexOf('cart.json') !== -1) {
             return Promise.resolve(new Response(JSON.stringify(window.S54Cart.getCart()), {
+                status: 200,
+                headers: { 'Content-Type': 'application/json' }
+            }));
+        }
+
+        if (u.indexOf('sections=') !== -1) {
+            return Promise.resolve(new Response(JSON.stringify({
+                'cart-contents': '<div class="c-cart-contents"></div>'
+            }), {
                 status: 200,
                 headers: { 'Content-Type': 'application/json' }
             }));
