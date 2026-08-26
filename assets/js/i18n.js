@@ -198,6 +198,14 @@
         ["ĐỒNG HÀNH & PHÁT TRIỂN", "COMMUNITY & GROWTH"],
         ["Đào Tạo Barista & Cung Ứng B2B Toàn Diện", "Barista Training & Comprehensive B2B Supply"],
         ["Không chỉ là nhà cung cấp nguyên liệu, S54 Coffee là đối tác chiến lược đồng hành cùng hơn 500+ nhà hàng, khách sạn và quán cà phê. Chúng tôi đào tạo kỹ năng Barista chuyên sâu, chuyển giao công thức pha chế độc quyền, setup quầy bar và cung cấp các dòng máy pha espresso công nghiệp tiêu chuẩn quốc tế.", "More than an ingredient supplier, S54 Coffee is a strategic partner accompanying 500+ restaurants, hotels, and cafes. We provide in-depth Barista training, exclusive brewing recipes, bar setup, and commercial espresso machinery."],
+
+        // COLLECTION FILTER TABS
+        ["ONLINE EXCLUSIVE", "ONLINE EXCLUSIVE"],
+        ["BEANS", "COFFEE BEANS"],
+        ["SPECIALTY CÀ PHÊ HẠT", "SPECIALTY BEANS"],
+        ["BLENDS", "COFFEE BLENDS"],
+        ["FEATURED", "FEATURED"],
+        ["ALL", "ALL"],
 // 8. OUR STORY
         ["Khởi Nguồn Đam Mê & Thành Lập Good Solutions (2012)", "Our Passion & The Founding of Good Solutions (2012)"],
         ["Triết Lý “NEW COFFEE, NEW INCOME”", "The “NEW COFFEE, NEW INCOME” Philosophy"],
@@ -369,4 +377,52 @@
             updateSwitcherUI();
         }
     });
+
+    // Dynamic Filter Pills Localizer (collections-coffee.html)
+    function localizeFilterPills() {
+        var currentLang = getLang();
+        var filterBtns = document.querySelectorAll('.c-faceted-nav__filters-featured button, .c-faceted-nav__filters-featured .o-btn, [data-facet-button]');
+        var viMap = {
+            'ALL': 'TẤT CẢ',
+            'ONLINE EXCLUSIVE': 'ĐỘC QUYỀN ONLINE',
+            'BEANS': 'CÀ PHÊ HẠT',
+            'SPECIALTY CÀ PHÊ HẠT': 'SPECIALTY CAO CẤP',
+            'BLENDS': 'CÀ PHÊ BLEND',
+            'SINGLE ORIGIN': 'SINGLE ORIGIN',
+            'GROUND': 'CÀ PHÊ XAY',
+            'FEATURED': 'NỔI BẬT'
+        };
+        var enMap = {
+            'TẤT CẢ': 'ALL',
+            'ĐỘC QUYỀN ONLINE': 'ONLINE EXCLUSIVE',
+            'CÀ PHÊ HẠT': 'COFFEE BEANS',
+            'SPECIALTY CAO CẤP': 'SPECIALTY BEANS',
+            'SPECIALTY CÀ PHÊ HẠT': 'SPECIALTY BEANS',
+            'CÀ PHÊ BLEND': 'COFFEE BLENDS',
+            'CÀ PHÊ XAY': 'GROUND COFFEE',
+            'NỔI BẬT': 'FEATURED'
+        };
+
+        filterBtns.forEach(function(btn) {
+            var txt = (btn.textContent || '').trim();
+            if (currentLang === 'vi') {
+                if (viMap[txt]) btn.textContent = viMap[txt];
+            } else {
+                if (enMap[txt]) btn.textContent = enMap[txt];
+            }
+        });
+    }
+
+    // Observe dynamic filter insertion
+    var filterNav = document.querySelector('[data-filters-featured]');
+    if (filterNav) {
+        var obs = new MutationObserver(function() {
+            localizeFilterPills();
+        });
+        obs.observe(filterNav, { childList: true, subtree: true });
+        setTimeout(localizeFilterPills, 100);
+        setTimeout(localizeFilterPills, 500);
+        setTimeout(localizeFilterPills, 1200);
+    }
+
 })();

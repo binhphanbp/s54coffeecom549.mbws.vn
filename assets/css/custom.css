@@ -2424,8 +2424,8 @@ h5, h6,
 .o-products-list__products,
 .c-product-grid {
     display: grid !important;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
-    gap: 36px 24px !important;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)) !important;
+    gap: 40px 24px !important;
     align-items: start !important;
 }
 
@@ -2448,7 +2448,7 @@ h5, h6,
     text-align: center !important;
     width: 100% !important;
     box-sizing: border-box !important;
-    transition: none !important;
+    position: relative !important;
 }
 
 .o-product-thumbnail:hover {
@@ -2462,6 +2462,7 @@ h5, h6,
     flex-direction: column !important;
     align-items: center !important;
     width: 100% !important;
+    position: relative !important;
 }
 
 .o-product-thumbnail__link {
@@ -2473,26 +2474,26 @@ h5, h6,
     width: 100% !important;
 }
 
-/* 3. Image Container - Original White Floating Box with Smooth Shadow */
+/* 3. Image Container - Original White Floating Box */
 .o-product-thumbnail__image-container {
     background: #FFFFFF !important;
     border-radius: 8px !important;
-    padding: 18px !important;
+    padding: 20px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
     aspect-ratio: 1 / 1 !important;
     width: 100% !important;
     max-width: 260px !important;
-    margin: 0 auto 16px auto !important;
-    box-shadow: 0 4px 16px rgba(47, 34, 26, 0.06) !important;
+    margin: 0 auto 18px auto !important;
+    box-shadow: 0 4px 18px rgba(47, 34, 26, 0.07) !important;
     transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease !important;
     box-sizing: border-box !important;
 }
 
 .o-product-thumbnail:hover .o-product-thumbnail__image-container {
     transform: translateY(-6px) !important;
-    box-shadow: 0 14px 30px rgba(47, 34, 26, 0.12) !important;
+    box-shadow: 0 14px 32px rgba(47, 34, 26, 0.13) !important;
 }
 
 .o-product-thumbnail__image-container img,
@@ -2502,7 +2503,6 @@ h5, h6,
     object-fit: contain !important;
     background: transparent !important;
     border-radius: 0 !important;
-    filter: none !important;
 }
 
 /* 4. Original Centered Gold Pill Badge */
@@ -2600,60 +2600,134 @@ h5, h6,
     max-width: 240px !important;
 }
 
-/* 8. Price - Uniform Baseline */
+/* 8. Price & Hover Action Container - ZERO OVERLAP */
+.o-product-thumbnail__content {
+    width: 100% !important;
+    position: relative !important;
+    min-height: 42px !important;
+    height: 42px !important;
+    margin-top: 4px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Static Price View */
+.o-product-thumbnail__content-inner {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transition: opacity 0.25s ease, transform 0.25s ease !important;
+    transform: translateY(0) !important;
+}
+
 .o-product-thumbnail__price {
     font-family: 'Plus Jakarta Sans', sans-serif !important;
-    font-size: 16px !important;
+    font-size: 16.5px !important;
     font-weight: 700 !important;
     color: #D68E1D !important;
     text-align: center !important;
-    margin: 0 auto 12px auto !important;
+    margin: 0 !important;
+    display: block !important;
+    line-height: 1 !important;
 }
 
-/* 9. Content / Form Actions */
-.o-product-thumbnail__content {
+/* Hover Action Button View */
+.o-product-thumbnail__hover {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
     width: 100% !important;
+    height: 100% !important;
     display: flex !important;
-    flex-direction: column !important;
     align-items: center !important;
+    justify-content: center !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: opacity 0.25s ease, transform 0.25s ease !important;
+    transform: translateY(6px) !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+.o-product-thumbnail:hover .o-product-thumbnail__content-inner {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transform: translateY(-6px) !important;
+}
+
+.o-product-thumbnail:hover .o-product-thumbnail__hover {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: all !important;
+    transform: translateY(0) !important;
+}
+
+/* Hide clutter inside hover */
+.o-product-thumbnail__hover__pricing,
+.o-swatches__swatches,
+.o-swatches,
+.o-variant-selector__dropdown {
+    display: none !important;
 }
 
 .o-product-thumbnail__form {
     width: 100% !important;
     display: flex !important;
     justify-content: center !important;
-}
-
-.o-product-thumbnail__hover {
-    display: block !important;
-    width: 100% !important;
-    max-width: 180px !important;
-    margin: 0 auto !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    position: static !important;
-    background: transparent !important;
-    box-shadow: none !important;
+    margin: 0 !important;
 }
 
 .o-product-thumbnail__add-btn {
-    width: 100% !important;
-    background-color: transparent !important;
-    color: #2F221A !important;
-    border: 1.5px solid #2F221A !important;
+    background-color: #2F221A !important;
+    color: #FAF6F1 !important;
+    border: 1px solid #2F221A !important;
     border-radius: 4px !important;
-    padding: 8px 14px !important;
+    padding: 10px 24px !important;
     font-family: 'Plus Jakarta Sans', sans-serif !important;
     font-size: 11px !important;
     font-weight: 700 !important;
-    letter-spacing: 1px !important;
+    letter-spacing: 1.2px !important;
     text-transform: uppercase !important;
     cursor: pointer !important;
-    transition: all 0.2s ease !important;
+    transition: all 0.25s ease !important;
+    min-width: 160px !important;
+    text-align: center !important;
+    display: inline-block !important;
 }
 
 .o-product-thumbnail__add-btn:hover {
-    background-color: #2F221A !important;
-    color: #FAF6F1 !important;
-    transform: translateY(-1px) !important;
+    background-color: #D68E1D !important;
+    border-color: #D68E1D !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 12px rgba(214, 142, 29, 0.3) !important;
+}
+
+/* 9. Top Faceted Filter Bar Styling */
+.c-collection-template__faceted-nav__header {
+    background-color: #F5EFEB !important;
+    border-radius: 40px !important;
+    padding: 6px 14px !important;
+    margin-bottom: 3.5rem !important;
+}
+
+.c-faceted-nav__filters-featured .o-btn,
+.c-collection-template__facet-btn-main.o-btn {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 11.5px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1px !important;
+    text-transform: uppercase !important;
+    border-radius: 30px !important;
+    padding: 8px 18px !important;
 }
