@@ -9,11 +9,11 @@ AddDefaultCharset UTF-8
   # Ensure all asset requests resolve directly to assets/ directory
   RewriteRule ^(.*/)?assets/(.*)$ assets/$2 [L]
 
+  # Redirect any product URL (/products/* or /collections/*/products/*) to product-detail.html
+  RewriteRule ^(.*/)?products(/.*)?$ product-detail.html [L,QSA]
+
   # Redirect /collections or /collections/* to collections-coffee.html
   RewriteRule ^collections(/.*)?$ collections-coffee.html [L,QSA]
-
-  # Redirect /products or /products/* to product-detail.html
-  RewriteRule ^products(/.*)?$ product-detail.html [L,QSA]
 
   # Redirect /pages/our-story, roasting, news, community to our-story.html
   # Redirect /blogs, /blog, /news to blogs-news.html
