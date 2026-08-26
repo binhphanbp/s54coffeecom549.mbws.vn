@@ -100,6 +100,7 @@
         cart.total_weight = weight;
     }
 
+    let isDispatching = false;
     function saveCart(cart) {
         recalculateTotals(cart);
         try {
@@ -108,7 +109,14 @@
             console.warn('[CartMock] Failed to save sessionStorage', e);
         }
         window.__s54MockCart = cart;
-        window.dispatchEvent(new CustomEvent('cart:updated', { detail: cart }));
+        if (!isDispatching) {
+            isDispatching = true;
+            try {
+                window.dispatchEvent(new CustomEvent('cart:updated', { detail: cart }));
+            } finally {
+                setTimeout(() => { isDispatching = false; }, 50);
+            }
+        }
         return cart;
     }
 
