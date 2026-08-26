@@ -107,18 +107,18 @@
                 cartBody.innerHTML = items.map(item => {
                     const itemPrice = item.price > 1000 ? (item.price / 100) : item.price;
                     return `
-                    <div class="c-cart-drawer__item" data-id="${item.id || item.key}" style="display: flex; gap: 16px; padding: 16px 0; border-bottom: 1px solid #ECE7E1; align-items: center;">
-                        <img src="${item.image || 'assets/images/s54/robusta_1.jpg'}" alt="${item.title}" style="width: 70px; height: 70px; object-fit: contain; background: #FFF; border-radius: 4px; padding: 4px;">
-                        <div style="flex: 1;">
-                            <h4 style="margin: 0 0 6px; font-size: 14px; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; color: #2F221A;">${item.title}</h4>
-                            <div style="font-size: 13px; color: #676986; margin-bottom: 8px;">${formatPrice(itemPrice)}</div>
-                            <div style="display: inline-flex; align-items: center; border: 1px solid #D9D2C9; border-radius: 20px; padding: 2px 8px; background: #FFF;">
-                                <button data-action="decrease" data-id="${item.id || item.key}" style="background: none; border: none; font-size: 16px; cursor: pointer; padding: 2px 8px; color: #2F221A;">−</button>
-                                <span style="padding: 0 8px; font-size: 13px; font-weight: 600;">${item.quantity}</span>
-                                <button data-action="increase" data-id="${item.id || item.key}" style="background: none; border: none; font-size: 16px; cursor: pointer; padding: 2px 8px; color: #2F221A;">+</button>
+                    <div class="c-cart-drawer__item" data-id="${item.id || item.key}">
+                        <img src="${item.image || 'assets/images/s54/robusta_1.jpg'}" alt="${item.title}" class="c-cart-drawer__item-img">
+                        <div class="c-cart-drawer__item-details">
+                            <h4 class="c-cart-drawer__item-title">${item.title}</h4>
+                            <div class="c-cart-drawer__item-price">${formatPrice(itemPrice)}</div>
+                            <div class="c-cart-drawer__qty-wrap">
+                                <button class="c-cart-drawer__qty-btn" data-action="decrease" data-id="${item.id || item.key}">−</button>
+                                <span class="c-cart-drawer__qty-val">${item.quantity}</span>
+                                <button class="c-cart-drawer__qty-btn" data-action="increase" data-id="${item.id || item.key}">+</button>
                             </div>
                         </div>
-                        <button style="background: none; border: none; color: #999; font-size: 18px; cursor: pointer; align-self: flex-start; padding: 4px;" data-action="remove" data-id="${item.id || item.key}" aria-label="Remove">✕</button>
+                        <button class="c-cart-drawer__item-remove" data-action="remove" data-id="${item.id || item.key}" aria-label="Xóa">✕</button>
                     </div>`;
                 }).join('');
             }
@@ -249,6 +249,8 @@
        ===================================================================== */
     document.addEventListener('DOMContentLoaded', () => {
         console.log('S54 COFFEE Storefront initialized.');
+        ensureCartDrawer();
+        updateCartUI();
 
         // Lazy image fallback
         document.querySelectorAll('img[data-src]').forEach(img => {
