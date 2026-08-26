@@ -172,6 +172,9 @@ def verify_deployment():
         f"http://{DOMAIN}/products/cinque-stelle-beans",
         f"http://{DOMAIN}/pages/our-story",
         f"http://{DOMAIN}/pages/wholesale",
+        f"http://{DOMAIN}/blogs-news.html",
+        f"http://{DOMAIN}/blog-detail.html",
+        f"http://{DOMAIN}/blogs/news",
         f"http://{DOMAIN}/assets/css/layouts.critical.css",
         f"http://{DOMAIN}/assets/js/cart-mock.js"
     ]

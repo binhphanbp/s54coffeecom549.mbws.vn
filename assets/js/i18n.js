@@ -9,6 +9,22 @@
 
     // Comprehensive Bidirectional Translation Pairs (VI <-> EN)
     const translationPairs = [
+        // Blog & News
+        ["Tin Tức & Kiến Thức Cà Phê", "News & Coffee Insights"],
+        ["Góc Thưởng Thức S54", "S54 Coffee Journal"],
+        ["Tất Cả Bài Viết", "All Articles"],
+        ["Kiến Thức Cà Phê", "Coffee Insights"],
+        ["Câu Chuyện S54", "S54 Stories"],
+        ["Hướng Dẫn Pha Chế", "Brewing Guides"],
+        ["Bản Tin Extracts", "Extracts Newsletter"],
+        ["Các Bài Viết Mới Nhất", "Latest Articles"],
+        ["Đọc Bài Viết", "Read Article"],
+        ["Đọc Tiếp →", "Read More →"],
+        ["5 Lợi Ích Tuyệt Vời Của Việc Uống Cà Phê Có Thể Bạn Chưa Biết", "5 Amazing Benefits of Drinking Coffee You Might Not Know"],
+        ["Bí Quyết Phân Biệt Cà Phê Rang Mộc Nguyên Chất & Cà Phê Pha Tạp", "How to Distinguish Pure Roasted Coffee vs Adulterated Coffee"],
+        ["← Quay lại Tin Tức", "← Back to News"],
+        ["← Xem Tất Cả Bài Viết", "← View All Articles"],
+
         // Footer & Legal
         ["CÔNG TY TNHH GIẢI PHÁP TỐT", "GOOD SOLUTIONS COMPANY LIMITED"],
         ["Sản Phẩm S54", "S54 Products"],
