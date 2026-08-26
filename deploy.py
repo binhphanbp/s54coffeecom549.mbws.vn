@@ -43,7 +43,7 @@ def print_header():
     print("=" * 65)
 
 def create_deploy_package(zip_filename="deploy.zip", code_only=False):
-    mode_text = "code-only (fast)" if code_only else "full package"
+    mode_text = "optimized fast" if code_only else "full package"
     print(f"[1/4] Building optimized {mode_text} deployment package...")
     zip_path = BASE_DIR / zip_filename
     if zip_path.exists():
@@ -54,9 +54,9 @@ def create_deploy_package(zip_filename="deploy.zip", code_only=False):
         for root, dirs, files in os.walk(BASE_DIR):
             # Exclude unwanted directories
             dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
-            if code_only:
-                # In code-only mode, skip large media and image directories (already present on remote server)
-                dirs[:] = [d for d in dirs if d not in {'media', 'images'}]
+            if code_only and os.path.basename(root) == 'media':
+                dirs.clear()
+                continue
             
             rel_dir = os.path.relpath(root, BASE_DIR)
             if rel_dir == '.':
@@ -66,6 +66,9 @@ def create_deploy_package(zip_filename="deploy.zip", code_only=False):
                 if file in EXCLUDE_FILES or file.endswith('.log') or file.endswith('.tmp'):
                     continue
                 if code_only and (file.endswith('.mp4') or file.endswith('.mov') or file.endswith('.webm')):
+                    continue
+                # In fast mode, skip loose legacy images in assets/images, but keep assets/images/s54
+                if code_only and rel_dir in {os.path.join('assets', 'images'), 'assets/images'}:
                     continue
                 file_path = os.path.join(root, file)
                 arcname = os.path.join(rel_dir, file) if rel_dir else file

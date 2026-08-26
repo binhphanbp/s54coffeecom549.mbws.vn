@@ -972,10 +972,6 @@ md-footer-selector__form {
         width: 100% !important;
         margin-top: 24px !important;
     }
-    .s54-hero-overlay {
-        margin: 20px !important;
-        padding: 24px 20px !important;
-    }
     .c-footer__bottom-bar {
         flex-direction: column;
         text-align: center;
@@ -985,5 +981,227 @@ md-footer-selector__form {
     }
     .c-cart-drawer {
         max-width: 100%;
+    }
+}
+
+/* 7. Featured Video / Brewing Guides - Luxury Editorial Styling */
+.c-section__featured-video {
+    background-color: #F3EEE8 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.c-featured-video {
+    background-color: #F3EEE8 !important;
+    padding: 4.5rem 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+}
+
+.c-featured-video__wrapper {
+    max-width: 1440px !important;
+    margin: 0 auto !important;
+    padding: 0 clamp(20px, 4vw, 56px) !important;
+    box-sizing: border-box !important;
+}
+
+.c-featured-video__media-container {
+    position: relative !important;
+    width: 100% !important;
+    min-height: 480px !important;
+    max-height: 580px !important;
+    height: 56vh !important;
+    padding-bottom: 0 !important;
+    border-radius: 4px !important;
+    overflow: hidden !important;
+    background-color: #EAE2D7 !important;
+    box-shadow: 0 16px 40px rgba(47, 34, 26, 0.06) !important;
+}
+
+.c-featured-video__media {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: right center !important;
+    z-index: 1 !important;
+}
+
+.c-featured-video__media.has-mobile {
+    display: block !important;
+}
+
+.c-featured-video__media.is-mobile {
+    display: none !important;
+}
+
+.c-featured-video__inner {
+    position: absolute !important;
+    top: 50% !important;
+    left: clamp(32px, 6vw, 80px) !important;
+    transform: translateY(-50%) !important;
+    max-width: 520px !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    z-index: 5 !important;
+}
+
+.c-featured-video__title {
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-size: clamp(32px, 3.6vw, 48px) !important;
+    line-height: 1.1 !important;
+    font-weight: 500 !important;
+    color: #2F221A !important;
+    margin: 0 0 16px 0 !important;
+    letter-spacing: -0.01em !important;
+}
+
+.c-featured-video__desc {
+    font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    color: #5C4A3E !important;
+    margin: 0 0 24px 0 !important;
+    max-width: 420px !important;
+}
+
+.c-featured-video__button.o-btn.is-primary.is-dark {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    background: #2F221A !important;
+    color: #FAF6F1 !important;
+    padding: 13px 26px !important;
+    border-radius: 2px !important;
+    font-family: 'Be Vietnam Pro', sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    border: 1px solid #2F221A !important;
+    transition: all 0.25s ease !important;
+    margin: 0 !important;
+}
+
+.c-featured-video__button.o-btn.is-primary.is-dark:hover {
+    background: #D68E1D !important;
+    border-color: #D68E1D !important;
+    color: #FFFFFF !important;
+}
+
+.c-featured-video__button .o-btn__arrow {
+    width: 16px !important;
+    height: 16px !important;
+    fill: currentColor !important;
+    stroke: currentColor !important;
+    transition: transform 0.25s ease !important;
+}
+
+.c-featured-video__button:hover .o-btn__arrow {
+    transform: translateX(4px) !important;
+}
+
+.c-featured-video__button-play {
+    position: absolute !important;
+    top: 50% !important;
+    right: clamp(40px, 14vw, 220px) !important;
+    left: unset !important;
+    transform: translateY(-50%) !important;
+    width: 72px !important;
+    height: 72px !important;
+    border-radius: 50% !important;
+    background: #2F221A !important;
+    border: 2px solid #FAF6F1 !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    z-index: 6 !important;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.c-featured-video__button-play:hover {
+    transform: translateY(-50%) scale(1.08) !important;
+    background: #D68E1D !important;
+    border-color: #FFFFFF !important;
+    box-shadow: 0 12px 32px rgba(214, 142, 29, 0.4) !important;
+}
+
+.c-featured-video__button-play svg {
+    width: 20px !important;
+    height: 20px !important;
+    margin-left: 3px !important;
+}
+
+.c-featured-video__button-play svg path {
+    fill: #FAF6F1 !important;
+}
+
+.c-featured-video__button-play:hover svg path {
+    fill: #FFFFFF !important;
+}
+
+@media (max-width: 1099px) {
+    .c-featured-video {
+        padding: 2.5rem 0 !important;
+    }
+    
+    .c-featured-video__media-container {
+        height: auto !important;
+        min-height: 520px !important;
+    }
+    
+    .c-featured-video__media.has-mobile {
+        display: none !important;
+    }
+    
+    .c-featured-video__media.is-mobile {
+        display: block !important;
+        object-position: center bottom !important;
+    }
+    
+    .c-featured-video__inner {
+        top: 28px !important;
+        bottom: unset !important;
+        left: 20px !important;
+        right: 20px !important;
+        transform: none !important;
+        max-width: calc(100% - 40px) !important;
+    }
+    
+    .c-featured-video__title {
+        font-size: 26px !important;
+        line-height: 1.15 !important;
+        margin: 0 0 12px 0 !important;
+        color: #2F221A !important;
+    }
+    
+    .c-featured-video__desc {
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+        margin: 0 0 18px 0 !important;
+    }
+    
+    .c-featured-video__button.o-btn.is-primary.is-dark {
+        padding: 11px 20px !important;
+        font-size: 11px !important;
+    }
+    
+    .c-featured-video__button-play {
+        top: unset !important;
+        bottom: 28px !important;
+        right: 24px !important;
+        left: unset !important;
+        transform: none !important;
+        width: 60px !important;
+        height: 60px !important;
+    }
+    
+    .c-featured-video__button-play:hover {
+        transform: scale(1.08) !important;
     }
 }

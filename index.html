@@ -988,47 +988,45 @@ first.parentNode.insertBefore(script, first);
 
 </div><div id="shopify-section-template--15747875471535__69efaa66-8022-49b4-a52c-fb59d87d3c72" class="shopify-section c-section c-section__featured-video">
 <link href="assets/css/sections.featured-video.css" rel="stylesheet" type="text/css" media="all" /><script src="assets/js/sections.featured-video.js" type="text/javascript" defer="defer"></script><section class="c-featured-video">
-    <div class="c-featured-video__media-container o-media-container"><video
-    
-    playsinline
-    loop
-    
-    onclick="this.paused ? this.play() : this.pause()"
-    title="Play"
-    
-    class="c-featured-video__media o-media
-      has-mobile
- "
-    poster="assets/images/s54/banner_main.jpg"data-video
-  >
+  <div class="c-featured-video__wrapper">
+    <div class="c-featured-video__media-container o-media-container">
+      <video
+        playsinline
+        loop
+        onclick="this.paused ? this.play() : this.pause()"
+        title="Play Video"
+        class="c-featured-video__media o-media has-mobile"
+        poster="assets/images/s54/espresso_brewtorial_desktop.jpg"
+        data-video
+      >
+        <source src="assets/media/espresso_brew_desktop.mp4" type="video/mp4">
+      </video>
+      <video
+        playsinline
+        loop
+        onclick="this.paused ? this.play() : this.pause()"
+        title="Play Video"
+        class="c-featured-video__media o-media is-mobile"
+        poster="assets/images/s54/espresso_brewtorial_mobile.jpg"
+        data-video
+      >
+        <source src="assets/media/espresso_brew_mobile.mp4" type="video/mp4">
+      </video>
+      
+      <button class="o-btn--square is-play c-featured-video__button-play" data-play aria-label="Phát video">
+        <svg fill="none" class="o-btn__play" viewBox="0 0 16 18" xmlns="http://www.w3.org/2000/svg"><path d="m14.5634 7.81451-12.46066-7.606185c-.20756-.1315307-.44727-.20351419-.69295-.20809215s-.487904.05842555-.70022.18213315c-.215455.118209-.395065.292305-.519933.503971-.1248678.211666-.19037551.453073-.18963072.698823v15.22964c-.00074479.2458.06476292.4872.18963072.6989.124868.2116.304478.3857.519933.5039.212316.1237.45454.1867.70022.1822.24568-.0046.48539-.0766.69295-.2081l12.46066-7.6062c.2042-.1232.3732-.2971.4904-.5048.1173-.2077.1789-.44218.1789-.6807s-.0616-.47299-.1789-.6807c-.1172-.2077-.2862-.38158-.4904-.50479z" fill="#2f221a"/></svg>
+      </button>
 
-    <source src="assets/media/espresso_brew_desktop.mp4" type="video/mp4">
-  </video>
-<video
-    
-    playsinline
-    loop
-    
-    onclick="this.paused ? this.play() : this.pause()"
-    title="Play"
-    
-    class="c-featured-video__media o-media is-mobile "
-    poster="assets/images/010_vit-homepage-brewtorial-image-mobile-v2_750x.jpg"data-video
-  >
-
-    <source src="assets/media/espresso_brew_mobile.mp4" type="video/mp4">
-  </video>
-<button class="o-btn--square is-play c-featured-video__button-play 
-          
-          " 
-          data-play
-        >
-          <svg fill="none" class="o-btn__play"  viewBox="0 0 16 18"  xmlns="http://www.w3.org/2000/svg"><path d="m14.5634 7.81451-12.46066-7.606185c-.20756-.1315307-.44727-.20351419-.69295-.20809215s-.487904.05842555-.70022.18213315c-.215455.118209-.395065.292305-.519933.503971-.1248678.211666-.19037551.453073-.18963072.698823v15.22964c-.00074479.2458.06476292.4872.18963072.6989.124868.2116.304478.3857.519933.5039.212316.1237.45454.1867.70022.1822.24568-.0046.48539-.0766.69295-.2081l12.46066-7.6062c.2042-.1232.3732-.2971.4904-.5048.1173-.2077.1789-.44218.1789-.6807s-.0616-.47299-.1789-.6807c-.1172-.2077-.2862-.38158-.4904-.50479z" fill="#2f221a"/></svg>
-        </button><div class="c-featured-video__inner is-color--crema"><h4 class="c-featured-video__title"><h3>Nghệ thuật chiết xuất <br/>tách Espresso hoàn hảo.</h3></h4><a href="https://www.s54coffee.com/blogs/news/tagged/brewing-guides#categories" class="c-featured-video__button o-btn is-primary is-dark has-arrow">Khám Phá Video Hướng Dẫn<svg fill="none" class="o-btn__arrow c-featured-video__button-arrow" viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg"><g clip-rule="evenodd" fill="#2f221a" fill-rule="evenodd"><path d="m.146118 12c0-.2761.223858-.5.5-.5h22.054082c.2761 0 .5.2239.5.5s-.2239.5-.5.5h-22.054082c-.276142 0-.5-.2239-.5-.5z"/><path d="m17.3776 6.1973c.198-.19257.5145-.18823.7071.00969l5.2973 5.44441c.1888.1941.1888.5033 0 .6974l-5.2973 5.4444c-.1926.1979-.5091.2023-.7071.0097-.1979-.1926-.2022-.5091-.0096-.707l4.958-5.0958-4.958-5.09576c-.1926-.19792-.1883-.51447.0096-.70704z"/></g></svg>
-</a></div>
+      <div class="c-featured-video__inner is-color--crema">
+        <span class="c-featured-video__tag" style="display: block; font-family: 'Be Vietnam Pro', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #D68E1D; margin-bottom: 12px;">Nghệ Thuật Cà Phê S54</span>
+        <h3 class="c-featured-video__title">Nghệ Thuật Chiết Xuất<br/>Tách Espresso Hoàn Hảo</h3>
+        <p class="c-featured-video__desc">Khám phá phương pháp cân chỉnh nhiệt độ và áp suất để chiết xuất trọn vẹn lớp crema bồng bềnh cùng hương vị tinh tuý từ hạt cà phê S54.</p>
+        <a href="our-story.html" class="c-featured-video__button o-btn is-primary is-dark has-arrow">Khám Phá Câu Chuyện S54<svg fill="none" class="o-btn__arrow c-featured-video__button-arrow" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g clip-rule="evenodd" fill="#2f221a" fill-rule="evenodd"><path d="m.146118 12c0-.2761.223858-.5.5-.5h22.054082c.2761 0 .5.2239.5.5s-.2239.5-.5.5h-22.054082c-.276142 0-.5-.2239-.5-.5z"/><path d="m17.3776 6.1973c.198-.19257.5145-.18823.7071.00969l5.2973 5.44441c.1888.1941.1888.5033 0 .6974l-5.2973 5.4444c-.1926.1979-.5091.2023-.7071.0097-.1979-.1926-.2022-.5091-.0096-.707l4.958-5.0958-4.958-5.09576c-.1926-.19792-.1883-.51447.0096-.70704z"/></g></svg>
+        </a>
+      </div>
     </div>
-  </section>
-<style> #shopify-section-template--15747875471535__69efaa66-8022-49b4-a52c-fb59d87d3c72 .c-featured-video__button {margin-top: 10rem;} </style></div><div id="shopify-section-template--15747875471535__ec2a4e76-e99a-4ae6-8df1-9700dce446a2" class="shopify-section c-section c-section__featured-collections">
+  </div>
+</section></div><div id="shopify-section-template--15747875471535__ec2a4e76-e99a-4ae6-8df1-9700dce446a2" class="shopify-section c-section c-section__featured-collections">
 <link href="assets/css/sections.featured-collections.css" rel="stylesheet" type="text/css" media="all" /><script src="assets/js/sections.featured-collections.js" type="text/javascript" defer="defer"></script><section class="c-featured-collections c-featured-collections__">
   <div class="c-featured-collections__header"><h3 class="c-featured-collections__header-title o-heading--3">Sản Phẩm Bán Chạy Nhất</h3><div class="c-featured-collections__header-tabs is-desktop" data-featured-collection-tabs><button class="c-featured-collections__header-tab  is-active " data-tab="1" data-tab-url="/collections/all-coffee-products">Cà Phê</button><button class="c-featured-collections__header-tab " data-tab="2" data-tab-url="/collections/coffee-capsules">Viên Nén Capsule</button><button class="c-featured-collections__header-tab " data-tab="3" data-tab-url="/collections/instant-coffee">Hòa Tan</button><button class="c-featured-collections__header-tab " data-tab="4" data-tab-url="">Ly Tách</button><a class="c-featured-collections__header-tab has-arrow" href="/collections/all-coffee-products">Tất Cả Sản Phẩm<svg fill="none" class="o-btn__arrow" viewBox="0 0 24 24"  xmlns="http://www.w3.org/2000/svg"><g clip-rule="evenodd" fill="#2f221a" fill-rule="evenodd"><path d="m.146118 12c0-.2761.223858-.5.5-.5h22.054082c.2761 0 .5.2239.5.5s-.2239.5-.5.5h-22.054082c-.276142 0-.5-.2239-.5-.5z"/><path d="m17.3776 6.1973c.198-.19257.5145-.18823.7071.00969l5.2973 5.44441c.1888.1941.1888.5033 0 .6974l-5.2973 5.4444c-.1926.1979-.5091.2023-.7071.0097-.1979-.1926-.2022-.5091-.0096-.707l4.958-5.0958-4.958-5.09576c-.1926-.19792-.1883-.51447.0096-.70704z"/></g></svg>
           </a>
