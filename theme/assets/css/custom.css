@@ -1,0 +1,2733 @@
+/* ==========================================================================
+   S54 COFFEE — Master Luxury Storefront Stylesheet
+   Crafted with: Cormorant Garamond + Plus Jakarta Sans
+   Design System: Luxury Artisanal Heritage, Pixel-Perfect Layout
+   ========================================================================== */
+
+/* 1. Google Web Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+
+/* 2. Base & Typography */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #2F221A;
+    background-color: #F3EEE8 !important;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    line-height: 1.65;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6,
+.o-heading,
+.c-hero-banner__title,
+.c-featured-video__title,
+.c-text-and-image__title,
+.c-text-and-image__text-title,
+.c-product-carousel__title,
+.c-featured-collections__header-title,
+.c-product-main__title,
+.c-article-feed__title {
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: #2F221A;
+}
+
+p, .o-paragraph--1, .c-text-and-image__text-paragraph, .c-product-carousel__description p {
+    font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
+    color: #4A3E36;
+    line-height: 1.65;
+    font-size: 15px;
+}
+
+/* 3. Header, Logo & Topbar */
+.c-header {
+    position: sticky !important;
+    top: 0 !important;
+    width: 100% !important;
+    z-index: 1000 !important;
+    background-color: #2F221A !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
+}
+
+.c-header__margin {
+    display: none !important;
+    height: 0 !important;
+}
+
+/* TOPBAR: Crisp Clean White / Off-White */
+.c-header__topbar {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    background-color: #FFFFFF !important;
+    color: #2F221A !important;
+    padding: 7px clamp(16px, 4vw, 48px) !important;
+    border-bottom: 1px solid rgba(47, 34, 26, 0.08) !important;
+}
+
+.c-header__topbar-message {
+    font-size: 12px !important;
+    letter-spacing: 0.2px !important;
+    text-transform: none !important;
+    color: #2F221A !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
+    transition: color 0.2s ease !important;
+}
+
+.c-header__topbar-message:hover {
+    color: #D68E1D !important;
+}
+
+/* MAIN HEADER: Luxury Coffee Brown */
+.c-header__inner {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 13px clamp(16px, 4vw, 48px) !important;
+    background-color: #2F221A !important;
+    max-width: 1440px !important;
+    margin: 0 auto !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    gap: 24px !important;
+}
+
+/* Logo Left */
+.c-header__logo {
+    display: flex !important;
+    align-items: center !important;
+    flex-shrink: 0 !important;
+    width: clamp(140px, 14vw, 185px) !important;
+    text-decoration: none !important;
+}
+
+.c-header__logo img {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 42px !important;
+    object-fit: contain !important;
+    display: block !important;
+    filter: brightness(1.05) drop-shadow(0 1px 3px rgba(0,0,0,0.4)) !important;
+}
+
+/* Nav Menu Center (Light Cream on Dark Brown with Natural Case) */
+.c-main-menu {
+    display: flex !important;
+    align-items: center !important;
+    flex: 1 !important;
+    justify-content: center !important;
+}
+
+.c-main-menu__list.is-level-1 {
+    display: flex !important;
+    align-items: center !important;
+    gap: clamp(14px, 2vw, 32px) !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.c-main-menu__link.is-level-1 {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    color: #FAF6F1 !important;
+    text-decoration: none !important;
+    font-size: 13.5px !important;
+    font-weight: 500 !important;
+    letter-spacing: 0.3px !important;
+    text-transform: none !important;
+    white-space: nowrap !important;
+    padding: 8px 12px !important;
+    border-radius: 0 !important;
+    position: relative !important;
+    background: transparent !important;
+    transition: color 0.25s ease !important;
+    display: inline-flex !important;
+    align-items: center !important;
+}
+
+.c-main-menu__link.is-level-1 .c-main-menu__link-title {
+    color: inherit !important;
+    transition: color 0.25s ease !important;
+}
+
+.c-main-menu__link.is-level-1:after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: 2px !important;
+    left: 12px !important;
+    right: 12px !important;
+    height: 2px !important;
+    background-color: #D68E1D !important;
+    transform: scaleX(0) !important;
+    transform-origin: center !important;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    box-shadow: none !important;
+}
+
+.c-main-menu__link.is-level-1:hover {
+    color: #D68E1D !important;
+    background: transparent !important;
+    text-shadow: none !important;
+}
+
+.c-main-menu__link.is-level-1:hover .c-main-menu__link-title {
+    color: #D68E1D !important;
+}
+
+.c-main-menu__link.is-level-1:hover:after {
+    transform: scaleX(1) !important;
+}
+
+/* Right Actions (Hotline, Cart, Search) */
+.c-header__additional {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
+    height: 40px !important;
+}
+
+.c-header__additional-item {
+    display: flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100% !important;
+}
+
+.c-header__phone-link {
+    font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    text-decoration: none !important;
+    color: #FAF6F1 !important;
+    font-size: 12.5px !important;
+    font-weight: 600 !important;
+    background: rgba(229, 184, 105, 0.15) !important;
+    height: 38px !important;
+    padding: 0 14px !important;
+    border-radius: 20px !important;
+    border: 1px solid rgba(229, 184, 105, 0.35) !important;
+    box-sizing: border-box !important;
+    transition: all 0.2s ease !important;
+    line-height: 1 !important;
+}
+
+.c-header__phone-link:hover {
+    background: #D68E1D !important;
+    color: #FFFFFF !important;
+    border-color: #D68E1D !important;
+    transform: translateY(-1px);
+}
+
+.c-header__link.is-cart {
+    position: relative !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 38px !important;
+    height: 38px !important;
+    background: rgba(229, 184, 105, 0.15) !important;
+    border: 1px solid rgba(229, 184, 105, 0.35) !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    box-sizing: border-box !important;
+    transition: all 0.2s ease !important;
+    line-height: 1 !important;
+}
+
+.c-header__link.is-cart:hover {
+    background: #D68E1D !important;
+    border-color: #D68E1D !important;
+    transform: translateY(-1px);
+}
+
+.c-header__icon.is-cart {
+    stroke: #FAF6F1 !important;
+    width: 19px !important;
+    height: 19px !important;
+    display: block !important;
+    transition: stroke 0.2s ease !important;
+}
+
+.c-header__link.is-cart:hover .c-header__icon.is-cart {
+    stroke: #FFFFFF !important;
+}
+
+.c-header__icon.is-cart path,
+.c-header__icon.is-cart line {
+    stroke: #FAF6F1 !important;
+}
+
+.c-header__icon.is-hamburger path {
+    stroke: #FAF6F1 !important;
+}
+
+.c-header__cart-count {
+    position: absolute !important;
+    top: -4px !important;
+    right: -4px !important;
+    background: #D68E1D !important;
+    color: #FFFFFF !important;
+    font-size: 10px !important;
+    font-weight: 700 !important;
+    border-radius: 50% !important;
+    width: 18px !important;
+    height: 18px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3) !important;
+    border: 1.5px solid #2F221A !important;
+    line-height: 1 !important;
+}
+
+/* 4. Language Switcher on White Topbar */
+.c-lang-switcher--header {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 2px 6px;
+    background: rgba(47, 34, 26, 0.05);
+    border: 1px solid rgba(47, 34, 26, 0.12);
+    border-radius: 20px;
+    font-size: 11px;
+    margin-left: auto;
+}
+
+.c-lang-btn {
+    background: transparent;
+    border: none;
+    color: #4A3528;
+    cursor: pointer;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.c-lang-btn:hover {
+    color: #D68E1D;
+}
+
+.c-lang-btn.is-active {
+    background: #D68E1D !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 1px 4px rgba(214, 142, 29, 0.35);
+}
+
+.c-lang-divider {
+    color: rgba(47, 34, 26, 0.2);
+    font-size: 10px;
+    user-select: none;
+}
+
+.c-lang-switcher--footer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    padding: 6px 16px;
+    border-radius: 24px;
+    margin: 20px auto 10px;
+}
+
+.c-lang-switcher--footer .c-lang-btn {
+    color: #D8CEBE;
+    font-size: 12px;
+    padding: 4px 12px;
+}
+
+.c-lang-switcher--footer .c-lang-btn.is-active {
+    background: #D68E1D !important;
+    color: #FFFFFF !important;
+}
+
+/* 5. Authentic Luxury Hero Section */
+.c-section__hero-banner {
+    background-color: #EAE2D7 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.c-hero-banner {
+    position: relative !important;
+    width: 100% !important;
+    margin: 0 !important;
+    background-color: #1A120D !important;
+    overflow: hidden !important;
+}
+
+.c-hero-banner__media-container {
+    position: relative !important;
+    width: 100% !important;
+    min-height: 520px !important;
+    max-height: 650px !important;
+    height: 70vh !important;
+    padding-bottom: 0 !important;
+    overflow: hidden !important;
+    background-color: #1A120D !important;
+}
+
+.c-hero-banner__media {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    z-index: 1 !important;
+    display: block !important;
+}
+
+.c-hero-banner__container {
+    position: absolute !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 100% !important;
+    max-width: 1440px !important;
+    padding: 0 clamp(40px, 6vw, 100px) !important;
+    box-sizing: border-box !important;
+    z-index: 5 !important;
+    display: flex !important;
+    align-items: center !important;
+    pointer-events: none !important;
+}
+
+/* Mobile & Tablet Styles (≤ 1099px) - High-contrast luminous text for dark coffee background */
+@media (max-width: 1099px) {
+    .c-hero-banner__media-container {
+        height: 75vh !important;
+        min-height: 520px !important;
+        max-height: 680px !important;
+        align-items: flex-end !important;
+    }
+    
+    .c-hero-banner__media {
+        object-position: center top !important;
+    }
+    
+    /* Gentle dark gradient under text area to guarantee 100% readability */
+    .c-hero-banner__media-container:after {
+        content: "" !important;
+        position: absolute !important;
+        inset: 0 !important;
+        background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(20, 13, 9, 0.35) 45%, rgba(20, 13, 9, 0.85) 100%) !important;
+        z-index: 2 !important;
+        pointer-events: none !important;
+    }
+
+    .c-hero-banner__container {
+        padding: 24px 20px 44px 20px !important;
+    }
+
+    .c-hero-banner__overlay {
+        position: relative !important;
+        z-index: 5 !important;
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        color: #FAF6F1 !important;
+        width: 100% !important;
+        top: unset !important;
+        left: unset !important;
+        bottom: unset !important;
+        right: unset !important;
+        transform: none !important;
+    }
+
+    .c-hero-banner__title.o-heading--1 {
+        font-family: 'Cormorant Garamond', Georgia, serif !important;
+        font-size: clamp(36px, 8vw, 52px) !important;
+        line-height: 1.05 !important;
+        font-weight: 600 !important;
+        color: #FFFFFF !important;
+        margin: 0 0 12px 0 !important;
+        letter-spacing: -0.01em !important;
+        text-shadow: 0 2px 14px rgba(0, 0, 0, 0.7) !important;
+        white-space: normal !important;
+    }
+
+    .c-hero-banner__subtitle {
+        font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
+        font-size: 14.5px !important;
+        line-height: 1.5 !important;
+        font-weight: 500 !important;
+        color: #F0E6D8 !important;
+        margin: 0 0 22px 0 !important;
+        max-width: 90% !important;
+        text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8) !important;
+    }
+
+    .c-hero-banner__button.o-btn.is-primary.is-dark {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        background: #FAF6F1 !important;
+        color: #2F221A !important;
+        padding: 13px 26px !important;
+        border-radius: 2px !important;
+        font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
+        font-size: 12px !important;
+        font-weight: 700 !important;
+        letter-spacing: 1.5px !important;
+        text-transform: uppercase !important;
+        text-decoration: none !important;
+        border: 1px solid #FAF6F1 !important;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45) !important;
+    }
+    
+    .c-hero-banner__button.o-btn.is-primary.is-dark:hover {
+        background: #D68E1D !important;
+        border-color: #D68E1D !important;
+        color: #FFFFFF !important;
+    }
+
+    .c-hero-banner__button .o-btn__arrow {
+        width: 16px !important;
+        height: 16px !important;
+        fill: #2F221A !important;
+        stroke: #2F221A !important;
+    }
+    
+    .c-hero-banner__button:hover .o-btn__arrow {
+        fill: #FFFFFF !important;
+        stroke: #FFFFFF !important;
+    }
+}
+
+/* Desktop Styles (≥ 1100px) - Editorial Dark Espresso on Warm Cream Background */
+@media (min-width: 1100px) {
+    .c-hero-banner {
+        background-color: #EAE2D7 !important;
+    }
+
+    .c-hero-banner__media-container {
+        height: 56vh !important;
+        min-height: 480px !important;
+        max-height: 600px !important;
+        background-color: #EAE2D7 !important;
+    }
+
+    .c-hero-banner__media {
+        object-position: center right !important;
+    }
+
+    .c-hero-banner__overlay {
+        position: relative !important;
+        z-index: 6 !important;
+        max-width: 680px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        color: #2F221A !important;
+        pointer-events: auto !important;
+        top: unset !important;
+        left: unset !important;
+        bottom: unset !important;
+        right: unset !important;
+        transform: none !important;
+    }
+
+    .c-hero-banner__title.o-heading--1 {
+        font-family: 'Cormorant Garamond', Georgia, serif !important;
+        font-size: clamp(40px, 4.4vw, 68px) !important;
+        line-height: 1.05 !important;
+        font-weight: 500 !important;
+        color: #2F221A !important;
+        margin: 0 0 16px 0 !important;
+        letter-spacing: -0.01em !important;
+        text-transform: none !important;
+        white-space: normal !important;
+    }
+
+    .c-hero-banner__subtitle {
+        font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
+        font-size: clamp(14.5px, 1.05vw, 16px) !important;
+        line-height: 1.55 !important;
+        font-weight: 400 !important;
+        color: #5C4A3E !important;
+        margin: 0 0 26px 0 !important;
+        max-width: 540px !important;
+    }
+
+    .c-hero-banner__button.o-btn.is-primary.is-dark {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 12px !important;
+        background: #2F221A !important;
+        color: #FAF6F1 !important;
+        padding: 13px 26px !important;
+        border-radius: 2px !important;
+        font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
+        font-size: 12px !important;
+        font-weight: 700 !important;
+        letter-spacing: 2px !important;
+        text-transform: uppercase !important;
+        text-decoration: none !important;
+        border: 1px solid #2F221A !important;
+        transition: all 0.25s ease !important;
+        cursor: pointer !important;
+    }
+
+    .c-hero-banner__button:hover {
+        background: #D68E1D !important;
+        border-color: #D68E1D !important;
+        color: #FFFFFF !important;
+        transform: translateY(-1px) !important;
+    }
+
+    .c-hero-banner__button .o-btn__arrow {
+        width: 16px !important;
+        height: 16px !important;
+        fill: currentColor !important;
+        stroke: currentColor !important;
+        transition: transform 0.25s ease !important;
+    }
+
+    .c-hero-banner__button:hover .o-btn__arrow {
+        transform: translateX(4px) !important;
+    }
+}
+
+/* 6. Product Carousel Section - Seamless Transition */
+.c-section__product-carousel {
+    background-color: #F3EEE8 !important;
+    margin: 0 !important;
+    padding: 5rem 0 3rem 0 !important;
+}
+
+.c-product-carousel {
+    background-color: #F3EEE8 !important;
+    margin: 0 !important;
+    padding: 0 0 0 1.5rem !important;
+}
+
+/* 6. Product Cards & Visual Elegance */
+.c-product-carousel__product-image-container img,
+.o-product-thumbnail__image-container img {
+    border-radius: 8px;
+    object-fit: cover !important;
+    aspect-ratio: 1 / 1;
+    width: 100% !important;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+    background: #FFFFFF;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .c-product-carousel__product:hover .c-product-carousel__product-image,
+    .o-product-thumbnail:hover .o-product-thumbnail__image {
+        transform: translateY(-6px);
+        box-shadow: 0 12px 28px rgba(47, 34, 26, 0.12);
+    }
+}
+
+.o-product-thumbnail__title {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-weight: 600;
+    font-size: 15px;
+    color: #2F221A;
+    margin-top: 12px;
+}
+
+.o-product-thumbnail__price {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-weight: 700;
+    color: #D68E1D;
+    font-size: 16px;
+    margin-top: 4px;
+}
+
+.o-product-thumbnail__badge {
+    background-color: #D68E1D !important;
+    color: #FFFFFF !important;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    padding: 3px 8px;
+}
+
+/* 7. Buttons System */
+.o-btn.is-primary.is-dark {
+    background-color: #2F221A !important;
+    color: #FAF8F5 !important;
+    border: none !important;
+    border-radius: 4px;
+    padding: 12px 28px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: all 0.25s ease;
+}
+
+.o-btn.is-primary.is-dark:hover {
+    background-color: #D68E1D !important;
+    color: #FFFFFF !important;
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   8. S54 LUXURY SLIDE-OUT CART DRAWER (100vh Full-Height & Perfect UI/UX)
+   ========================================================================== */
+
+/* Full-Screen Backdrop Overlay */
+.c-cart-drawer__overlay,
+.c-cart-drawer__background {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    background: rgba(26, 17, 12, 0.72) !important;
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
+    z-index: 9999990 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transition: opacity 0.35s ease, visibility 0.35s ease !important;
+    pointer-events: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.c-cart-drawer__overlay.is-open,
+.c-cart-drawer.is-open ~ .c-cart-drawer__overlay,
+.c-cart-drawer.is-drawer-open + .c-cart-drawer__background {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: all !important;
+}
+
+/* Master Cart Drawer (Full Height 100vh, Fixed on Right) */
+.c-cart-drawer {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    max-width: 480px !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    background-color: #FAF8F5 !important;
+    z-index: 99999999 !important;
+    box-shadow: -8px 0 35px rgba(0, 0, 0, 0.28) !important;
+    transform: translateX(100%) !important;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+    pointer-events: auto !important;
+    border-left: 1px solid #EBE7E1 !important;
+}
+
+.c-cart-drawer.is-open,
+.c-cart-drawer.is-drawer-open {
+    transform: translateX(0) !important;
+    visibility: visible !important;
+}
+
+/* Header */
+.c-cart-drawer__header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 20px 24px !important;
+    border-bottom: 1px solid #EBE7E1 !important;
+    background: #FFFFFF !important;
+    flex-shrink: 0 !important;
+}
+
+.c-cart-drawer__title {
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-size: 26px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    margin: 0 !important;
+    color: #2F221A !important;
+    letter-spacing: -0.01em !important;
+}
+
+.c-cart-drawer__close {
+    background: #FAF8F5 !important;
+    border: 1px solid #EBE7E1 !important;
+    border-radius: 50% !important;
+    width: 34px !important;
+    height: 34px !important;
+    font-size: 16px !important;
+    cursor: pointer !important;
+    color: #6E6259 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s ease !important;
+    padding: 0 !important;
+    line-height: 1 !important;
+}
+
+.c-cart-drawer__close:hover {
+    background: #2F221A !important;
+    color: #FFFFFF !important;
+    border-color: #2F221A !important;
+    transform: rotate(90deg) !important;
+}
+
+/* Free Shipping Bar */
+.c-cart-drawer__free-shipping {
+    background-color: #F5EFEB !important;
+    padding: 14px 24px !important;
+    border-bottom: 1px solid #EBE7E1 !important;
+    flex-shrink: 0 !important;
+}
+
+.c-cart-drawer__free-shipping-text {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    color: #2F221A !important;
+    text-align: center !important;
+    line-height: 1.4 !important;
+}
+
+.c-cart-drawer__progress-bar {
+    height: 6px !important;
+    background: #E5DDD3 !important;
+    border-radius: 6px !important;
+    margin-top: 8px !important;
+    overflow: hidden !important;
+}
+
+.c-cart-drawer__progress-fill {
+    height: 100% !important;
+    background: linear-gradient(90deg, #D68E1D, #F0C475) !important;
+    border-radius: 6px !important;
+    transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+/* Scrollable Body */
+.c-cart-drawer__body {
+    flex: 1 1 auto !important;
+    overflow-y: auto !important;
+    padding: 20px 24px !important;
+    background: #FAF8F5 !important;
+}
+
+.c-cart-drawer__body::-webkit-scrollbar {
+    width: 5px;
+}
+.c-cart-drawer__body::-webkit-scrollbar-thumb {
+    background: #D8CEBE;
+    border-radius: 4px;
+}
+
+.c-cart-drawer__item {
+    display: grid !important;
+    grid-template-columns: 76px 1fr auto !important;
+    gap: 16px !important;
+    align-items: center !important;
+    padding: 16px 0 !important;
+    border-bottom: 1px solid #EBE7E1 !important;
+}
+
+.c-cart-drawer__item:last-child {
+    border-bottom: none !important;
+}
+
+.c-cart-drawer__item-img {
+    width: 76px !important;
+    height: 76px !important;
+    object-fit: contain !important;
+    background: #FFFFFF !important;
+    border: 1px solid #EBE7E1 !important;
+    border-radius: 8px !important;
+    padding: 6px !important;
+}
+
+.c-cart-drawer__item-details {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+}
+
+.c-cart-drawer__item-title {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    color: #2F221A !important;
+    margin: 0 !important;
+    line-height: 1.35 !important;
+}
+
+.c-cart-drawer__item-price {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    color: #D68E1D !important;
+}
+
+.c-cart-drawer__qty-wrap {
+    display: inline-flex !important;
+    align-items: center !important;
+    border: 1px solid #D8CEBE !important;
+    border-radius: 20px !important;
+    background: #FFFFFF !important;
+    overflow: hidden !important;
+    height: 28px !important;
+    width: fit-content !important;
+    margin-top: 4px !important;
+}
+
+.c-cart-drawer__qty-btn {
+    background: none !important;
+    border: none !important;
+    width: 28px !important;
+    height: 28px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    color: #2F221A !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: background 0.2s ease !important;
+}
+
+.c-cart-drawer__qty-btn:hover {
+    background: #F5EFEB !important;
+}
+
+.c-cart-drawer__qty-val {
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    padding: 0 8px !important;
+    min-width: 24px !important;
+    text-align: center !important;
+    color: #2F221A !important;
+}
+
+.c-cart-drawer__item-remove {
+    background: none !important;
+    border: none !important;
+    color: #A3968C !important;
+    cursor: pointer !important;
+    font-size: 16px !important;
+    padding: 6px !important;
+    transition: color 0.2s ease !important;
+    align-self: flex-start !important;
+}
+
+.c-cart-drawer__item-remove:hover {
+    color: #D63031 !important;
+}
+
+/* Footer */
+.c-cart-drawer__footer {
+    padding: 20px 24px 28px !important;
+    background: #FFFFFF !important;
+    border-top: 1px solid #EBE7E1 !important;
+    box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.04) !important;
+    flex-shrink: 0 !important;
+}
+
+.c-cart-drawer__subtotal {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    font-size: 15px !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-weight: 600 !important;
+    margin-bottom: 16px !important;
+    color: #2F221A !important;
+}
+
+.c-cart-drawer__subtotal-amount {
+    font-size: 18px !important;
+    color: #D68E1D !important;
+    font-weight: 700 !important;
+}
+
+.c-cart-drawer__checkout-btn {
+    width: 100% !important;
+    background: #2F221A !important;
+    color: #FFFFFF !important;
+    padding: 16px !important;
+    text-align: center !important;
+    border: none !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.5px !important;
+    font-size: 13.5px !important;
+    text-transform: uppercase !important;
+    cursor: pointer !important;
+    border-radius: 6px !important;
+    transition: all 0.25s ease !important;
+    box-shadow: 0 4px 12px rgba(47, 34, 26, 0.15) !important;
+    display: block !important;
+}
+
+.c-cart-drawer__checkout-btn:hover {
+    background: #D68E1D !important;
+    box-shadow: 0 6px 18px rgba(214, 142, 29, 0.3) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* 9. Toast & Scroll to Top */
+.c-toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #2F221A;
+    color: #FFFFFF;
+    padding: 14px 28px;
+    border-radius: 40px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    z-index: 10000000;
+    opacity: 0;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+}
+
+.c-toast.is-active {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.c-scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: #2F221A;
+    color: #FAF8F5;
+    border: none;
+    cursor: pointer;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+}
+
+.c-scroll-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.c-scroll-top:hover {
+    background: #D68E1D;
+    transform: translateY(-2px);
+}
+
+/* 10. Footer Layout & Payment Badges */
+.c-footer__bottom-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+    margin-top: 30px;
+    border-top: 1px solid #EBE7E1;
+    font-size: 12px;
+    color: #676986;
+    gap: 16px;
+}
+
+.c-footer__payment-icons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.c-footer__payment-badge {
+    background: #FFFFFF;
+    border: 1px solid #EBE7E1;
+    border-radius: 4px;
+    padding: 4px 8px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #2F221A;
+}
+
+/* 11. Purge Plugin Overlays */
+#md-footer-selector-block,
+.md-footer-selector__container,
+.md-footer-selector__content,
+.md-footer-selector__form,
+#md-app-modal,
+.md-app-modal,
+.md-app-modal-overlay,
+.md-modal__content,
+.md-modal__formContent,
+[data-orbe-flags],
+md-footer-selector__form {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+/* 12. Responsive Breakpoints */
+@media (max-width: 991px) {
+    .c-header__topbar {
+        flex-wrap: wrap;
+        gap: 4px;
+        padding: 6px 12px !important;
+    }
+    .c-header__topbar-message {
+        font-size: 10px !important;
+    }
+    .c-main-menu {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        bottom: 0 !important;
+        width: 280px !important;
+        background: #2F221A !important;
+        box-shadow: 4px 0 24px rgba(0, 0, 0, 0.4) !important;
+        z-index: 99999 !important;
+        transform: translateX(-100%) !important;
+        transition: transform 0.3s ease !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+        padding: 20px !important;
+    }
+    .c-main-menu.is-open {
+        transform: translateX(0) !important;
+    }
+    .c-main-menu__close {
+        color: #FAF6F1 !important;
+        background: none !important;
+        border: none !important;
+        font-size: 20px !important;
+        cursor: pointer !important;
+    }
+    .c-main-menu__list.is-level-1 {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 16px !important;
+        width: 100% !important;
+        margin-top: 24px !important;
+    }
+    .c-footer__bottom-bar {
+        flex-direction: column;
+        text-align: center;
+    }
+    .c-footer__payment-icons {
+        justify-content: center;
+    }
+    .c-cart-drawer {
+        max-width: 100%;
+    }
+}
+
+/* 7. Featured Video / Brewing Guides - Luxury Editorial Styling */
+.c-section__featured-video {
+    background-color: #F3EEE8 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.c-featured-video {
+    background-color: #F3EEE8 !important;
+    padding: 4.5rem 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+}
+
+.c-featured-video__wrapper {
+    max-width: 1440px !important;
+    margin: 0 auto !important;
+    padding: 0 clamp(20px, 4vw, 56px) !important;
+    box-sizing: border-box !important;
+}
+
+.c-featured-video__media-container {
+    position: relative !important;
+    width: 100% !important;
+    min-height: 480px !important;
+    max-height: 580px !important;
+    height: 56vh !important;
+    padding-bottom: 0 !important;
+    border-radius: 4px !important;
+    overflow: hidden !important;
+    background-color: #EAE2D7 !important;
+    box-shadow: 0 16px 40px rgba(47, 34, 26, 0.06) !important;
+}
+
+.c-featured-video__media {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: right center !important;
+    z-index: 1 !important;
+}
+
+.c-featured-video__media.has-mobile {
+    display: block !important;
+}
+
+.c-featured-video__media.is-mobile {
+    display: none !important;
+}
+
+.c-featured-video__inner {
+    position: absolute !important;
+    top: 50% !important;
+    left: clamp(32px, 6vw, 80px) !important;
+    transform: translateY(-50%) !important;
+    max-width: 520px !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    z-index: 5 !important;
+}
+
+.c-featured-video__title {
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-size: clamp(32px, 3.6vw, 48px) !important;
+    line-height: 1.1 !important;
+    font-weight: 500 !important;
+    color: #2F221A !important;
+    margin: 0 0 16px 0 !important;
+    letter-spacing: -0.01em !important;
+}
+
+.c-featured-video__desc {
+    font-family: 'Be Vietnam Pro', 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+    color: #5C4A3E !important;
+    margin: 0 0 24px 0 !important;
+    max-width: 420px !important;
+}
+
+.c-featured-video__button.o-btn.is-primary.is-dark {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    background: #2F221A !important;
+    color: #FAF6F1 !important;
+    padding: 13px 26px !important;
+    border-radius: 2px !important;
+    font-family: 'Be Vietnam Pro', sans-serif !important;
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    letter-spacing: 2px !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    border: 1px solid #2F221A !important;
+    transition: all 0.25s ease !important;
+    margin: 0 !important;
+}
+
+.c-featured-video__button.o-btn.is-primary.is-dark:hover {
+    background: #D68E1D !important;
+    border-color: #D68E1D !important;
+    color: #FFFFFF !important;
+}
+
+.c-featured-video__button .o-btn__arrow {
+    width: 16px !important;
+    height: 16px !important;
+    fill: currentColor !important;
+    stroke: currentColor !important;
+    transition: transform 0.25s ease !important;
+}
+
+.c-featured-video__button:hover .o-btn__arrow {
+    transform: translateX(4px) !important;
+}
+
+.c-featured-video__button-play {
+    position: absolute !important;
+    top: 50% !important;
+    right: clamp(40px, 14vw, 220px) !important;
+    left: unset !important;
+    transform: translateY(-50%) !important;
+    width: 72px !important;
+    height: 72px !important;
+    border-radius: 50% !important;
+    background: #2F221A !important;
+    border: 2px solid #FAF6F1 !important;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    cursor: pointer !important;
+    z-index: 6 !important;
+    color: #FAF6F1 !important;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    box-sizing: border-box !important;
+}
+
+.c-featured-video__button-play:hover {
+    transform: translateY(-50%) scale(1.08) !important;
+    background: #D68E1D !important;
+    border-color: #FFFFFF !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 12px 32px rgba(214, 142, 29, 0.4) !important;
+}
+
+.c-featured-video__button-play svg {
+    display: block !important;
+    width: 24px !important;
+    height: 24px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    color: inherit !important;
+}
+
+.c-featured-video__button-play svg path {
+    fill: currentColor !important;
+}
+
+@media (max-width: 1099px) {
+    .c-featured-video {
+        padding: 2.5rem 0 !important;
+    }
+    
+    .c-featured-video__media-container {
+        height: auto !important;
+        min-height: 520px !important;
+    }
+    
+    .c-featured-video__media.has-mobile {
+        display: none !important;
+    }
+    
+    .c-featured-video__media.is-mobile {
+        display: block !important;
+        object-position: center bottom !important;
+    }
+    
+    .c-featured-video__inner {
+        top: 28px !important;
+        bottom: unset !important;
+        left: 20px !important;
+        right: 20px !important;
+        transform: none !important;
+        max-width: calc(100% - 40px) !important;
+    }
+    
+    .c-featured-video__title {
+        font-size: 26px !important;
+        line-height: 1.15 !important;
+        margin: 0 0 12px 0 !important;
+        color: #2F221A !important;
+    }
+    
+    .c-featured-video__desc {
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+        margin: 0 0 18px 0 !important;
+    }
+    
+    .c-featured-video__button.o-btn.is-primary.is-dark {
+        padding: 11px 20px !important;
+        font-size: 11px !important;
+    }
+    
+    .c-featured-video__button-play {
+        top: unset !important;
+        bottom: 28px !important;
+        right: 24px !important;
+        left: unset !important;
+        transform: none !important;
+        width: 60px !important;
+        height: 60px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    .c-featured-video__button-play:hover {
+        transform: scale(1.08) !important;
+    }
+
+    .c-featured-video__button-play svg {
+        width: 20px !important;
+        height: 20px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+}
+
+/* ==========================================================================
+   S54 COFFEE — Master Luxury Footer Styles
+   ========================================================================== */
+.s54-footer {
+    background-color: #241A14 !important;
+    color: #FAF8F5 !important;
+    padding: 70px 0 30px !important;
+    position: relative !important;
+    z-index: 10 !important;
+    border-top: 3px solid #D68E1D !important;
+}
+
+.s54-footer__container {
+    max-width: 1440px !important;
+    margin: 0 auto !important;
+    padding: 0 clamp(20px, 4vw, 60px) !important;
+    box-sizing: border-box !important;
+}
+
+.s54-footer__grid {
+    display: grid !important;
+    grid-template-columns: 1.6fr 1fr 1.1fr 1.3fr !important;
+    gap: clamp(24px, 3.5vw, 56px) !important;
+    margin-bottom: 50px !important;
+}
+
+/* Col 1: Brand */
+.s54-footer__logo-link {
+    display: inline-block !important;
+    margin-bottom: 16px !important;
+    text-decoration: none !important;
+}
+
+.s54-footer__logo-img {
+    height: 44px !important;
+    width: auto !important;
+    max-width: 190px !important;
+    object-fit: contain !important;
+    filter: brightness(0) invert(1) !important;
+}
+
+.s54-footer__company-name {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.8px !important;
+    color: #E8C17F !important;
+    margin: 0 0 8px 0 !important;
+    text-transform: uppercase !important;
+}
+
+.s54-footer__brand-tagline {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+    color: #BDB2A7 !important;
+    margin: 0 0 18px 0 !important;
+}
+
+.s54-footer__contact-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+}
+
+.s54-footer__contact-list li {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    color: #D8CEBE !important;
+}
+
+.s54-footer__contact-icon {
+    flex-shrink: 0 !important;
+    font-size: 14px !important;
+    margin-top: 1px !important;
+}
+
+.s54-footer__contact-list a {
+    color: #FAF8F5 !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    transition: color 0.2s ease !important;
+}
+
+.s54-footer__contact-list a:hover {
+    color: #D68E1D !important;
+    text-decoration: underline !important;
+}
+
+/* Headings */
+.s54-footer__heading {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 22px !important;
+    font-weight: 600 !important;
+    color: #FFFFFF !important;
+    letter-spacing: 0.5px !important;
+    margin: 0 0 20px 0 !important;
+    position: relative !important;
+    padding-bottom: 10px !important;
+}
+
+.s54-footer__heading:after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 32px !important;
+    height: 2px !important;
+    background-color: #D68E1D !important;
+}
+
+/* Links */
+.s54-footer__links {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+}
+
+.s54-footer__links a {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 13px !important;
+    color: #D8CEBE !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease !important;
+    display: inline-block !important;
+}
+
+.s54-footer__links a:hover {
+    color: #D68E1D !important;
+    transform: translateX(4px) !important;
+}
+
+/* Newsletter Col */
+.s54-footer__newsletter-desc {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+    color: #BDB2A7 !important;
+    margin: 0 0 16px 0 !important;
+}
+
+.s54-footer__form {
+    margin-bottom: 24px !important;
+}
+
+.s54-footer__input-wrap {
+    display: flex !important;
+    align-items: center !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 6px !important;
+    overflow: hidden !important;
+    transition: all 0.25s ease !important;
+}
+
+.s54-footer__input-wrap:focus-within {
+    border-color: #D68E1D !important;
+    box-shadow: 0 0 0 3px rgba(214, 142, 29, 0.25) !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+}
+
+.s54-footer__input {
+    flex: 1 !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 12px 16px !important;
+    color: #FFFFFF !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 13px !important;
+    outline: none !important;
+}
+
+.s54-footer__input::placeholder {
+    color: rgba(255, 255, 255, 0.45) !important;
+}
+
+.s54-footer__submit-btn {
+    background: #D68E1D !important;
+    border: none !important;
+    color: #FFFFFF !important;
+    padding: 12px 18px !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: background 0.2s ease !important;
+}
+
+.s54-footer__submit-btn:hover {
+    background: #B87612 !important;
+}
+
+/* Social */
+.s54-footer__social-wrap {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+}
+
+.s54-footer__social-title {
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    color: #D8CEBE !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.s54-footer__social-icons {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+.s54-footer__social-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+    transition: all 0.25s ease !important;
+}
+
+.s54-footer__social-btn:hover {
+    background: #D68E1D !important;
+    color: #FFFFFF !important;
+    transform: translateY(-3px) !important;
+}
+
+/* Bottom Bar */
+.s54-footer__bottom {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    padding-top: 28px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+    gap: 18px !important;
+}
+
+.s54-footer__copyright {
+    font-size: 12px !important;
+    color: #A3968A !important;
+    line-height: 1.5 !important;
+}
+
+.s54-footer__copyright strong {
+    color: #D8CEBE !important;
+}
+
+.s54-footer__payments {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+}
+
+.s54-footer__pay-badge {
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 4px !important;
+    padding: 4px 9px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    color: #E2D9CD !important;
+    letter-spacing: 0.5px !important;
+}
+
+/* Responsive Footer */
+@media (max-width: 1024px) {
+    .s54-footer__grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 40px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .s54-footer {
+        padding: 50px 0 24px !important;
+    }
+    
+    .s54-footer__grid {
+        grid-template-columns: 1fr !important;
+        gap: 36px !important;
+    }
+    
+    .s54-footer__bottom {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 16px !important;
+    }
+    
+    .s54-footer__payments {
+        justify-content: center !important;
+    }
+    
+    .c-lang-switcher--footer {
+        margin: 6px auto 0 !important;
+    }
+}
+
+
+/* ==========================================================================
+   STRICT TYPOGRAPHIC HIERARCHY (EXACT DESKTOP SIZES)
+   H1: 68px (Desktop) / 38px (Mobile)
+   H2: 56px (Desktop) / 32px (Mobile)
+   H3: 32px (Desktop) / 22px (Mobile)
+   H4: 24px (Desktop) / 18px (Mobile)
+   H5/H6: 16px
+   ========================================================================== */
+
+/* H1 / Primary Hero Headings */
+h1,
+.o-heading--1,
+.s54-hero-title,
+.c-hero-banner__title,
+.c-hero-banner__title span {
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-size: 38px !important;
+    line-height: 1.1 !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.015em !important;
+    color: #2F221A !important;
+    margin-top: 0 !important;
+}
+
+@media (min-width: 768px) {
+    h1,
+    .o-heading--1,
+    .s54-hero-title,
+    .c-hero-banner__title,
+    .c-hero-banner__title span {
+        font-size: 68px !important;
+        line-height: 1.08 !important;
+    }
+}
+
+.s54-hero-title,
+.s54-hero-title span {
+    color: #FFFFFF !important;
+}
+
+/* H2 / Major Section Headings (EXACT 56px on Desktop) */
+h2,
+.o-heading--2,
+.c-product-carousel__title,
+.c-product-carousel__title span,
+.c-product-carousel__title p,
+.c-text-and-image__text-title,
+.c-text-and-image__text-title span,
+.c-text-and-image__title,
+.c-featured-video__title,
+.c-featured-video__title span,
+.c-featured-collections__header-title,
+.c-featured-collections__header-title span,
+.c-featured-collections__title,
+.c-product-main__title,
+.c-article-feed__title,
+.c-article-feed__title span {
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-size: 32px !important;
+    line-height: 1.2 !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.01em !important;
+    color: #2F221A !important;
+    margin-top: 0 !important;
+    margin-bottom: 20px !important;
+}
+
+@media (min-width: 768px) {
+    h2,
+    .o-heading--2,
+    .c-product-carousel__title,
+    .c-product-carousel__title span,
+    .c-product-carousel__title p,
+    .c-text-and-image__text-title,
+    .c-text-and-image__text-title span,
+    .c-text-and-image__title,
+    .c-featured-video__title,
+    .c-featured-video__title span,
+    .c-featured-collections__header-title,
+    .c-featured-collections__header-title span,
+    .c-featured-collections__title,
+    .c-product-main__title,
+    .c-article-feed__title,
+    .c-article-feed__title span {
+        font-size: 56px !important;
+        line-height: 1.12 !important;
+    }
+}
+
+/* H3 / Subsection Headings */
+h3,
+.o-heading--3,
+.c-featured-collections__tab-title {
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-size: 22px !important;
+    line-height: 1.3 !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.005em !important;
+    color: #2F221A !important;
+    margin-top: 0 !important;
+    margin-bottom: 16px !important;
+}
+
+@media (min-width: 768px) {
+    h3,
+    .o-heading--3,
+    .c-featured-collections__tab-title {
+        font-size: 32px !important;
+        line-height: 1.22 !important;
+    }
+}
+
+/* H4 / Cards & Content Blocks */
+h4,
+.o-heading--4,
+.c-article-feed__card-title,
+.s54-footer__heading {
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-size: 20px !important;
+    line-height: 1.35 !important;
+    font-weight: 600 !important;
+    color: #2F221A !important;
+}
+
+@media (min-width: 768px) {
+    h4,
+    .o-heading--4,
+    .c-article-feed__card-title,
+    .s54-footer__heading {
+        font-size: 24px !important;
+        line-height: 1.3 !important;
+    }
+}
+
+/* H5 & H6 / Product Card Labels & Subtitles */
+h5, h6,
+.o-heading--5,
+.o-heading--6,
+.o-product-thumbnail__title,
+.c-product-carousel__product-title {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+    font-weight: 600 !important;
+    color: #2F221A !important;
+}
+
+/* Ensure nested spans, ems, ps inherit exact font-size */
+.o-heading--1 p, .o-heading--2 p, .o-heading--3 p, .o-heading--4 p, .o-heading--5 p, .o-heading--6 p,
+.o-heading--1 span, .o-heading--2 span, .o-heading--3 span, .o-heading--4 span,
+.o-heading--1 em, .o-heading--2 em, .o-heading--3 em {
+    font-family: inherit !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
+    font-weight: inherit !important;
+    letter-spacing: inherit !important;
+    color: inherit !important;
+    margin: 0 !important;
+}
+
+/* H1 / Primary Hero Headings (Desktop: 68px) */
+h1,
+.o-heading--1,
+.s54-hero-title,
+.c-hero-banner__title,
+.c-hero-banner__title span {
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-size: clamp(40px, 5.2vw, 68px) !important;
+    line-height: 1.1 !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.015em !important;
+    color: #2F221A !important;
+    margin-top: 0 !important;
+}
+
+.s54-hero-title,
+.s54-hero-title span {
+    color: #FFFFFF !important;
+}
+
+/* H2 / Major Section Headings (Desktop: 56px) - Product Carousel, Story, Video, Best Sellers, Blog */
+h2,
+.o-heading--2,
+.c-product-carousel__title,
+.c-product-carousel__title span,
+.c-product-carousel__title p,
+.c-text-and-image__text-title,
+.c-text-and-image__text-title span,
+.c-text-and-image__title,
+.c-featured-video__title,
+.c-featured-video__title span,
+.c-featured-collections__header-title,
+.c-featured-collections__header-title span,
+.c-featured-collections__title,
+.c-product-main__title,
+.c-article-feed__title,
+.c-article-feed__title span {
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-size: clamp(32px, 4vw, 56px) !important;
+    line-height: 1.15 !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.01em !important;
+    color: #2F221A !important;
+    margin-top: 0 !important;
+    margin-bottom: 20px !important;
+}
+
+/* H3 / Subsection Headings & Sub-carousels (Desktop: 36px) */
+h3,
+.o-heading--3,
+.c-featured-collections__tab-title {
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-size: clamp(24px, 2.8vw, 36px) !important;
+    line-height: 1.25 !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.005em !important;
+    color: #2F221A !important;
+    margin-top: 0 !important;
+    margin-bottom: 16px !important;
+}
+
+/* H4 / Cards & Content Blocks (Desktop: 26px) */
+h4,
+.o-heading--4,
+.c-article-feed__card-title,
+.s54-footer__heading {
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-size: clamp(20px, 2vw, 26px) !important;
+    line-height: 1.35 !important;
+    font-weight: 600 !important;
+    color: #2F221A !important;
+}
+
+/* H5 & H6 / Product Card Labels & Subtitles (Desktop: 16px) */
+h5, h6,
+.o-heading--5,
+.o-heading--6,
+.o-product-thumbnail__title,
+.c-product-carousel__product-title {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: clamp(14px, 1.2vw, 16px) !important;
+    line-height: 1.4 !important;
+    font-weight: 600 !important;
+    color: #2F221A !important;
+}
+
+/* Ensure nested spans, ems and paragraphs inside headings retain exact typography */
+.o-heading--1 p, .o-heading--2 p, .o-heading--3 p, .o-heading--4 p, .o-heading--5 p, .o-heading--6 p,
+.o-heading--1 span, .o-heading--2 span, .o-heading--3 span, .o-heading--4 span,
+.o-heading--1 em, .o-heading--2 em, .o-heading--3 em {
+    font-family: inherit !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
+    font-weight: inherit !important;
+    letter-spacing: inherit !important;
+    color: inherit !important;
+    margin: 0 !important;
+}
+
+/* H1 / Primary Hero Headings (Desktop: 68px) */
+h1,
+.o-heading--1,
+.s54-hero-title,
+.c-hero-banner__title {
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-size: clamp(40px, 5.2vw, 68px) !important;
+    line-height: 1.1 !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.015em !important;
+    color: #2F221A !important;
+    margin-top: 0 !important;
+}
+
+.s54-hero-title {
+    color: #FFFFFF !important;
+}
+
+/* H2 / Major Section Headings (Desktop: 56px) */
+h2,
+.o-heading--2,
+.c-text-and-image__text-title,
+.c-text-and-image__title,
+.c-featured-video__title,
+.c-product-main__title,
+.c-article-feed__title {
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-size: clamp(32px, 4vw, 56px) !important;
+    line-height: 1.15 !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.01em !important;
+    color: #2F221A !important;
+    margin-top: 0 !important;
+    margin-bottom: 20px !important;
+}
+
+/* H3 / Subsection Headings & Carousel Titles (Desktop: 36px) */
+h3,
+.o-heading--3,
+.c-product-carousel__title,
+.c-featured-collections__header-title,
+.c-featured-collections__title {
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-size: clamp(24px, 2.8vw, 36px) !important;
+    line-height: 1.25 !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.005em !important;
+    color: #2F221A !important;
+    margin-top: 0 !important;
+    margin-bottom: 16px !important;
+}
+
+/* H4 / Cards & Content Blocks (Desktop: 26px) */
+h4,
+.o-heading--4,
+.c-article-feed__card-title,
+.c-product-carousel__product-title {
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-size: clamp(20px, 2vw, 26px) !important;
+    line-height: 1.35 !important;
+    font-weight: 600 !important;
+    color: #2F221A !important;
+}
+
+/* H5 & H6 / Product Card Labels & Subtitles (Desktop: 16px) */
+h5, h6,
+.o-heading--5,
+.o-heading--6,
+.o-product-thumbnail__title {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: clamp(14px, 1.2vw, 16px) !important;
+    line-height: 1.4 !important;
+    font-weight: 600 !important;
+    color: #2F221A !important;
+}
+
+/* Ensure nested paragraphs inside headings retain exact typography */
+.o-heading--1 p, .o-heading--2 p, .o-heading--3 p, .o-heading--4 p, .o-heading--5 p, .o-heading--6 p {
+    font-family: inherit !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
+    font-weight: inherit !important;
+    letter-spacing: inherit !important;
+    color: inherit !important;
+    margin: 0 !important;
+}
+
+
+/* S54 Blog Header Contrast Protection */
+.s54-blog-hero__title,
+.s54-blog-hero__title span,
+.s54-blog-hero__title p {
+    color: #FFFFFF !important;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5) !important;
+}
+.s54-blog-hero__desc {
+    color: #E2D9CD !important;
+}
+
+
+
+/* ==========================================================================
+   S54 COLLECTION HERO BANNER - MASTER HIGH-CONTRAST LUXURY STYLES
+   ========================================================================== */
+.s54-coll-hero {
+    position: relative !important;
+    background-color: #1A110C !important;
+    min-height: 380px !important;
+    display: flex !important;
+    align-items: center !important;
+    overflow: hidden !important;
+    border-bottom: 1px solid #2F221A !important;
+}
+
+.s54-coll-hero__bg {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    z-index: 1 !important;
+}
+
+.s54-coll-hero__img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    filter: brightness(0.45) !important;
+}
+
+.s54-coll-hero__gradient {
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: linear-gradient(90deg, rgba(26,17,12,0.94) 0%, rgba(26,17,12,0.80) 50%, rgba(26,17,12,0.45) 100%) !important;
+}
+
+.s54-coll-hero__content {
+    position: relative !important;
+    z-index: 2 !important;
+    width: 100% !important;
+    max-width: 1280px !important;
+    margin: 0 auto !important;
+    padding: 64px 32px 56px !important;
+}
+
+.s54-coll-hero__breadcrumbs {
+    margin-bottom: 16px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+}
+
+.s54-coll-hero__breadcrumbs a {
+    color: #D8CEBE !important;
+    text-decoration: none !important;
+    transition: color 0.2s ease !important;
+}
+
+.s54-coll-hero__breadcrumbs a:hover {
+    color: #E2B96B !important;
+}
+
+.s54-coll-hero__divider {
+    color: #AC8A62 !important;
+}
+
+.s54-coll-hero__active-crumb {
+    color: #E2B96B !important;
+    font-weight: 600 !important;
+}
+
+.s54-coll-hero__title {
+    font-family: 'Cormorant Garamond', Georgia, serif !important;
+    font-size: 52px !important;
+    font-weight: 700 !important;
+    color: #FFFFFF !important;
+    margin: 0 0 16px !important;
+    line-height: 1.15 !important;
+    text-shadow: 0 2px 16px rgba(0,0,0,0.6) !important;
+}
+
+.s54-coll-hero__subtitle {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 15.5px !important;
+    line-height: 1.65 !important;
+    color: #FAF5EE !important;
+    max-width: 680px !important;
+    margin: 0 0 24px !important;
+    font-weight: 400 !important;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.5) !important;
+}
+
+.s54-coll-hero__badges {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    align-items: center !important;
+}
+
+.s54-coll-hero__badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+    padding: 7px 16px !important;
+    background: rgba(255,255,255,0.12) !important;
+    border: 1px solid rgba(226,185,107,0.45) !important;
+    border-radius: 20px !important;
+    color: #FFFFFF !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
+}
+
+@media (max-width: 767px) {
+    .s54-coll-hero {
+        min-height: 320px !important;
+    }
+    .s54-coll-hero__content {
+        padding: 40px 20px 32px !important;
+    }
+    .s54-coll-hero__title {
+        font-size: 34px !important;
+    }
+    .s54-coll-hero__subtitle {
+        font-size: 14px !important;
+    }
+}
+
+
+/* ==========================================================================
+   Master S54 Page Hero (Our Story, Wholesale, Collections)
+   High-contrast, pure white typography, rich dark espresso gradient
+   ========================================================================== */
+.s54-page-hero {
+    position: relative;
+    width: 100%;
+    min-height: 440px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 80px 6% 70px;
+    overflow: hidden;
+    background-color: #1A110C;
+    box-sizing: border-box;
+}
+
+.s54-page-hero__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scale(1.02);
+    z-index: 1;
+}
+
+.s54-page-hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(26, 17, 12, 0.95) 0%, rgba(35, 23, 16, 0.82) 48%, rgba(26, 17, 12, 0.6) 100%);
+    z-index: 2;
+}
+
+.s54-page-hero__container {
+    position: relative;
+    z-index: 3;
+    max-width: 920px;
+    margin: 0;
+    text-align: left;
+}
+
+.s54-page-hero__tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: rgba(214, 142, 29, 0.18);
+    border: 1px solid rgba(214, 142, 29, 0.45);
+    border-radius: 30px;
+    color: #F4C472;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    backdrop-filter: blur(8px);
+}
+
+.s54-page-hero__tag-dot {
+    width: 7px;
+    height: 7px;
+    background-color: #D68E1D;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #D68E1D;
+}
+
+.s54-page-hero__title {
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 54px !important;
+    font-weight: 700 !important;
+    line-height: 1.15 !important;
+    color: #FFFFFF !important;
+    margin: 0 0 16px !important;
+    letter-spacing: -0.5px !important;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.5) !important;
+}
+
+.s54-page-hero__subtitle {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    line-height: 1.7 !important;
+    color: #E6D7C3 !important;
+    margin: 0 0 28px !important;
+    max-width: 760px !important;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+.s54-page-hero__badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.s54-page-hero__badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 18px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 6px;
+    color: #FAF8F5;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+}
+
+@media (max-width: 768px) {
+    .s54-page-hero {
+        min-height: 380px;
+        padding: 50px 20px 45px;
+    }
+    .s54-page-hero__title {
+        font-size: 36px !important;
+    }
+    .s54-page-hero__subtitle {
+        font-size: 14.5px !important;
+    }
+    .s54-page-hero__badge {
+        font-size: 12px;
+        padding: 6px 14px;
+    }
+}
+
+
+/* ==========================================================================
+   S54 Story Timeline - 100% Connected Line & Alternating Nodes
+   ========================================================================== */
+.c-stories {
+    background-color: #FAF8F5 !important;
+    padding: 6rem 0 7rem !important;
+    position: relative !important;
+}
+
+.c-stories__stories {
+    position: relative !important;
+}
+
+/* Master Vertical Connecting Line - 100% full height from first to last node */
+.c-stories__stories:after {
+    content: "" !important;
+    display: block !important;
+    width: 2px !important;
+    height: 100% !important;
+    position: absolute !important;
+    top: 2rem !important;
+    bottom: 2rem !important;
+    left: calc(50% - 1px) !important;
+    background: linear-gradient(to bottom, #D68E1D 0%, #D68E1D 95%, rgba(214, 142, 29, 0.2) 100%) !important;
+    z-index: 1 !important;
+}
+
+/* Connecting Horizontal Branch Lines */
+.c-stories__story-image-panel:after {
+    background-color: #D68E1D !important;
+    height: 2px !important;
+    opacity: 0.8 !important;
+    z-index: 1 !important;
+}
+
+/* Central Node Dots */
+.c-stories__story-text-panel:after {
+    background-color: #D68E1D !important;
+    width: 1.75rem !important;
+    height: 1.75rem !important;
+    border: 4px solid #FAF8F5 !important;
+    box-shadow: 0 0 0 2px #D68E1D, 0 4px 12px rgba(214, 142, 29, 0.35) !important;
+    z-index: 3 !important;
+}
+
+.c-stories__story {
+    margin-bottom: 5.5rem !important;
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+.c-stories__story:last-child {
+    margin-bottom: 0 !important;
+}
+
+.c-stories__story-image-container {
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    box-shadow: 0 8px 30px rgba(47, 34, 26, 0.12) !important;
+}
+
+@media (max-width: 1099px) {
+    .c-stories__stories:after {
+        left: 1.5rem !important;
+        height: calc(100% - 3rem) !important;
+    }
+    .c-stories__story-title:after {
+        background-color: #D68E1D !important;
+        border: 3px solid #FAF8F5 !important;
+        box-shadow: 0 0 0 1px #D68E1D !important;
+    }
+}
+
+
+/* ==========================================================================
+   S54 Master Product Grid & Thumbnail System (Homepage & Collections)
+   ========================================================================== */
+
+/* 1. Grid Layout for Collections Page */
+.o-products-list__products,
+.c-product-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 36px 24px !important;
+    align-items: start !important;
+    width: 100% !important;
+}
+
+@media (max-width: 1199px) {
+    .o-products-list__products,
+    .c-product-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+@media (max-width: 899px) {
+    .o-products-list__products,
+    .c-product-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 24px 16px !important;
+    }
+}
+
+@media (max-width: 549px) {
+    .o-products-list__products,
+    .c-product-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* 2. Grid Layout for Homepage Featured Collections */
+.c-featured-collections {
+    background-color: #FAF8F5 !important;
+    padding: 5rem 0 4rem !important;
+    margin: 0 !important;
+}
+
+.c-featured-collections__products-list.is-active,
+.c-featured-collections__products-list {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 36px 24px !important;
+    width: 100% !important;
+    max-width: 1440px !important;
+    margin: 0 auto !important;
+    padding: 0 clamp(20px, 4vw, 48px) !important;
+    box-sizing: border-box !important;
+    overflow: visible !important;
+}
+
+@media (max-width: 1199px) {
+    .c-featured-collections__products-list.is-active,
+    .c-featured-collections__products-list {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+}
+
+@media (max-width: 599px) {
+    .c-featured-collections__products-list.is-active,
+    .c-featured-collections__products-list {
+        grid-template-columns: 1fr !important;
+        padding: 0 16px !important;
+    }
+}
+
+.c-featured-collections__product {
+    width: 100% !important;
+    margin: 0 !important;
+    flex-shrink: 1 !important;
+}
+
+/* 3. Original Floating Minimalist Thumbnail */
+.o-product-thumbnail {
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.o-product-thumbnail__inner {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+}
+
+.o-product-thumbnail__link {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    text-decoration: none !important;
+    color: inherit !important;
+    width: 100% !important;
+}
+
+/* 4. Image Container - White Floating Box */
+.o-product-thumbnail__image-container {
+    background: #FFFFFF !important;
+    border-radius: 8px !important;
+    padding: 18px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    aspect-ratio: 1 / 1 !important;
+    width: 100% !important;
+    max-width: 240px !important;
+    margin: 0 auto 16px auto !important;
+    box-shadow: 0 4px 18px rgba(47, 34, 26, 0.07) !important;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease !important;
+    box-sizing: border-box !important;
+}
+
+.o-product-thumbnail:hover .o-product-thumbnail__image-container {
+    transform: translateY(-6px) !important;
+    box-shadow: 0 14px 32px rgba(47, 34, 26, 0.13) !important;
+}
+
+.o-product-thumbnail__image-container img,
+.o-product-thumbnail__image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    background: transparent !important;
+    border-radius: 0 !important;
+}
+
+/* 5. Original Centered Gold Pill Badge */
+.o-product-thumbnail__badge {
+    position: static !important;
+    margin: 0 auto 10px auto !important;
+    background-color: #D68E1D !important;
+    color: #FFFFFF !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.8px !important;
+    text-transform: uppercase !important;
+    padding: 5px 18px !important;
+    border-radius: 20px !important;
+    display: inline-block !important;
+}
+
+/* 6. Title - Strictly Aligned 2-Line Baseline */
+.o-product-thumbnail__title {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 14.5px !important;
+    font-weight: 700 !important;
+    line-height: 1.35 !important;
+    color: #2F221A !important;
+    text-align: center !important;
+    margin: 0 auto 8px auto !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    max-width: 250px !important;
+}
+
+/* 7. Rating & Reviews - Clean Single Line */
+.o-product-thumbnail__star-reviews {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    margin: 0 auto 8px auto !important;
+    height: 20px !important;
+    min-height: 20px !important;
+}
+
+.oke-a11yText,
+.oke-sr-label-text,
+.oke-sr-rating {
+    display: none !important;
+}
+
+.o-reviews__stars,
+.oke-sr-wrapper,
+.oke-sr {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 3px !important;
+}
+
+.oke-stars-foreground svg,
+.oke-stars svg,
+.o-reviews__stars svg {
+    color: #D68E1D !important;
+    fill: #D68E1D !important;
+    height: 13px !important;
+}
+
+.oke-sr-count,
+.o-product-thumbnail__star-reviews span {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 12.5px !important;
+    font-weight: 600 !important;
+    color: #2F221A !important;
+    margin-left: 3px !important;
+}
+
+/* 8. Product Excerpt - Uniform 2-Line Baseline */
+.o-product-thumbnail__excerpt {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+    color: #5C4A3E !important;
+    text-align: center !important;
+    margin: 0 auto 10px auto !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    height: 38px !important;
+    min-height: 38px !important;
+    max-width: 240px !important;
+}
+
+/* 9. Price & Add To Cart Button - Stacked Vertically with Zero Collision */
+.o-product-thumbnail__content {
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-top: 4px !important;
+    gap: 10px !important;
+}
+
+.o-product-thumbnail__content-inner {
+    position: static !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+.o-product-thumbnail__price {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 16.5px !important;
+    font-weight: 700 !important;
+    color: #D68E1D !important;
+    text-align: center !important;
+    margin: 0 auto !important;
+    display: block !important;
+    line-height: 1 !important;
+}
+
+.o-product-thumbnail__hover {
+    position: static !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: all !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transform: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+}
+
+.o-product-thumbnail__hover__pricing,
+.o-swatches__swatches,
+.o-swatches,
+.o-variant-selector__dropdown {
+    display: none !important;
+}
+
+.o-product-thumbnail__form {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin: 0 !important;
+}
+
+.o-product-thumbnail__add-btn {
+    background-color: #2F221A !important;
+    color: #FAF6F1 !important;
+    border: 1px solid #2F221A !important;
+    border-radius: 4px !important;
+    padding: 10px 24px !important;
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.2px !important;
+    text-transform: uppercase !important;
+    cursor: pointer !important;
+    transition: all 0.25s ease !important;
+    min-width: 160px !important;
+    text-align: center !important;
+    display: inline-block !important;
+}
+
+.o-product-thumbnail__add-btn:hover {
+    background-color: #D68E1D !important;
+    border-color: #D68E1D !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 12px rgba(214, 142, 29, 0.3) !important;
+    transform: translateY(-1px) !important;
+}

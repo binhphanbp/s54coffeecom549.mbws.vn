@@ -1,0 +1,1 @@
+!function(){const o=document.querySelector(".c-section__contact");setTimeout((()=>{/contact_posted=true#contact/.test(window.location.href)&&(o?.scrollIntoView({behavior:"smooth",block:"center",inline:"center"}),console.log("scrolled"))}),1500)}();

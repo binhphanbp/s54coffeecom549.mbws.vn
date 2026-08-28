@@ -14,7 +14,22 @@ desktop.ini
 *.swp
 *.swo
 
-# Temporary scraping dumps (optional, comment out if you want to keep them)
-# *_raw.html
+# Laravel Environment & Vendor
+/vendor/
+.env
+.env.backup
+.env.local
+.env.production
+.phpunit.result.cache
+/storage/*.key
+/storage/framework/cache/data/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+/storage/logs/*
+!/storage/framework/.gitignore
+!/storage/logs/.gitignore
+
+# Deploy archives
 deploy.zip
 extractor.php
+
