@@ -206,6 +206,13 @@
         ["BLENDS", "COFFEE BLENDS"],
         ["FEATURED", "FEATURED"],
         ["ALL", "ALL"],
+
+        // CLEANED CARD TITLES & EXCERPTS
+        ["S54 Cà Phê Khử Caffeine (Decaf)", "S54 Decaffeinated Blend"],
+        ["Dòng blend nguyên bản tạo nên danh tiếng S54 Coffee", "Our signature blend created for coffee lovers"],
+        ["Dòng blend đậm đà chuẩn vị cà phê Espresso Ý", "Authentic Italian-style espresso blend"],
+        ["Hương vị phong phú, thanh tao từ vùng cao nguyên Cầu Đất", "Rich and delicate flavours from Cau Dat highlands"],
+        ["Cà phê espresso Ý nguyên bản, được khử caffeine tự nhiên", "Authentic Italian espresso, naturally decaffeinated"],
 // 8. OUR STORY
         ["Khởi Nguồn Đam Mê & Thành Lập Good Solutions (2012)", "Our Passion & The Founding of Good Solutions (2012)"],
         ["Triết Lý “NEW COFFEE, NEW INCOME”", "The “NEW COFFEE, NEW INCOME” Philosophy"],
