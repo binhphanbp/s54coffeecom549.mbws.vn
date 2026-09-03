@@ -33,7 +33,10 @@ DOMAIN = "s54coffeecom549.mbws.vn"
 
 BASE_DIR = Path(__file__).resolve().parent
 
-EXCLUDE_DIRS = {'.git', '.github', '.idea', '.vscode', 'tools', '__pycache__'}
+EXCLUDE_DIRS = {
+    '.git', '.github', '.idea', '.vscode', 'tools', '__pycache__',
+    'drive_data', 'theme', '.agents', 'tests', 'storage'
+}
 EXCLUDE_FILES = {'deploy.py', 'deploy.zip', 'extractor.php', '.gitignore'}
 
 def print_header():
@@ -54,9 +57,16 @@ def create_deploy_package(zip_filename="deploy.zip", code_only=False):
         for root, dirs, files in os.walk(BASE_DIR):
             # Exclude unwanted directories
             dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
-            if code_only and os.path.basename(root) == 'media':
-                dirs.clear()
-                continue
+            
+            if code_only:
+                # In fast mode, skip large media
+                if os.path.basename(root) == 'media':
+                    dirs.clear()
+                    continue
+                # In fast mode, skip loose legacy images unless in s54 folder
+                if os.path.basename(root) in {'images', 'img'} and 's54' not in root.replace('\\', '/'):
+                    # keep s54 subfolder if present
+                    dirs[:] = [d for d in dirs if d == 's54']
             
             rel_dir = os.path.relpath(root, BASE_DIR)
             if rel_dir == '.':
@@ -67,8 +77,8 @@ def create_deploy_package(zip_filename="deploy.zip", code_only=False):
                     continue
                 if code_only and (file.endswith('.mp4') or file.endswith('.mov') or file.endswith('.webm')):
                     continue
-                # In fast mode, skip loose legacy images in assets/images, but keep assets/images/s54
-                if code_only and rel_dir in {os.path.join('assets', 'images'), 'assets/images'}:
+                # Skip loose legacy images in assets/images or public/images in fast mode
+                if code_only and rel_dir.replace('\\', '/') in {'assets/images', 'public/images', 'public/client-assets/images'}:
                     continue
                 file_path = os.path.join(root, file)
                 arcname = os.path.join(rel_dir, file) if rel_dir else file
