@@ -2855,3 +2855,37 @@ h5, h6,
     color: #FFFFFF !important;
     transform: translateY(-1px) !important;
 }
+
+/* Perfect Mobile Responsive Header & Topbar (No Overlap) */
+@media (max-width: 767px) {
+    .c-header__topbar {
+        display: flex !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 5px 12px !important;
+        gap: 8px !important;
+        flex-wrap: nowrap !important;
+        overflow: hidden !important;
+    }
+    .c-header__topbar-messages {
+        flex: 1 1 auto !important;
+        min-width: 0 !important;
+        overflow: hidden !important;
+    }
+    .c-header__topbar-message {
+        font-size: 10.5px !important;
+        display: block !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+    .c-lang-switcher--header {
+        flex-shrink: 0 !important;
+        padding: 2px 5px !important;
+        margin-left: 4px !important;
+    }
+    .c-lang-btn {
+        padding: 2px 4px !important;
+        font-size: 10px !important;
+    }
+}

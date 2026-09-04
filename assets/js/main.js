@@ -98,13 +98,14 @@
                         <span class="c-cart-drawer__subtotal-amount">0₫</span>
                     </div>
                     <button class="c-cart-drawer__checkout-btn">${_t('cart_checkout')}</button>
+                    <a href="cart.html" class="c-cart-drawer__view-cart" style="display: block; text-align: center; margin-top: 10px; font-size: 13px; font-weight: 600; color: #6E6259; text-decoration: underline;">Xem Giỏ Hàng Chi Tiết</a>
                 </div>
             `;
             document.body.appendChild(drawer);
 
             drawer.querySelector('.c-cart-drawer__close').addEventListener('click', closeCartDrawer);
             drawer.querySelector('.c-cart-drawer__checkout-btn').addEventListener('click', () => {
-                alert(_t('cart_proceed_checkout'));
+                window.location.href = 'checkout.html';
             });
 
             drawer.addEventListener('click', (e) => {
