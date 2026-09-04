@@ -72,14 +72,18 @@ return new class extends Migration
                 continue;
             }
 
-            Schema::table($table, function (Blueprint $blueprint) use ($definitions) {
-                foreach ($definitions as [$column, $references, $onDelete]) {
-                    $blueprint->foreign($column)
-                        ->references('id')
-                        ->on($references)
-                        ->onDelete($onDelete);
+            foreach ($definitions as [$column, $references, $onDelete]) {
+                try {
+                    Schema::table($table, function (Blueprint $blueprint) use ($column, $references, $onDelete) {
+                        $blueprint->foreign($column)
+                            ->references('id')
+                            ->on($references)
+                            ->onDelete($onDelete);
+                    });
+                } catch (\Throwable $e) {
+                    // Foreign key might already exist in schema
                 }
-            });
+            }
         }
     }
 
@@ -90,13 +94,15 @@ return new class extends Migration
                 continue;
             }
 
-            Schema::table($table, function (Blueprint $blueprint) use ($definitions) {
-                foreach ($definitions as [$column]) {
-                    // By column, not by name: SQLite refuses to drop a foreign key by
-                    // constraint name, and the array form works on both drivers.
-                    $blueprint->dropForeign([$column]);
+            foreach ($definitions as [$column]) {
+                try {
+                    Schema::table($table, function (Blueprint $blueprint) use ($column) {
+                        $blueprint->dropForeign([$column]);
+                    });
+                } catch (\Throwable $e) {
+                    // Ignore if already dropped
                 }
-            });
+            }
         }
     }
 

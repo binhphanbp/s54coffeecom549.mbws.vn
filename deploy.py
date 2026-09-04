@@ -35,9 +35,9 @@ BASE_DIR = Path(__file__).resolve().parent
 
 EXCLUDE_DIRS = {
     '.git', '.github', '.idea', '.vscode', 'tools', '__pycache__',
-    'drive_data', 'theme', '.agents', 'tests', 'storage'
+    'drive_data', 'theme', '.agents', 'tests', 'storage', 'vendor', 'node_modules'
 }
-EXCLUDE_FILES = {'deploy.py', 'deploy.zip', 'extractor.php', '.gitignore'}
+EXCLUDE_FILES = {'deploy.py', 'deploy.zip', 'extractor.php', '.gitignore', '.env'}
 
 def print_header():
     print("=" * 65)
@@ -186,7 +186,10 @@ def verify_deployment():
         f"http://{DOMAIN}/blog-detail.html",
         f"http://{DOMAIN}/blogs/news",
         f"http://{DOMAIN}/assets/css/layouts.critical.css",
-        f"http://{DOMAIN}/assets/js/cart-mock.js"
+        f"http://{DOMAIN}/assets/js/cart-mock.js",
+        f"https://{DOMAIN}/vi/admin/login",
+        f"https://{DOMAIN}/api/public/health",
+        f"https://{DOMAIN}/api/public/products"
     ]
     
     ctx = ssl.create_default_context()

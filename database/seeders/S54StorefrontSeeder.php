@@ -198,7 +198,7 @@ class S54StorefrontSeeder extends Seeder
             // Add Product Image Gallery
             ProductImage::firstOrCreate(
                 ['product_id' => $product->id, 'image_url' => $pData['image_url']],
-                ['position' => 1, 'is_primary' => true, 'sort_order' => 1]
+                ['sort_order' => 1]
             );
 
             // Add Variants
@@ -278,9 +278,9 @@ class S54StorefrontSeeder extends Seeder
         );
 
         // 6. Project Settings
-        ProjectSetting::updateOrCreate(['key' => 'site_name'], ['value' => 'S54 COFFEE']);
-        ProjectSetting::updateOrCreate(['key' => 'hotline'], ['value' => '0383.707.578']);
-        ProjectSetting::updateOrCreate(['key' => 'address'], ['value' => 'Số 35, Đường T8, Manhattan, Vinhomes Grand Park, TP. Thủ Đức, TP.HCM']);
-        ProjectSetting::updateOrCreate(['key' => 'company_name'], ['value' => 'CÔNG TY TNHH GIẢI PHÁP TỐT (Good Solutions Co., Ltd)']);
+        ProjectSetting::updateOrCreate(['setting_key' => 'site_name'], ['setting_value' => 'S54 COFFEE', 'updated_at' => now()]);
+        ProjectSetting::updateOrCreate(['setting_key' => 'hotline'], ['setting_value' => '0383.707.578', 'updated_at' => now()]);
+        ProjectSetting::updateOrCreate(['setting_key' => 'address'], ['setting_value' => 'Số 35, Đường T8, Manhattan, Vinhomes Grand Park, TP. Thủ Đức, TP.HCM', 'updated_at' => now()]);
+        ProjectSetting::updateOrCreate(['setting_key' => 'company_name'], ['setting_value' => 'CÔNG TY TNHH GIẢI PHÁP TỐT (Good Solutions Co., Ltd)', 'updated_at' => now()]);
     }
 }
